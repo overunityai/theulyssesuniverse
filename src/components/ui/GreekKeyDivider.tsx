@@ -10,6 +10,8 @@ export function GreekKeyDivider({ className = "" }: GreekKeyDividerProps) {
     >
       <svg
         viewBox="0 0 400 20"
+        width={400}
+        height={20}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full max-w-md h-5 opacity-40"

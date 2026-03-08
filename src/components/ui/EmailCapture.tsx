@@ -45,6 +45,8 @@ export function EmailCapture() {
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gold/10 flex items-center justify-center">
             <svg
               viewBox="0 0 24 24"
+              width={32}
+              height={32}
               fill="none"
               stroke="currentColor"
               strokeWidth={2}

@@ -82,7 +82,7 @@ export default function BrandPage() {
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="mx-auto max-w-[1200px] px-6 text-center">
           <div className="inline-flex items-center gap-2 font-ui text-xs uppercase tracking-wider text-red/80 bg-red/10 px-3 py-1.5 rounded-full border border-red/20 mb-6">
-            <svg viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">
+            <svg viewBox="0 0 20 20" width={14} height={14} fill="currentColor" className="w-3.5 h-3.5">
               <path
                 fillRule="evenodd"
                 d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
@@ -206,7 +206,7 @@ export default function BrandPage() {
               <ul className="space-y-2">
                 {guidelines.do.map((item) => (
                   <li key={item} className="flex gap-3 font-body text-sm text-text-secondary">
-                    <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-gold shrink-0 mt-0.5">
+                    <svg viewBox="0 0 20 20" width={16} height={16} fill="currentColor" className="w-4 h-4 text-gold shrink-0 mt-0.5">
                       <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
                     </svg>
                     {item}
@@ -221,7 +221,7 @@ export default function BrandPage() {
               <ul className="space-y-2">
                 {guidelines.dont.map((item) => (
                   <li key={item} className="flex gap-3 font-body text-sm text-text-secondary">
-                    <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-red shrink-0 mt-0.5">
+                    <svg viewBox="0 0 20 20" width={16} height={16} fill="currentColor" className="w-4 h-4 text-red shrink-0 mt-0.5">
                       <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
                     </svg>
                     {item}

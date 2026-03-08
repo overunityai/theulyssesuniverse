@@ -63,6 +63,8 @@ export default function NewsletterPage() {
                     <div className="shrink-0 w-8 h-8 rounded-full bg-void-dark border border-gold/30 flex items-center justify-center mt-0.5">
                       <svg
                         viewBox="0 0 20 20"
+                        width={16}
+                        height={16}
                         fill="currentColor"
                         className="w-4 h-4 text-gold"
                       >

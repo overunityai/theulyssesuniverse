@@ -43,6 +43,8 @@ export default function HomePage() {
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce" aria-hidden="true">
           <svg
             viewBox="0 0 24 24"
+            width={24}
+            height={24}
             fill="none"
             stroke="currentColor"
             strokeWidth={1.5}

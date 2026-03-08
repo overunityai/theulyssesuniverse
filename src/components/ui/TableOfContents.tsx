@@ -48,6 +48,8 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
         >
           <svg
             viewBox="0 0 20 20"
+            width={16}
+            height={16}
             fill="currentColor"
             className={`w-4 h-4 transition-transform ${isOpen ? "rotate-90" : ""}`}
           >
