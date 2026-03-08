@@ -270,3 +270,124 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* ============================================
+   AEO Content Styles - Tables, Callouts, etc.
+   ============================================ */
+
+/* --- Prose tables (comparison tables in blog posts) --- */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose thead {
+  background-color: #1A1A2E;
+  border-bottom: 2px solid #D4AF37;
+}
+
+.prose thead th {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  color: #D4AF37;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.prose tbody tr {
+  border-bottom: 1px solid #2A2A3A;
+}
+
+.prose tbody tr:hover {
+  background-color: rgba(26, 26, 46, 0.5);
+}
+
+.prose tbody td {
+  padding: 0.75rem 1rem;
+  color: #E8E6E3;
+  vertical-align: top;
+}
+
+/* Responsive table wrapper */
+.prose .table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #2A2A3A;
+  border-radius: 8px;
+}
+
+.prose .table-wrapper table {
+  margin: 0;
+}
+
+/* --- Callout boxes (experience callouts in blog posts) --- */
+.prose .callout {
+  background-color: #12121A;
+  border: 1px solid #2A2A3A;
+  border-left: 4px solid #D4AF37;
+  border-radius: 0 8px 8px 0;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose .callout p {
+  margin: 0;
+  color: #9A9A9A;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.prose .callout strong {
+  color: #E8C766;
+}
+
+.prose .callout-blue {
+  border-left-color: #00D4FF;
+}
+
+.prose .callout-blue strong {
+  color: #00D4FF;
+}
+
+/* --- Prose list styling (tighter, with gold bullets) --- */
+.prose-gold :where(ul > li):not(:where([class~="not-prose"], [class~="not-prose"] *))::marker {
+  color: #8B7023;
+}
+
+.prose-gold :where(ol > li):not(:where([class~="not-prose"], [class~="not-prose"] *))::marker {
+  color: #D4AF37;
+}
+
+/* --- Direct answer box (lead paragraph styling) --- */
+.prose .direct-answer {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #E8E6E3;
+  border-bottom: 1px solid #2A2A3A;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* --- Cited source links --- */
+.prose .cited-source {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: #666666;
+  text-decoration: none;
+  border-bottom: 1px dotted #666666;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.prose .cited-source:hover {
+  color: #D4AF37;
+  border-bottom-color: #D4AF37;
+}

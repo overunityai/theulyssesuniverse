@@ -11,6 +11,13 @@ export function organizationSchema() {
     sameAs: Object.values(SOCIAL_LINKS).filter((l) => l !== "#"),
     description:
       "A space opera trilogy reimagining Homer's Odyssey. Follow Admiral Ulysses Theron across the cosmos.",
+    knowsAbout: [
+      "Space opera",
+      "Homer's Odyssey",
+      "Greek mythology",
+      "Science fiction",
+      "Literary adaptations",
+    ],
   };
 }
 
@@ -20,7 +27,15 @@ export function personSchema() {
     "@type": "Person",
     name: AUTHOR.name,
     url: SITE_URL,
+    description: AUTHOR.fullBio,
     sameAs: Object.values(SOCIAL_LINKS).filter((l) => l !== "#"),
+    jobTitle: "Author",
+    knowsAbout: [
+      "Greek mythology",
+      "Space opera",
+      "Homer's Odyssey",
+      "Science fiction writing",
+    ],
   };
 }
 
@@ -53,26 +68,66 @@ export function bookSchema(book: BookMeta) {
 }
 
 export function articleSchema(post: BlogPost) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.description,
-    image: post.image.startsWith("http") ? post.image : `${SITE_URL}${post.image}`,
-    datePublished: post.date,
-    author: {
-      "@type": "Person",
-      name: post.author,
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "Article",
+      "@id": `${SITE_URL}/blog/${post.slug}#article`,
+      headline: post.title,
+      description: post.description,
+      image: post.image.startsWith("http")
+        ? post.image
+        : `${SITE_URL}${post.image}`,
+      datePublished: post.date,
+      dateModified: post.lastUpdated || post.date,
+      author: {
+        "@type": "Person",
+        name: post.author,
+        url: SITE_URL,
+        description: AUTHOR.fullBio,
+      },
+      publisher: {
+        "@id": `${SITE_URL}#organization`,
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/blog/${post.slug}`,
+      },
+      about: post.tags
+        .slice(0, 5)
+        .map((tag) => tag.charAt(0).toUpperCase() + tag.slice(1)),
+      articleSection: post.category,
+      keywords: post.tags.join(", "),
+      wordCount: post.content.split(/\s+/).length,
+      inLanguage: "en-GB",
     },
-    publisher: {
+    {
       "@type": "Organization",
+      "@id": `${SITE_URL}#organization`,
       name: SITE_NAME,
       url: SITE_URL,
+      logo: `${SITE_URL}/images/brand/logo.png`,
     },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${SITE_URL}/blog/${post.slug}`,
-    },
+  ];
+
+  // Add FAQ schema if post has FAQ items
+  if (post.faq && post.faq.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/blog/${post.slug}#faq`,
+      mainEntity: post.faq.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph,
   };
 }
 

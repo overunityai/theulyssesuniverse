@@ -7,6 +7,8 @@ import type { BlogPost } from "@/types";
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
 export const BLOG_CATEGORIES = [
+  "The Pantheon",
+  "Characters",
   "Mythology",
   "The Books",
   "Space Opera",
@@ -38,12 +40,15 @@ export function getAllPosts(): BlogPost[] {
         title: data.title || slug,
         description: data.description || "",
         date: data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
+        lastUpdated: data.lastUpdated ? new Date(data.lastUpdated).toISOString() : undefined,
         category: data.category || "News",
         tags: data.tags || [],
         image: data.image || "/images/blog/default.jpg",
         readingTime: Math.ceil(stats.minutes),
         author: data.author || "Sotiris Spyrou",
         content,
+        faq: data.faq || undefined,
+        keyTakeaways: data.keyTakeaways || undefined,
       } satisfies BlogPost;
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -64,12 +69,15 @@ export function getPostBySlug(slug: string): BlogPost | undefined {
     title: data.title || slug,
     description: data.description || "",
     date: data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
+    lastUpdated: data.lastUpdated ? new Date(data.lastUpdated).toISOString() : undefined,
     category: data.category || "News",
     tags: data.tags || [],
     image: data.image || "/images/blog/default.jpg",
     readingTime: Math.ceil(stats.minutes),
     author: data.author || "Sotiris Spyrou",
     content,
+    faq: data.faq || undefined,
+    keyTakeaways: data.keyTakeaways || undefined,
   };
 }
 

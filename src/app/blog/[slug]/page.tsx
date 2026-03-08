@@ -12,6 +12,11 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import { formatDate } from "@/lib/utils";
 import Link from "next/link";
+import { TrustBar } from "@/components/blog/TrustBar";
+import { InlineTOC } from "@/components/blog/InlineTOC";
+import { KeyTakeaways } from "@/components/blog/KeyTakeaways";
+import { FAQSection } from "@/components/blog/FAQSection";
+import { AuthorBio } from "@/components/blog/AuthorBio";
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -40,6 +45,7 @@ export async function generateMetadata({
       description: post.description,
       type: "article",
       publishedTime: post.date,
+      modifiedTime: post.lastUpdated || post.date,
       authors: [post.author],
       url,
       images: [
@@ -115,6 +121,8 @@ export default async function BlogPostPage({
 
   const headings = extractHeadings(post.content);
   const related = getRelatedPosts(slug, 3);
+  const hasFaq = !!(post.faq && post.faq.length > 0);
+  const hasKeyTakeaways = !!(post.keyTakeaways && post.keyTakeaways.length > 0);
 
   const { content: renderedContent } = await compileMDX({
     source: post.content,
@@ -154,6 +162,14 @@ export default async function BlogPostPage({
               <span className="font-ui text-xs text-text-tertiary">
                 {post.readingTime} min read
               </span>
+              {post.lastUpdated && (
+                <>
+                  <span className="text-border">-</span>
+                  <span className="font-ui text-xs text-text-tertiary">
+                    Updated {formatDate(post.lastUpdated)}
+                  </span>
+                </>
+              )}
             </div>
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-text-primary tracking-wide mb-6">
               {post.title}
@@ -193,14 +209,38 @@ export default async function BlogPostPage({
             />
           </div>
 
-          {/* Content + TOC grid */}
+          {/* Trust bar */}
+          <div className="max-w-3xl">
+            <TrustBar />
+          </div>
+
+          {/* Inline TOC */}
+          <div className="max-w-3xl">
+            <InlineTOC
+              headings={headings}
+              hasFaq={hasFaq}
+              hasKeyTakeaways={hasKeyTakeaways}
+            />
+          </div>
+
+          {/* Content + TOC sidebar grid */}
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-12">
             {/* Article body */}
             <div className="prose prose-invert prose-gold max-w-none">
               {renderedContent}
+
+              {/* Key takeaways - after main content, before FAQ */}
+              {hasKeyTakeaways && (
+                <KeyTakeaways items={post.keyTakeaways!} />
+              )}
+
+              {/* FAQ section */}
+              {hasFaq && (
+                <FAQSection items={post.faq!} />
+              )}
             </div>
 
-            {/* TOC sidebar */}
+            {/* TOC sidebar (desktop) */}
             {headings.length > 0 && (
               <aside className="hidden lg:block">
                 <div className="sticky top-24">
@@ -208,22 +248,47 @@ export default async function BlogPostPage({
                     Contents
                   </p>
                   <ul className="space-y-2 border-l border-border/30">
-                    {headings.map((h) => (
-                      <li key={h.id}>
+                    {headings
+                      .filter((h) => h.level === 2)
+                      .map((h) => (
+                        <li key={h.id}>
+                          <a
+                            href={`#${h.id}`}
+                            className="block font-body text-sm pl-4 -ml-px border-l border-transparent text-text-tertiary hover:text-text-secondary hover:border-text-tertiary transition-colors"
+                          >
+                            {h.text}
+                          </a>
+                        </li>
+                      ))}
+                    {hasKeyTakeaways && (
+                      <li>
                         <a
-                          href={`#${h.id}`}
-                          className={`block font-body text-sm pl-4 -ml-px border-l border-transparent text-text-tertiary hover:text-text-secondary hover:border-text-tertiary transition-colors ${
-                            h.level > 2 ? "pl-7" : ""
-                          }`}
+                          href="#key-takeaways"
+                          className="block font-body text-sm pl-4 -ml-px border-l border-transparent text-text-tertiary hover:text-text-secondary hover:border-text-tertiary transition-colors"
                         >
-                          {h.text}
+                          Key takeaways
                         </a>
                       </li>
-                    ))}
+                    )}
+                    {hasFaq && (
+                      <li>
+                        <a
+                          href="#faq"
+                          className="block font-body text-sm pl-4 -ml-px border-l border-transparent text-text-tertiary hover:text-text-secondary hover:border-text-tertiary transition-colors"
+                        >
+                          FAQ
+                        </a>
+                      </li>
+                    )}
                   </ul>
                 </div>
               </aside>
             )}
+          </div>
+
+          {/* Author bio */}
+          <div className="max-w-3xl">
+            <AuthorBio />
           </div>
 
           {/* Tags */}
