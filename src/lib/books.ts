@@ -11,7 +11,7 @@ export const BOOKS_DATA: BookMeta[] = [
     wordCount: 44916,
     chapters: 28,
     accentColor: "gold",
-    characterImage: "/images/characters/ulysses-portrait.webp",
+    characterImage: "/images/characters/ulysses-photo-portrait.webp",
     buyLinks: {
       amazonUS: "https://www.amazon.com/gp/product/B0GNGQFR6C",
       amazonUK: "https://www.amazon.co.uk/dp/B0GNGQFR6C",
@@ -28,7 +28,7 @@ export const BOOKS_DATA: BookMeta[] = [
     wordCount: 39632,
     chapters: 30,
     accentColor: "purple",
-    characterImage: "/images/characters/thea-portrait.webp",
+    characterImage: "/images/characters/thea-photo-portrait.webp",
     buyLinks: {
       amazonUS: "https://www.amazon.com/gp/product/B0GNG5KLKC",
       amazonUK: "https://www.amazon.co.uk/dp/B0GNG5KLKC",
@@ -45,7 +45,7 @@ export const BOOKS_DATA: BookMeta[] = [
     wordCount: 44572,
     chapters: 32,
     accentColor: "red",
-    characterImage: "/images/characters/penelope-portrait.webp",
+    characterImage: "/images/characters/penelope-photo-portrait.webp",
     buyLinks: {
       amazonUS: "https://www.amazon.com/gp/product/B0GNGQCS91",
       amazonUK: "https://www.amazon.co.uk/dp/B0GNGQCS91",
