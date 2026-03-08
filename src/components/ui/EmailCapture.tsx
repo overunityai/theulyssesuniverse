@@ -5,19 +5,37 @@ import { useState } from "react";
 export function EmailCapture() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!email) return;
 
-    // TODO: Connect to MailerLite API
-    // For now, simulate success
     setStatus("loading");
-    setTimeout(() => {
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setStatus("error");
+        setErrorMsg(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+
       setStatus("success");
       setEmail("");
-    }, 1000);
+    } catch {
+      setStatus("error");
+      setErrorMsg("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -52,7 +70,10 @@ export function EmailCapture() {
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (status === "error") setStatus("idle");
+              }}
               placeholder="your@email.com"
               required
               className="flex-1 px-4 py-3 bg-void-dark border border-border rounded-lg text-text-primary placeholder:text-text-tertiary font-body text-sm focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-colors"
@@ -66,6 +87,11 @@ export function EmailCapture() {
               {status === "loading" ? "Joining..." : "Get Chapter 1 Free"}
             </button>
           </div>
+          {status === "error" && (
+            <p className="text-red text-xs font-body" role="alert">
+              {errorMsg}
+            </p>
+          )}
           <p className="text-text-tertiary text-xs font-body">
             No spam. Unsubscribe anytime. Your data stays private.
           </p>

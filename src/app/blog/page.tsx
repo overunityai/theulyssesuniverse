@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { GreekKeyDivider } from "@/components/ui/GreekKeyDivider";
 import { getAllPosts, BLOG_CATEGORIES } from "@/lib/blog";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -79,11 +80,17 @@ export default function BlogPage() {
               className="group block bg-void-dark border border-border rounded-lg overflow-hidden transition-all duration-300 hover:border-gold/30 hover:shadow-[0_0_30px_rgba(212,175,55,0.08)]"
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                {/* Image placeholder */}
-                <div className="aspect-[16/9] lg:aspect-auto bg-void-mid flex items-center justify-center">
-                  <span className="font-display text-6xl text-text-primary/5">
-                    Featured
-                  </span>
+                {/* Featured image */}
+                <div className="relative aspect-[16/9] lg:aspect-auto lg:min-h-[360px] bg-void-mid overflow-hidden">
+                  <Image
+                    src={featured.image}
+                    alt={featured.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-void-dark/40 hidden lg:block" />
                 </div>
                 {/* Content */}
                 <div className="p-8 lg:p-10 flex flex-col justify-center">
@@ -123,11 +130,15 @@ export default function BlogPage() {
                   href={`/blog/${post.slug}`}
                   className="group bg-void-dark border border-border rounded-lg overflow-hidden transition-all duration-300 hover:border-gold/20"
                 >
-                  {/* Image placeholder */}
-                  <div className="aspect-[16/9] bg-void-mid flex items-center justify-center">
-                    <span className="font-display text-4xl text-text-primary/5">
-                      {post.title.charAt(0)}
-                    </span>
+                  {/* Post image */}
+                  <div className="relative aspect-[16/9] bg-void-mid overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-3">

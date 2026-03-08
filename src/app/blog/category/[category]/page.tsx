@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { GreekKeyDivider } from "@/components/ui/GreekKeyDivider";
 import { getAllPosts, BLOG_CATEGORIES } from "@/lib/blog";
 
@@ -114,10 +115,14 @@ export default async function CategoryPage({
                   href={`/blog/${post.slug}`}
                   className="group bg-void-dark border border-border rounded-lg overflow-hidden transition-all duration-300 hover:border-gold/20"
                 >
-                  <div className="aspect-[16/9] bg-void-mid flex items-center justify-center">
-                    <span className="font-display text-4xl text-text-primary/5">
-                      {post.title.charAt(0)}
-                    </span>
+                  <div className="relative aspect-[16/9] bg-void-mid overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-3">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { CharacterMeta } from "@/types";
 
 interface CharacterCardProps {
@@ -11,32 +12,24 @@ const accentBorderMap: Record<string, string> = {
   purple: "hover:border-purple/40",
 };
 
-const accentBgMap: Record<string, string> = {
-  gold: "from-gold/20 to-gold/5",
-  blue: "from-blue/20 to-blue/5",
-  purple: "from-purple/20 to-purple/5",
-};
-
 export function CharacterCard({ character }: CharacterCardProps) {
   const borderAccent =
     accentBorderMap[character.accentColor] || accentBorderMap.gold;
-  const bgAccent = accentBgMap[character.accentColor] || accentBgMap.gold;
 
   return (
     <Link
       href={`/universe/characters#${character.slug}`}
       className={`group block bg-void-dark border border-border rounded-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.1)] ${borderAccent}`}
     >
-      {/* Avatar placeholder */}
+      {/* Character portrait */}
       <div className="relative aspect-square bg-void-mid overflow-hidden">
-        <div
-          className={`absolute inset-0 bg-gradient-to-t ${bgAccent} opacity-60`}
+        <Image
+          src={character.imagePath}
+          alt={`${character.name} - ${character.role}`}
+          fill
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-display text-4xl text-text-primary/20">
-            {character.name.charAt(0)}
-          </span>
-        </div>
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-void-dark to-transparent h-1/3" />
       </div>
 

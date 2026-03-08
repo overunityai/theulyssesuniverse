@@ -13,7 +13,7 @@ export const CHARACTERS_DATA: CharacterMeta[] = [
       "Athena (AI ally)",
       "Poseidon (enemy)",
     ],
-    imagePath: "/images/characters/ulysses.webp",
+    imagePath: "/images/characters/ulysses-portrait.webp",
     accentColor: "gold",
   },
   {
@@ -27,7 +27,7 @@ export const CHARACTERS_DATA: CharacterMeta[] = [
       "Penelope Theron (mother, never met)",
       "Echo (closest friend)",
     ],
-    imagePath: "/images/characters/telemachus.webp",
+    imagePath: "/images/characters/telemachus-portrait.webp",
     accentColor: "blue",
   },
   {
@@ -41,7 +41,7 @@ export const CHARACTERS_DATA: CharacterMeta[] = [
       "Telemachus Theron (complicated)",
       "Echo (cautious ally)",
     ],
-    imagePath: "/images/characters/thea-sato.webp",
+    imagePath: "/images/characters/thea-portrait.webp",
     accentColor: "purple",
   },
   {
@@ -55,7 +55,7 @@ export const CHARACTERS_DATA: CharacterMeta[] = [
       "Ulysses Theron (commander)",
       "Athena (distrusts)",
     ],
-    imagePath: "/images/characters/echo.webp",
+    imagePath: "/images/characters/echo-portrait.webp",
     accentColor: "blue",
   },
   {
@@ -69,7 +69,7 @@ export const CHARACTERS_DATA: CharacterMeta[] = [
       "The Pantheon (defector)",
       "Poseidon (rival)",
     ],
-    imagePath: "/images/characters/athena.webp",
+    imagePath: "/images/characters/athena-portrait.webp",
     accentColor: "gold",
   },
   {
@@ -83,7 +83,7 @@ export const CHARACTERS_DATA: CharacterMeta[] = [
       "Telemachus Theron (son, missing 10 years)",
       "The Suitors (political rivals)",
     ],
-    imagePath: "/images/characters/penelope.webp",
+    imagePath: "/images/characters/penelope-portrait.webp",
     accentColor: "blue",
   },
 ];

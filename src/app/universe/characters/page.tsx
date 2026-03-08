@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { GreekKeyDivider } from "@/components/ui/GreekKeyDivider";
 import { Button } from "@/components/ui/Button";
 import { CHARACTERS_DATA } from "@/lib/characters";
@@ -61,16 +62,18 @@ export default function CharactersPage() {
                 className="scroll-mt-24"
               >
                 <div className={`grid grid-cols-1 lg:grid-cols-3 gap-10 items-start ${isEven ? "" : ""}`}>
-                  {/* Portrait placeholder */}
+                  {/* Character portrait */}
                   <div className={`${isEven ? "lg:order-2" : ""}`}>
                     <div
-                      className={`aspect-[3/4] bg-void-mid border ${accent.border} rounded-lg flex items-center justify-center overflow-hidden`}
+                      className={`relative aspect-[3/4] bg-void-mid border ${accent.border} rounded-lg overflow-hidden`}
                     >
-                      <div className="text-center">
-                        <span className="font-display text-6xl text-text-primary/10">
-                          {character.name.charAt(0)}
-                        </span>
-                      </div>
+                      <Image
+                        src={character.imagePath}
+                        alt={`${character.name} - ${character.role}`}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 33vw"
+                        className="object-cover object-top"
+                      />
                     </div>
                   </div>
 

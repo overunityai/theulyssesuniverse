@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { getAllSlugs, getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { SITE_URL } from "@/lib/constants";
@@ -180,6 +181,18 @@ export default async function BlogPostPage({
             </div>
           </header>
 
+          {/* Hero image */}
+          <div className="relative aspect-[21/9] bg-void-mid rounded-lg overflow-hidden mb-12 max-w-3xl">
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 720px"
+              className="object-cover"
+              priority
+            />
+          </div>
+
           {/* Content + TOC grid */}
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-12">
             {/* Article body */}
@@ -252,10 +265,14 @@ export default async function BlogPostPage({
                   href={`/blog/${rp.slug}`}
                   className="group bg-void-dark border border-border rounded-lg overflow-hidden transition-all duration-300 hover:border-gold/20"
                 >
-                  <div className="aspect-[16/9] bg-void-mid flex items-center justify-center">
-                    <span className="font-display text-4xl text-text-primary/5">
-                      {rp.title.charAt(0)}
-                    </span>
+                  <div className="relative aspect-[16/9] bg-void-mid overflow-hidden">
+                    <Image
+                      src={rp.image}
+                      alt={rp.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
                   <div className="p-6">
                     <span className="font-ui text-xs uppercase tracking-wider text-gold/70">
