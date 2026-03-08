@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { GreekKeyDivider } from "@/components/ui/GreekKeyDivider";
 import { SOCIAL_LINKS, SITE_URL, AUTHOR } from "@/lib/constants";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -76,16 +77,16 @@ export default function AboutPage() {
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-            {/* Photo placeholder */}
-            <div className="aspect-[3/4] bg-void-dark border border-border rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <span className="font-display text-6xl text-text-primary/10">
-                  S
-                </span>
-                <p className="font-ui text-xs text-text-tertiary mt-2">
-                  Author photo coming soon
-                </p>
-              </div>
+            {/* Author photo */}
+            <div className="aspect-[3/4] relative overflow-hidden rounded-lg border border-border">
+              <Image
+                src="/images/about/author-photo.jpeg"
+                alt="Sotiris Spyrou - author of the Ulysses Universe trilogy"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                priority
+              />
             </div>
 
             {/* Content */}
