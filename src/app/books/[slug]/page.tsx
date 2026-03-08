@@ -1,11 +1,12 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
+import { BookCoverTile } from "@/components/ui/BookCoverTile";
 import { GreekKeyDivider } from "@/components/ui/GreekKeyDivider";
 import { BOOKS_DATA, getBookBySlug } from "@/lib/books";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { bookSchema, breadcrumbSchema } from "@/lib/schema";
-import { SITE_URL } from "@/lib/constants";
+import { SITE_URL, AMAZON_LINKS } from "@/lib/constants";
 
 interface BookPageProps {
   params: Promise<{ slug: string }>;
@@ -51,19 +52,16 @@ export async function generateMetadata({ params }: BookPageProps): Promise<Metad
   };
 }
 
-const accentStyles: Record<string, { border: string; text: string; bg: string }> = {
+const accentStyles: Record<string, { text: string; bg: string }> = {
   gold: {
-    border: "border-gold/40",
     text: "text-gold",
     bg: "bg-gold/10",
   },
   purple: {
-    border: "border-purple/40",
     text: "text-purple",
     bg: "bg-purple/10",
   },
   red: {
-    border: "border-red/40",
     text: "text-red",
     bg: "bg-red/10",
   },
@@ -98,20 +96,8 @@ export default async function BookPage({ params }: BookPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
             {/* Cover */}
             <div className="lg:col-span-2">
-              <div
-                className={`aspect-[2/3] bg-void-mid border ${accent.border} rounded-lg flex items-center justify-center sticky top-24`}
-              >
-                <div className="text-center px-8">
-                  <p className="font-ui text-xs uppercase tracking-[0.2em] text-text-tertiary mb-3">
-                    Book {book.number}
-                  </p>
-                  <h2 className="font-display text-3xl md:text-4xl text-text-primary tracking-wide mb-4">
-                    {book.title}
-                  </h2>
-                  <p className={`font-ui text-sm uppercase tracking-wider ${accent.text}`}>
-                    The Ulysses Universe
-                  </p>
-                </div>
+              <div className="sticky top-24">
+                <BookCoverTile book={book} />
               </div>
             </div>
 
@@ -142,11 +128,11 @@ export default async function BookPage({ params }: BookPageProps) {
 
               {/* Buy buttons */}
               <div className="flex flex-wrap gap-4 mb-10">
-                <Button href={book.buyLinks.amazonUK} external size="lg">
-                  Buy on Amazon UK
-                </Button>
-                <Button href={book.buyLinks.amazonUS} external variant="secondary" size="lg">
+                <Button href={book.buyLinks.amazonUS} external size="lg">
                   Buy on Amazon US
+                </Button>
+                <Button href={book.buyLinks.amazonUK} external variant="secondary" size="lg">
+                  Buy on Amazon UK
                 </Button>
               </div>
 
@@ -163,7 +149,7 @@ export default async function BookPage({ params }: BookPageProps) {
               </div>
 
               {/* Pull quote */}
-              <blockquote className={`border-l-4 ${accent.border} pl-6 py-2 my-10`}>
+              <blockquote className={`border-l-4 border-${book.accentColor}/40 pl-6 py-2 my-10`}>
                 <p className="font-display text-xl md:text-2xl text-text-primary italic tracking-wide">
                   &ldquo;{book.pullQuote}&rdquo;
                 </p>
@@ -208,6 +194,20 @@ export default async function BookPage({ params }: BookPageProps) {
                     </dd>
                   </div>
                 </dl>
+              </div>
+
+              {/* Get the collection */}
+              <div className="bg-void-dark/50 border border-gold/20 rounded-lg p-6 mb-10">
+                <p className="font-ui text-xs uppercase tracking-wider text-gold/70 mb-2">
+                  The complete collection
+                </p>
+                <p className="font-body text-text-secondary text-sm mb-4">
+                  Get all three novels plus exclusive bonus content - a novella,
+                  character profiles, and author's notes.
+                </p>
+                <Button href={AMAZON_LINKS.collectionUS} external variant="secondary">
+                  Get the Collection &rarr;
+                </Button>
               </div>
 
               {/* Genre tags */}

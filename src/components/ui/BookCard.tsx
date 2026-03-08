@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { BookMeta } from "@/types";
+import { BookCoverTile } from "./BookCoverTile";
 
 interface BookCardProps {
   book: BookMeta;
@@ -27,18 +28,7 @@ export function BookCard({ book }: BookCardProps) {
       href={`/books/${book.slug}`}
       className={`group block bg-void-dark border rounded-lg overflow-hidden transition-all duration-300 ${accent}`}
     >
-      {/* Placeholder cover */}
-      <div className="relative aspect-[2/3] bg-void-mid flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-void-dark/80 to-transparent z-10" />
-        <div className="relative z-20 text-center px-6">
-          <p className="font-ui text-xs uppercase tracking-[0.15em] text-text-secondary mb-2">
-            Book {book.number}
-          </p>
-          <h3 className="font-display text-2xl md:text-3xl text-text-primary tracking-wide">
-            {book.title}
-          </h3>
-        </div>
-      </div>
+      <BookCoverTile book={book} />
 
       {/* Content */}
       <div className="p-6">

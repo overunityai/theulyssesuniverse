@@ -1,11 +1,11 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
+import { BookCoverTile } from "@/components/ui/BookCoverTile";
 import { GreekKeyDivider } from "@/components/ui/GreekKeyDivider";
 import { BOOKS_DATA } from "@/lib/books";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
-import { SITE_URL } from "@/lib/constants";
+import { SITE_URL, AMAZON_LINKS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "The Trilogy",
@@ -13,19 +13,16 @@ export const metadata: Metadata = {
     "The Ulysses Universe trilogy - a space opera reimagining of Homer's Odyssey. Three books, one epic journey home across the cosmos.",
 };
 
-const accentColors: Record<string, { border: string; text: string; glow: string }> = {
+const accentColors: Record<string, { text: string; glow: string }> = {
   gold: {
-    border: "border-gold/40",
     text: "text-gold",
     glow: "hover:shadow-[0_0_40px_rgba(212,175,55,0.15)]",
   },
   purple: {
-    border: "border-purple/40",
     text: "text-purple",
     glow: "hover:shadow-[0_0_40px_rgba(74,0,128,0.15)]",
   },
   red: {
-    border: "border-red/40",
     text: "text-red",
     glow: "hover:shadow-[0_0_40px_rgba(255,51,51,0.15)]",
   },
@@ -74,22 +71,10 @@ export default function BooksPage() {
           >
             <div className="mx-auto max-w-[1200px] px-6">
               <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${isEven ? "lg:direction-rtl" : ""}`}>
-                {/* Cover placeholder */}
+                {/* Cover */}
                 <div className={`${isEven ? "lg:order-2" : ""}`}>
-                  <div
-                    className={`aspect-[2/3] max-w-sm mx-auto bg-void-mid border ${accent.border} rounded-lg flex items-center justify-center transition-all duration-500 ${accent.glow}`}
-                  >
-                    <div className="text-center px-8">
-                      <p className="font-ui text-xs uppercase tracking-[0.2em] text-text-tertiary mb-3">
-                        Book {book.number}
-                      </p>
-                      <h3 className="font-display text-3xl md:text-4xl text-text-primary tracking-wide mb-4">
-                        {book.title}
-                      </h3>
-                      <p className={`font-ui text-sm uppercase tracking-wider ${accent.text}`}>
-                        The Ulysses Universe
-                      </p>
-                    </div>
+                  <div className={`max-w-sm mx-auto transition-all duration-500 ${accent.glow}`}>
+                    <BookCoverTile book={book} />
                   </div>
                 </div>
 
@@ -137,11 +122,11 @@ export default function BooksPage() {
 
                   {/* CTAs */}
                   <div className="flex flex-wrap gap-4 mt-8">
-                    <Button href={book.buyLinks.amazonUK} external>
-                      Amazon UK
-                    </Button>
-                    <Button href={book.buyLinks.amazonUS} external variant="secondary">
+                    <Button href={book.buyLinks.amazonUS} external>
                       Amazon US
+                    </Button>
+                    <Button href={book.buyLinks.amazonUK} external variant="secondary">
+                      Amazon UK
                     </Button>
                     <Button href={`/books/${book.slug}`} variant="tertiary">
                       Full details &rarr;
@@ -153,6 +138,36 @@ export default function BooksPage() {
           </section>
         );
       })}
+
+      <GreekKeyDivider />
+
+      {/* Collection CTA */}
+      <section className="py-20 md:py-28 bg-void-dark/30">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <p className="font-ui text-sm uppercase tracking-[0.2em] text-gold/80 mb-4">
+            The complete collection
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl text-text-primary tracking-wide mb-4">
+            Get All Three Books
+          </h2>
+          <p className="font-body text-text-secondary max-w-lg mx-auto mb-4">
+            The complete trilogy plus exclusive bonus content: a novella set
+            during the Trojan War, character profiles, universe guide, and
+            author's notes on adapting the Odyssey for the stars.
+          </p>
+          <p className="font-mono text-xs text-text-tertiary uppercase tracking-wider mb-8">
+            Available on Kindle &amp; Kindle Unlimited
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Button href={AMAZON_LINKS.collectionUS} external size="lg">
+              Get the Collection
+            </Button>
+            <Button href={AMAZON_LINKS.authorPage} external variant="secondary" size="lg">
+              Author Page on Amazon
+            </Button>
+          </div>
+        </div>
+      </section>
 
       <GreekKeyDivider />
 

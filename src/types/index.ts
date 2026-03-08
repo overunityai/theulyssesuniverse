@@ -22,6 +22,7 @@ export interface BookMeta {
   wordCount: number;
   chapters: number;
   accentColor: AccentColor;
+  characterImage: string;
   buyLinks: {
     amazonUK: string;
     amazonUS: string;

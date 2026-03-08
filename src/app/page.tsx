@@ -7,6 +7,7 @@ import { NolanHook } from "@/components/ui/NolanHook";
 import { GreekKeyDivider } from "@/components/ui/GreekKeyDivider";
 import { BOOKS_DATA } from "@/lib/books";
 import { HOMEPAGE_CHARACTERS } from "@/lib/characters";
+import { AMAZON_LINKS } from "@/lib/constants";
 
 export default function HomePage() {
   return (
@@ -126,9 +127,12 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-12 flex flex-wrap gap-4 justify-center">
+            <Button href={AMAZON_LINKS.collectionUS} external>
+              Get the Complete Trilogy
+            </Button>
             <Button href="/books" variant="secondary">
-              Explore the Complete Trilogy
+              Explore All Books
             </Button>
           </div>
         </div>
