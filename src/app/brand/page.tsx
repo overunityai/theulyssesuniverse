@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GreekKeyDivider } from "@/components/ui/GreekKeyDivider";
 import { CopyHex } from "@/components/ui/CopyHex";
+import { MobilePosterConcepts } from "@/components/brand/MobilePosterConcepts";
 
 export const metadata: Metadata = {
   title: "Brand Assets",
@@ -241,6 +242,18 @@ export default function BrandPage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <GreekKeyDivider />
+
+      {/* Mobile Poster Concepts */}
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-[1200px] px-6">
+          <h2 className="font-display text-2xl text-text-primary tracking-wide mb-3">
+            Mobile Poster Concepts
+          </h2>
+          <MobilePosterConcepts />
         </div>
       </section>
 
