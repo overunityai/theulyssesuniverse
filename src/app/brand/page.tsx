@@ -65,19 +65,21 @@ const guidelines = {
     "Use Cinzel for headings, never for body text",
     "Keep the cinematic, atmospheric tone",
     "Reference Greek mythology and space opera equally",
+    "Embrace the worn, battle-scarred aesthetic",
   ],
   dont: [
     "Don't use bright or pastel backgrounds",
     "Don't substitute the font stack with system fonts",
     "Don't use the gold colour for large background fills",
     "Don't crop character art - use full compositions",
+    "Don't make it look too polished - this universe has been through wars",
     "Don't use Comic Sans. Ever. For anything.",
   ],
 };
 
 export default function BrandPage() {
   return (
-    <>
+    <div className="brand-grain">
       {/* Hero */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="mx-auto max-w-[1200px] px-6 text-center">
@@ -91,9 +93,12 @@ export default function BrandPage() {
             </svg>
             Internal use only - not indexed
           </div>
-          <h1 className="font-display text-4xl md:text-5xl text-text-primary tracking-wide mb-6">
+          <h1 className="font-display text-4xl md:text-5xl tracking-wide mb-2 brand-etched">
             Brand Assets
           </h1>
+          <p className="font-mono text-xs text-text-tertiary mb-6 tracking-widest uppercase">
+            Battered. Scarred. Still flying.
+          </p>
           <p className="font-body text-lg text-text-secondary max-w-2xl mx-auto">
             Colours, typography, logos, and guidelines for the Ulysses Universe
             brand. Quick access for social accounts, content creation, and
@@ -111,19 +116,19 @@ export default function BrandPage() {
             Logo
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-void-dark border border-border rounded-lg p-8 flex flex-col items-center justify-center min-h-[200px]">
-              <span className="font-display text-2xl text-gold tracking-wider">
+            <div className="brand-battered brand-crack bg-void-dark border border-border rounded-lg p-8 flex flex-col items-center justify-center min-h-[200px]">
+              <span className="font-display text-2xl brand-etched tracking-wider">
                 The Ulysses Universe
               </span>
-              <p className="font-ui text-xs text-text-tertiary mt-4">
-                Logo assets coming soon
+              <p className="font-ui text-xs text-text-tertiary mt-4 relative z-10">
+                Dark background - primary
               </p>
             </div>
-            <div className="bg-text-primary border border-border rounded-lg p-8 flex flex-col items-center justify-center min-h-[200px]">
+            <div className="brand-battered brand-scorched bg-text-primary border border-border rounded-lg p-8 flex flex-col items-center justify-center min-h-[200px]">
               <span className="font-display text-2xl text-void-black tracking-wider">
                 The Ulysses Universe
               </span>
-              <p className="font-ui text-xs text-void-mid mt-4">
+              <p className="font-ui text-xs text-void-mid mt-4 relative z-10">
                 Light background variant
               </p>
             </div>
@@ -136,9 +141,12 @@ export default function BrandPage() {
       {/* Colour Palette */}
       <section className="py-16 md:py-20 bg-void-dark/30">
         <div className="mx-auto max-w-[1200px] px-6">
-          <h2 className="font-display text-2xl text-text-primary tracking-wide mb-8">
+          <h2 className="font-display text-2xl text-text-primary tracking-wide mb-3">
             Colour Palette
           </h2>
+          <p className="font-body text-sm text-text-tertiary mb-8">
+            Built from the void. Gold from dead stars. Blue from engine burn.
+          </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {colours.map((colour) => (
               <CopyHex key={colour.hex} colour={colour} />
@@ -152,16 +160,19 @@ export default function BrandPage() {
       {/* Typography */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-6">
-          <h2 className="font-display text-2xl text-text-primary tracking-wide mb-8">
+          <h2 className="font-display text-2xl text-text-primary tracking-wide mb-3">
             Typography
           </h2>
+          <p className="font-body text-sm text-text-tertiary mb-8">
+            Four fonts. Each earns its place or gets ejected through the airlock.
+          </p>
           <div className="space-y-6">
             {typography.map((font) => (
               <div
                 key={font.name}
-                className="bg-void-dark border border-border rounded-lg p-6"
+                className="brand-battered bg-void-dark border border-border rounded-lg p-6"
               >
-                <div className="flex items-baseline justify-between mb-3">
+                <div className="flex items-baseline justify-between mb-3 relative z-10">
                   <h3 className={`${font.class} text-2xl text-text-primary`}>
                     {font.name}
                   </h3>
@@ -174,14 +185,14 @@ export default function BrandPage() {
                     Google Fonts &rarr;
                   </a>
                 </div>
-                <div className="flex flex-wrap gap-4 font-ui text-xs text-text-tertiary">
+                <div className="flex flex-wrap gap-4 font-ui text-xs text-text-tertiary relative z-10">
                   <span>Weight: {font.weight}</span>
                   <span>-</span>
                   <span>Usage: {font.usage}</span>
                   <span>-</span>
                   <span>Class: <code className="font-mono text-gold/60">{font.class}</code></span>
                 </div>
-                <div className={`${font.class} text-lg text-text-secondary mt-4`}>
+                <div className={`${font.class} text-lg text-text-secondary mt-4 relative z-10`}>
                   The quick brown fox jumps over the lazy dog. 0123456789
                 </div>
               </div>
@@ -192,18 +203,61 @@ export default function BrandPage() {
 
       <GreekKeyDivider />
 
-      {/* Guidelines */}
+      {/* Visual Tone */}
       <section className="py-16 md:py-20 bg-void-dark/30">
+        <div className="mx-auto max-w-[1200px] px-6">
+          <h2 className="font-display text-2xl text-text-primary tracking-wide mb-8">
+            Visual Tone
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="brand-battered brand-crack bg-void-dark border border-border rounded-lg p-6">
+              <h3 className="font-display text-lg text-gold tracking-wide mb-3 relative z-10">
+                Cinematic
+              </h3>
+              <p className="font-body text-sm text-text-secondary relative z-10">
+                Think movie franchise, not author blog. Wide compositions,
+                atmospheric lighting, dramatic contrast between void-black
+                and gold accents.
+              </p>
+            </div>
+            <div className="brand-battered brand-crack bg-void-dark border border-border rounded-lg p-6">
+              <h3 className="font-display text-lg text-gold tracking-wide mb-3 relative z-10">
+                Battle-worn
+              </h3>
+              <p className="font-body text-sm text-text-secondary relative z-10">
+                Nothing in this universe is pristine. Ships carry scars.
+                Interfaces flicker. The gold is tarnished, not polished.
+                Imperfection isn't a bug - it's the story.
+              </p>
+            </div>
+            <div className="brand-battered brand-crack bg-void-dark border border-border rounded-lg p-6">
+              <h3 className="font-display text-lg text-gold tracking-wide mb-3 relative z-10">
+                Ancient + Future
+              </h3>
+              <p className="font-body text-sm text-text-secondary relative z-10">
+                Greek mythology meets deep space. Meander patterns beside
+                holographic interfaces. Classical serif headings over
+                technical mono data. Old stories in new stars.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <GreekKeyDivider />
+
+      {/* Guidelines */}
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-6">
           <h2 className="font-display text-2xl text-text-primary tracking-wide mb-8">
             Brand Guidelines
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-void-dark border border-gold/20 rounded-lg p-6">
-              <h3 className="font-display text-lg text-gold tracking-wide mb-4">
+            <div className="brand-battered bg-void-dark border border-gold/20 rounded-lg p-6">
+              <h3 className="font-display text-lg text-gold tracking-wide mb-4 relative z-10">
                 Do
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-2 relative z-10">
                 {guidelines.do.map((item) => (
                   <li key={item} className="flex gap-3 font-body text-sm text-text-secondary">
                     <svg viewBox="0 0 20 20" width={16} height={16} fill="currentColor" className="w-4 h-4 text-gold shrink-0 mt-0.5">
@@ -214,11 +268,11 @@ export default function BrandPage() {
                 ))}
               </ul>
             </div>
-            <div className="bg-void-dark border border-red/20 rounded-lg p-6">
-              <h3 className="font-display text-lg text-red tracking-wide mb-4">
+            <div className="brand-battered bg-void-dark border border-red/20 rounded-lg p-6">
+              <h3 className="font-display text-lg text-red tracking-wide mb-4 relative z-10">
                 Don't
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-2 relative z-10">
                 {guidelines.dont.map((item) => (
                   <li key={item} className="flex gap-3 font-body text-sm text-text-secondary">
                     <svg viewBox="0 0 20 20" width={16} height={16} fill="currentColor" className="w-4 h-4 text-red shrink-0 mt-0.5">
@@ -232,6 +286,6 @@ export default function BrandPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
