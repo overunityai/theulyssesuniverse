@@ -1,26 +1,272 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================
+   ULYSSES UNIVERSE - Design System
+   Source: BRAND_DESIGN_BRIEF.md
+   ============================================ */
+
+/* --- Theme Tokens (Tailwind v4) --- */
+@theme {
+  /* Colours - Brand palette */
+  --color-void-black: #0A0A0F;
+  --color-void-dark: #12121A;
+  --color-void-mid: #1A1A2E;
+  --color-gold: #D4AF37;
+  --color-gold-light: #E8C766;
+  --color-gold-dim: #8B7023;
+  --color-blue: #00D4FF;
+  --color-purple: #4A0080;
+  --color-red: #FF3333;
+  --color-text-primary: #E8E6E3;
+  --color-text-secondary: #9A9A9A;
+  --color-text-tertiary: #666666;
+  --color-border: #2A2A3A;
+
+  /* Shadows */
+  --shadow-gold-glow: 0 0 20px rgba(212, 175, 55, 0.3);
+  --shadow-blue-glow: 0 0 20px rgba(0, 212, 255, 0.2);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
+/* Font families - reference CSS vars set by next/font on <html> */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-cinzel), Georgia, serif;
+  --font-ui: var(--font-rajdhani), Arial, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* --- CSS Custom Properties (layout, spacing) --- */
+:root {
+  --max-content-width: 1200px;
+  --max-text-width: 720px;
+}
+
+/* --- Base Styles --- */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0A0A0F;
+  color: #E8E6E3;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Star Field Animation (CSS-only) --- */
+.star-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star-field::before,
+.star-field::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  will-change: transform;
+}
+
+.star-field::before {
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.4) 50%, transparent 50%),
+    radial-gradient(1px 1px at 30% 65%, rgba(255, 255, 255, 0.3) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 50% 10%, rgba(255, 255, 255, 0.5) 50%, transparent 50%),
+    radial-gradient(1px 1px at 70% 40%, rgba(255, 255, 255, 0.35) 50%, transparent 50%),
+    radial-gradient(1px 1px at 90% 80%, rgba(255, 255, 255, 0.3) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 15% 85%, rgba(255, 255, 255, 0.4) 50%, transparent 50%),
+    radial-gradient(1px 1px at 45% 50%, rgba(255, 255, 255, 0.25) 50%, transparent 50%),
+    radial-gradient(1px 1px at 80% 15%, rgba(255, 255, 255, 0.35) 50%, transparent 50%);
+  background-size: 250px 250px;
+  animation: star-drift 120s linear infinite;
+}
+
+.star-field::after {
+  background-image:
+    radial-gradient(1px 1px at 20% 45%, rgba(255, 255, 255, 0.3) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 60% 25%, rgba(255, 255, 255, 0.45) 50%, transparent 50%),
+    radial-gradient(1px 1px at 35% 75%, rgba(255, 255, 255, 0.25) 50%, transparent 50%),
+    radial-gradient(1px 1px at 75% 55%, rgba(255, 255, 255, 0.3) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 5% 35%, rgba(212, 175, 55, 0.15) 50%, transparent 50%),
+    radial-gradient(1px 1px at 55% 90%, rgba(255, 255, 255, 0.3) 50%, transparent 50%);
+  background-size: 350px 350px;
+  animation: star-drift 180s linear infinite reverse;
+}
+
+@keyframes star-drift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-125px, -125px); }
+}
+
+/* --- Typography Prose Overrides (blog/MDX content) --- */
+.prose {
+  --tw-prose-body: #E8E6E3;
+  --tw-prose-headings: #E8E6E3;
+  --tw-prose-links: #00D4FF;
+  --tw-prose-bold: #E8E6E3;
+  --tw-prose-quotes: #9A9A9A;
+  --tw-prose-code: #E8C766;
+  --tw-prose-hr: #2A2A3A;
+  --tw-prose-th-borders: #2A2A3A;
+  --tw-prose-td-borders: #2A2A3A;
+  max-width: var(--max-text-width);
+}
+
+.prose h1,
+.prose h2 {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.prose h3,
+.prose h4 {
+  font-family: var(--font-ui);
+}
+
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.prose a:hover {
+  color: #E8C766;
+}
+
+.prose code {
+  background-color: #1A1A2E;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+.prose pre {
+  background-color: #12121A !important;
+  border: 1px solid #2A2A3A;
+}
+
+.prose blockquote {
+  border-left-color: #D4AF37;
+  font-style: italic;
+}
+
+/* --- Selection --- */
+::selection {
+  background-color: rgba(212, 175, 55, 0.3);
+  color: #E8E6E3;
+}
+
+/* --- Scrollbar (WebKit) --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A2A3A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* --- Skip to content (accessibility) --- */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background: #D4AF37;
+  color: #0A0A0F;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 0 0 8px 8px;
+  transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* --- Focus visible --- */
+:focus-visible {
+  outline: 2px solid #D4AF37;
+  outline-offset: 2px;
+}
+
+/* --- Gold text gradient (special headings) --- */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #D4AF37, #E8C766, #D4AF37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Scrollbar hide (review carousel) --- */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Reduced motion preferences --- */
+@media (prefers-reduced-motion: reduce) {
+  .star-field::before,
+  .star-field::after {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- Prose gold variant (blog content) --- */
+.prose-gold :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  color: #D4AF37;
+}
+
+.prose-gold :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)):hover {
+  color: #E8C766;
+}
+
+.prose-gold :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  border-left-color: #D4AF37;
+}
+
+.prose-gold :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  color: #E8E6E3;
+}
+
+/* --- Line clamp utility --- */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
