@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Cinzel, Rajdhani, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/layout/Navigation";
@@ -65,6 +66,12 @@ export const metadata: Metadata = {
       "A space opera trilogy reimagining Homer's Odyssey. Follow Admiral Ulysses Theron across the cosmos.",
     images: ["/images/og/hero.webp"],
   },
+  alternates: {
+    canonical: "https://theulyssesuniverse.com",
+  },
+  verification: {
+    google: "P_Jro-tAIH-TVsNNB9eACTn2CnWAtarVF0WR_8RKuHw",
+  },
   robots: {
     index: true,
     follow: true,
@@ -86,6 +93,18 @@ export default function RootLayout({
       className={`${cinzel.variable} ${rajdhani.variable} ${inter.variable} ${jetbrainsMono.variable}`}
       style={{ colorScheme: "dark" }}
     >
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-2STRESEBQN"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2STRESEBQN');`}
+        </Script>
+      </head>
       <body className="bg-void-black text-text-primary font-body antialiased">
         <JsonLd data={organizationSchema()} />
         <JsonLd data={webSiteSchema()} />
