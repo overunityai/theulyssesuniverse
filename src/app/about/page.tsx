@@ -7,7 +7,7 @@ import { personSchema, breadcrumbSchema } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Sotiris Spyrou, creator of the Ulysses Universe trilogy - a space opera reimagining of Homer's Odyssey.",
+    "Meet Sotiris Spyrou, creator of the Ulysses Universe trilogy - a space opera reimagining of Homer's Odyssey. Founder of VerityAI, 27 years in digital.",
 };
 
 const contactCards = [
@@ -41,6 +41,7 @@ const socialLinks = [
   { name: "TikTok", href: SOCIAL_LINKS.tiktok, icon: "TK" },
   { name: "X", href: SOCIAL_LINKS.x, icon: "X" },
   { name: "Goodreads", href: SOCIAL_LINKS.goodreads, icon: "GR" },
+  { name: "LinkedIn", href: "https://linkedin.com/in/sspyrou", icon: "LI" },
 ];
 
 export default function AboutPage() {
@@ -61,7 +62,7 @@ export default function AboutPage() {
             The Author
           </p>
           <h1 className="font-display text-4xl md:text-5xl text-text-primary tracking-wide mb-6">
-            About
+            About Me
           </h1>
           <p className="font-body text-lg text-text-secondary max-w-2xl mx-auto">
             The person behind the trilogy, and the story behind the story.
@@ -94,11 +95,13 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 font-body text-text-secondary leading-relaxed">
                 <p>
-                  Sotiris grew up on two things: Greek myths and science fiction.
-                  His grandmother told him stories about Odysseus before he could
-                  read, and he watched Star Wars before he could spell "galaxy."
-                  The Ulysses Universe is what happens when you spend 20 years
-                  wondering what those two worlds would look like combined.
+                  I grew up on three things: Greek myths, science fiction, and the
+                  rise of computers. My first computer was something called a TRS-80
+                  from RadioShack. My second was an Atari ST. My culture instilled
+                  stories about Odysseus before I could read, and I watched Star Wars
+                  before I could spell "galaxy." The Ulysses Universe is what happens
+                  when you spend 20 years wondering what those worlds would look like
+                  combined.
                 </p>
                 <p>
                   The trilogy started as a question: what if the Greek gods weren't
@@ -116,9 +119,20 @@ export default function AboutPage() {
                   because encouragement is the only tool she has left.
                 </p>
                 <p>
-                  Sotiris writes from London. When he's not building fictional
-                  worlds, he's probably arguing about the correct pronunciation
-                  of "scone."
+                  I write from Warwickshire - Shakespeare's county. When I'm not
+                  building fictional worlds, I'm probably doing my actual day job:
+                  engaging in board-level conversations as Founder of{" "}
+                  <a
+                    href="https://linkedin.com/in/sspyrou"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gold/80 hover:text-gold transition-colors"
+                  >
+                    VerityAI
+                  </a>{" "}
+                  - a Digital Marketing and Responsible AI consultancy. 27 years in
+                  digital. So yes, I know a thing or two about AI. Which is probably
+                  why I gave it godhood and let it loose on humanity.
                 </p>
               </div>
             </div>
@@ -142,7 +156,7 @@ export default function AboutPage() {
             </p>
             <p>
               That's a universal story. It works in ancient Greece. It works in
-              modern London. And it works in the cold, indifferent expanse of
+              modern Britain. And it works in the cold, indifferent expanse of
               deep space - maybe better than anywhere else. Because space doesn't
               care if you make it home. There's no current to carry you, no
               wind to fill your sails. Just physics, failing systems, and the
@@ -165,8 +179,13 @@ export default function AboutPage() {
               understands humanity better than most humans do.
             </p>
             <p>
-              Every adaptation changes the original. This one doesn't pretend
-              otherwise. But the heart is the same. Always the heart.
+              This project started as a folly. Something to pass the time and
+              unwind on a routine commute between London and Rugby. But it became
+              a journey on its own. Three books. An entire universe of gods and
+              monsters and broken ships and impossible choices. And now?
+            </p>
+            <p className="text-text-primary font-medium">
+              Now I want to share it with you.
             </p>
           </div>
         </div>

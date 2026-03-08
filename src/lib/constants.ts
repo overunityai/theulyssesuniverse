@@ -6,14 +6,16 @@ export const SITE_DESCRIPTION =
 
 export const AUTHOR = {
   name: "Sotiris Spyrou",
-  bio: "Creator of the Ulysses Universe trilogy.",
+  bio: "Creator of the Ulysses Universe trilogy. Founder of VerityAI.",
   fullBio:
-    "Sotiris Spyrou is the creator of the Ulysses Universe, a space opera trilogy reimagining Homer's Odyssey. He grew up on Greek myths and science fiction in equal measure, and spent 20 years wondering what those two worlds would look like combined. Three books, 129,000 words, and one battered starship later - that question has an answer. He writes from London.",
+    "Sotiris Spyrou is the creator of the Ulysses Universe, a space opera trilogy reimagining Homer's Odyssey. He grew up on Greek myths, science fiction, and early home computers in equal measure, and spent 20 years wondering what those worlds would look like combined. Three books, 129,000 words, and one battered starship later - that question has an answer. He writes from Warwickshire - Shakespeare's county.",
   credentials: [
     "Author of the Ulysses Universe trilogy",
-    "Greek mythology and space opera specialist",
-    "Based in London, UK",
+    "Founder, VerityAI - Digital Marketing and Responsible AI",
+    "27 years in digital",
+    "Based in Warwickshire, UK",
   ],
+  linkedin: "https://linkedin.com/in/sspyrou",
 } as const;
 
 export const SOCIAL_LINKS = {
