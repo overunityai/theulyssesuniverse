@@ -42,7 +42,7 @@ export function getAllPosts(): BlogPost[] {
         tags: data.tags || [],
         image: data.image || "/images/blog/default.jpg",
         readingTime: Math.ceil(stats.minutes),
-        author: data.author || "Sotiri Spyrou",
+        author: data.author || "Sotiris Spyrou",
         content,
       } satisfies BlogPost;
     })
@@ -68,7 +68,7 @@ export function getPostBySlug(slug: string): BlogPost | undefined {
     tags: data.tags || [],
     image: data.image || "/images/blog/default.jpg",
     readingTime: Math.ceil(stats.minutes),
-    author: data.author || "Sotiri Spyrou",
+    author: data.author || "Sotiris Spyrou",
     content,
   };
 }

@@ -33,7 +33,7 @@ export default function PrivacyPage() {
                 Who we are
               </h2>
               <p className="font-body text-text-secondary leading-relaxed">
-                This website is operated by Sotiri Spyrou ("we," "us," "our") for
+                This website is operated by Sotiris Spyrou ("we," "us," "our") for
                 the purpose of promoting the Ulysses Universe book series. Our
                 website address is https://theulyssesuniverse.com.
               </p>

@@ -7,7 +7,7 @@ import { personSchema, breadcrumbSchema } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Sotiri Spyrou, creator of the Ulysses Universe trilogy - a space opera reimagining of Homer's Odyssey.",
+    "Meet Sotiris Spyrou, creator of the Ulysses Universe trilogy - a space opera reimagining of Homer's Odyssey.",
 };
 
 const contactCards = [
@@ -94,7 +94,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 font-body text-text-secondary leading-relaxed">
                 <p>
-                  Sotiri grew up on two things: Greek myths and science fiction.
+                  Sotiris grew up on two things: Greek myths and science fiction.
                   His grandmother told him stories about Odysseus before he could
                   read, and he watched Star Wars before he could spell "galaxy."
                   The Ulysses Universe is what happens when you spend 20 years
@@ -116,7 +116,7 @@ export default function AboutPage() {
                   because encouragement is the only tool she has left.
                 </p>
                 <p>
-                  Sotiri writes from London. When he's not building fictional
+                  Sotiris writes from London. When he's not building fictional
                   worlds, he's probably arguing about the correct pronunciation
                   of "scone."
                 </p>

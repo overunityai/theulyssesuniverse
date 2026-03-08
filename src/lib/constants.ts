@@ -5,7 +5,7 @@ export const SITE_DESCRIPTION =
   "A space opera trilogy reimagining Homer's Odyssey. Follow Admiral Ulysses Theron across the cosmos in this epic tale of myth, technology, and the journey home.";
 
 export const AUTHOR = {
-  name: "Sotiri Spyrou",
+  name: "Sotiris Spyrou",
   bio: "Creator of the Ulysses Universe trilogy.",
 } as const;
 
