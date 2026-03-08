@@ -21,17 +21,6 @@
       ],
       "destination": "https://theulyssesuniverse.com/:path*",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.theulyssesuniverse.com"
-        }
-      ],
-      "destination": "https://theulyssesuniverse.com/:path*",
-      "permanent": true
     }
   ],
   "headers": [
