@@ -1,6 +1,6 @@
 const stats = [
   { value: "3", label: "Books in the trilogy" },
-  { value: "129K", label: "Words written" },
+  { value: "10yr", label: "In the making" },
   { value: "120+", label: "Crew members aboard" },
   { value: "24", label: "Myths reimagined" },
 ];

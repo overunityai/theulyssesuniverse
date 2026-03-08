@@ -19,16 +19,16 @@ export function NolanHook() {
     <section className="relative bg-void-dark/60 border-y border-border/30">
       <div className="mx-auto max-w-[1200px] px-6 py-8 text-center">
         <p className="font-body text-text-secondary text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
-          Before Christopher Nolan's{" "}
+          AI is reshaping our world.{" "}
           <span className="text-text-primary font-semibold">The Odyssey</span>{" "}
-          hits cinemas, discover the trilogy that reimagines Homer's epic among
-          the stars.
+          is returning to the big screen. Homer's 3,000-year-old story has never
+          felt more relevant - or more dangerous.
         </p>
         <Link
-          href="/books"
+          href="/blog/every-odyssey-adaptation-timeline"
           className="inline-block mt-4 font-ui font-semibold text-sm uppercase tracking-[0.05em] text-gold hover:text-gold-light transition-colors"
         >
-          Explore the trilogy &rarr;
+          3,000 years of The Odyssey &rarr;
         </Link>
       </div>
     </section>

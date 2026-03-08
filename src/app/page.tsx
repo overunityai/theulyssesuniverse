@@ -41,7 +41,7 @@ export default function HomePage() {
             most dangerous voyage in the galaxy?
           </p>
           <p className="font-mono text-xs text-text-tertiary mb-10 tracking-widest uppercase">
-            Three books. 129,120 words. One battered ship called the Odyssey.
+            Three books. One battered ship. The longest way home in the galaxy.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button href="/books" size="lg">

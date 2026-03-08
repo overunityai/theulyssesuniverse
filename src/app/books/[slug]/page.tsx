@@ -177,22 +177,6 @@ export default async function BookPage({ params }: BookPageProps) {
                 <dl className="grid grid-cols-2 gap-4">
                   <div>
                     <dt className="font-ui text-xs uppercase tracking-wider text-text-tertiary">
-                      Words
-                    </dt>
-                    <dd className="font-body text-text-primary mt-1">
-                      {book.wordCount.toLocaleString()}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="font-ui text-xs uppercase tracking-wider text-text-tertiary">
-                      Chapters
-                    </dt>
-                    <dd className="font-body text-text-primary mt-1">
-                      {book.chapters}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="font-ui text-xs uppercase tracking-wider text-text-tertiary">
                       Genre
                     </dt>
                     <dd className="font-body text-text-primary mt-1">
@@ -205,6 +189,22 @@ export default async function BookPage({ params }: BookPageProps) {
                     </dt>
                     <dd className="font-body text-text-primary mt-1">
                       The Ulysses Universe
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-ui text-xs uppercase tracking-wider text-text-tertiary">
+                      Format
+                    </dt>
+                    <dd className="font-body text-text-primary mt-1">
+                      eBook &amp; Paperback
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-ui text-xs uppercase tracking-wider text-text-tertiary">
+                      Setting
+                    </dt>
+                    <dd className="font-body text-text-primary mt-1">
+                      Far-future space
                     </dd>
                   </div>
                 </dl>

@@ -110,8 +110,8 @@ export default function AboutPage() {
                   the wine-dark sea was the void between stars?
                 </p>
                 <p>
-                  Three books and 129,000 words later, the answer turned out to be
-                  bigger than expected. The Ulysses Universe isn't just a retelling
+                  Three books later, the answer turned out to be bigger than
+                  expected. The Ulysses Universe isn't just a retelling
                   of the Odyssey. It's a story about what it means to come home
                   when home doesn't recognise you anymore. About a father and son
                   learning to trust each other across impossible distances. About

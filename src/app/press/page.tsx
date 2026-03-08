@@ -13,7 +13,7 @@ const keyFacts = [
   { label: "Author", value: AUTHOR.name },
   { label: "Genre", value: "Space Opera / Mythological Sci-Fi" },
   { label: "Books", value: "3 (The Blinding, The Void Between, The Return)" },
-  { label: "Total Word Count", value: "129,120 words across 90 chapters" },
+  { label: "Length", value: "Full-length trilogy (3 novels)" },
   { label: "Release", value: "May 2026 (Book 1) via Amazon KDP" },
   { label: "Format", value: "eBook, Paperback, Kindle Unlimited" },
   { label: "Comparable Works", value: "The Expanse meets Circe meets Interstellar" },

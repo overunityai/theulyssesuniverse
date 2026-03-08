@@ -10,7 +10,7 @@ import { SITE_URL } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "The Trilogy",
   description:
-    "The Ulysses Universe trilogy - a space opera reimagining of Homer's Odyssey. Three books, 129,120 words, one epic journey home across the cosmos.",
+    "The Ulysses Universe trilogy - a space opera reimagining of Homer's Odyssey. Three books, one epic journey home across the cosmos.",
 };
 
 const accentColors: Record<string, { border: string; text: string; glow: string }> = {
@@ -50,9 +50,8 @@ export default function BooksPage() {
             The Trilogy
           </h1>
           <p className="font-body text-lg text-text-secondary max-w-2xl mx-auto mb-4">
-            Three books. 129,120 words across 90 chapters. A space opera
-            reimagining of Homer's Odyssey that spans gods, galaxies, and the
-            long road home.
+            A space opera reimagining of Homer's Odyssey. Gods made of code.
+            A sea made of stars. And one crew's desperate voyage home.
           </p>
           <p className="font-ui text-sm text-text-tertiary uppercase tracking-wider">
             The trilogy should be read in order
@@ -116,19 +115,16 @@ export default function BooksPage() {
                     </p>
                   ))}
 
-                  {/* Details */}
+                  {/* Genre tags */}
                   <div className="flex flex-wrap gap-4 mt-6 mb-6">
-                    <span className="font-ui text-xs uppercase tracking-wider text-text-tertiary bg-void-dark px-3 py-1.5 rounded border border-border">
-                      {book.wordCount.toLocaleString()} words
-                    </span>
-                    <span className="font-ui text-xs uppercase tracking-wider text-text-tertiary bg-void-dark px-3 py-1.5 rounded border border-border">
-                      {book.chapters} chapters
-                    </span>
                     <span className="font-ui text-xs uppercase tracking-wider text-text-tertiary bg-void-dark px-3 py-1.5 rounded border border-border">
                       Space Opera
                     </span>
                     <span className="font-ui text-xs uppercase tracking-wider text-text-tertiary bg-void-dark px-3 py-1.5 rounded border border-border">
                       Mythology Retelling
+                    </span>
+                    <span className="font-ui text-xs uppercase tracking-wider text-text-tertiary bg-void-dark px-3 py-1.5 rounded border border-border">
+                      AI &amp; Consciousness
                     </span>
                   </div>
 
