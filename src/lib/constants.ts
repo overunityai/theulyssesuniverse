@@ -23,6 +23,8 @@ export const AMAZON_LINKS = {
   collectionUS: "https://www.amazon.com/dp/B0GNFQM4FN",
   collectionUK: "https://www.amazon.co.uk/dp/B0GNFQM4FN",
   trilogySeriesUS: "https://www.amazon.com/Ulysses-Universe-Trilogy-MR-ebook/dp/B0GNGSJ6TD",
+  boxSetUS: "https://www.amazon.com/Ulysses-Universe-Trilogy-MR-ebook/dp/B0GNGSJ6TD",
+  boxSetUK: "https://www.amazon.co.uk/dp/B0GNGSJ6TD",
 } as const;
 
 export const SOCIAL_LINKS = {

@@ -147,7 +147,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-border/50 text-center">
           <p className="text-text-tertiary text-sm">
-            &copy; {new Date().getFullYear()} Sotiris Spyrou. All rights reserved.
+            &copy; {new Date().getFullYear()} Ulysses Universe. All rights reserved.
           </p>
           <p className="text-text-tertiary text-xs mt-2">
             The Ulysses Universe is an original work inspired by Homer&apos;s Odyssey.

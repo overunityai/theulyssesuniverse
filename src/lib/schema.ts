@@ -7,7 +7,7 @@ export function organizationSchema() {
     "@type": "Organization",
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/images/brand/logo.png`,
+    logo: `${SITE_URL}/images/og/hero.webp`,
     sameAs: Object.values(SOCIAL_LINKS).filter((l) => l !== "#"),
     description:
       "A space opera trilogy reimagining Homer's Odyssey. Follow Admiral Ulysses Theron across the cosmos.",
@@ -58,7 +58,7 @@ export function bookSchema(book: BookMeta) {
     inLanguage: "en",
     genre: "Space Opera",
     url: `${SITE_URL}/books/${book.slug}`,
-    image: `${SITE_URL}/images/books/${book.slug}-cover.jpg`,
+    image: `${SITE_URL}${book.characterImage}`,
     isPartOf: {
       "@type": "BookSeries",
       name: SITE_NAME,
@@ -105,7 +105,7 @@ export function articleSchema(post: BlogPost) {
       "@id": `${SITE_URL}#organization`,
       name: SITE_NAME,
       url: SITE_URL,
-      logo: `${SITE_URL}/images/brand/logo.png`,
+      logo: `${SITE_URL}/images/og/hero.webp`,
     },
   ];
 
