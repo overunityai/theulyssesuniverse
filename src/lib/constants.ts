@@ -28,7 +28,7 @@ export const AMAZON_LINKS = {
 } as const;
 
 export const SOCIAL_LINKS = {
-  youtube: "#",
+  youtube: "https://www.youtube.com/@ulyssesuniverse",
   instagram: "#",
   tiktok: "#",
   x: "#",

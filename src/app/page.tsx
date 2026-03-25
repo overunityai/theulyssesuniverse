@@ -48,8 +48,8 @@ export default function HomePage() {
             <Button href="/books" size="lg">
               Get the Books
             </Button>
-            <Button href="/free-chapter" variant="secondary" size="lg">
-              Read Chapter 1 Free
+            <Button href="https://www.amazon.co.uk/dp/B0GNFQM4FN" variant="secondary" size="lg" external>
+              Pre-Order Today
             </Button>
           </div>
         </div>

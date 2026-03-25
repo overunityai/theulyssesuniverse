@@ -178,11 +178,11 @@ export default function BooksPage() {
             Ready to board the Odyssey?
           </h2>
           <p className="font-body text-text-secondary max-w-lg mx-auto mb-8">
-            Start with Chapter 1 of The Blinding - free. No strings. Just
-            ancient gods, hostile space, and a crew that won't quit.
+            Three books. Ancient gods, hostile space, and a crew that won't quit.
+            Available for pre-order now.
           </p>
-          <Button href="/free-chapter" size="lg">
-            Read Chapter 1 Free
+          <Button href="https://www.amazon.co.uk/dp/B0GNFQM4FN" size="lg" external>
+            Pre-Order Today
           </Button>
         </div>
       </section>

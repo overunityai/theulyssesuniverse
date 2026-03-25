@@ -123,11 +123,10 @@ export default function CharactersPage() {
             See them in action
           </h2>
           <p className="font-body text-text-secondary max-w-md mx-auto mb-8">
-            Read the first chapter of The Blinding free and meet the crew
-            yourself.
+            Meet the crew yourself. The trilogy is available for pre-order now.
           </p>
-          <Button href="/free-chapter" size="lg">
-            Read Chapter 1 Free
+          <Button href="https://www.amazon.co.uk/dp/B0GNFQM4FN" size="lg" external>
+            Pre-Order Today
           </Button>
         </div>
       </section>

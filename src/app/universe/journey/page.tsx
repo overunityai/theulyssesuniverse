@@ -154,11 +154,10 @@ export default function JourneyPage() {
             The journey starts here
           </h2>
           <p className="font-body text-text-secondary max-w-md mx-auto mb-8">
-            Chapter 1 of The Blinding. Free. No login, no strings - just ancient
-            gods and hostile space.
+            The Blinding launches May 2026. Pre-order the trilogy now.
           </p>
-          <Button href="/free-chapter" size="lg">
-            Read Chapter 1 Free
+          <Button href="https://www.amazon.co.uk/dp/B0GNFQM4FN" size="lg" external>
+            Pre-Order Today
           </Button>
         </div>
       </section>

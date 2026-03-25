@@ -22,8 +22,8 @@ const benefits = [
     description: "How the Odyssey became a space opera. Writing process, mythology deep dives, and the occasional disaster story.",
   },
   {
-    title: "Free Chapter 1",
-    description: "New subscribers get Chapter 1 of The Blinding delivered straight to their inbox.",
+    title: "Pre-order updates",
+    description: "Be the first to know when each book drops. Release dates, cover reveals, and launch day extras.",
   },
 ];
 

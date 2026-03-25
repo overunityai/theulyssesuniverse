@@ -63,10 +63,12 @@ export function Navigation() {
             );
           })}
           <Link
-            href="/free-chapter"
+            href="https://www.amazon.co.uk/dp/B0GNFQM4FN"
+            target="_blank"
+            rel="noopener noreferrer"
             className="font-ui font-semibold text-sm uppercase tracking-[0.05em] bg-gold text-void-black px-4 py-2 rounded-lg hover:bg-gold-light transition-colors"
           >
-            Read Chapter 1 Free
+            Pre-Order Today
           </Link>
         </div>
 
@@ -121,11 +123,13 @@ export function Navigation() {
             );
           })}
           <Link
-            href="/free-chapter"
+            href="https://www.amazon.co.uk/dp/B0GNFQM4FN"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
             className="font-ui font-semibold text-lg uppercase tracking-[0.05em] bg-gold text-void-black px-8 py-3 rounded-lg mt-4"
           >
-            Read Chapter 1 Free
+            Pre-Order Today
           </Link>
         </div>
       </div>

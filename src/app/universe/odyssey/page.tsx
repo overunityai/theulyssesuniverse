@@ -141,10 +141,10 @@ export default function OdysseyPage() {
             Step aboard
           </h2>
           <p className="font-body text-text-secondary max-w-md mx-auto mb-8">
-            Chapter 1 opens on the bridge of the Odyssey. Read it free.
+            Step aboard the Odyssey. The trilogy is available for pre-order now.
           </p>
-          <Button href="/free-chapter" size="lg">
-            Read Chapter 1 Free
+          <Button href="https://www.amazon.co.uk/dp/B0GNFQM4FN" size="lg" external>
+            Pre-Order Today
           </Button>
         </div>
       </section>

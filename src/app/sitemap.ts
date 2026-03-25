@@ -76,12 +76,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: `${SITE_URL}/free-chapter`,
-      lastModified: buildDate,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
       url: `${SITE_URL}/privacy`,
       lastModified: buildDate,
       changeFrequency: "yearly",
