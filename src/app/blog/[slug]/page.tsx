@@ -198,13 +198,13 @@ export default async function BlogPostPage({
           </header>
 
           {/* Hero image */}
-          <div className="relative aspect-[21/9] bg-void-mid rounded-lg overflow-hidden mb-12 max-w-3xl">
+          <div className="relative aspect-[2/1] bg-void-mid rounded-lg overflow-hidden mb-12 max-w-3xl">
             <Image
               src={post.image}
               alt={post.title}
               fill
               sizes="(max-width: 768px) 100vw, 720px"
-              className="object-cover object-top"
+              className="object-cover object-center"
               priority
             />
           </div>
@@ -330,13 +330,13 @@ export default async function BlogPostPage({
                   href={`/blog/${rp.slug}`}
                   className="group bg-void-dark border border-border rounded-lg overflow-hidden transition-all duration-300 hover:border-gold/20"
                 >
-                  <div className="relative aspect-[16/9] bg-void-mid overflow-hidden">
+                  <div className="relative aspect-[4/3] bg-void-mid overflow-hidden">
                     <Image
                       src={rp.image}
                       alt={rp.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   <div className="p-6">

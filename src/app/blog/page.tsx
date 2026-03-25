@@ -81,13 +81,13 @@ export default function BlogPage() {
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 {/* Featured image */}
-                <div className="relative aspect-[16/9] lg:aspect-auto lg:min-h-[360px] bg-void-mid overflow-hidden">
+                <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[360px] bg-void-mid overflow-hidden">
                   <Image
                     src={featured.image}
                     alt={featured.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-void-dark/40 hidden lg:block" />
@@ -131,13 +131,13 @@ export default function BlogPage() {
                   className="group bg-void-dark border border-border rounded-lg overflow-hidden transition-all duration-300 hover:border-gold/20"
                 >
                   {/* Post image */}
-                  <div className="relative aspect-[16/9] bg-void-mid overflow-hidden">
+                  <div className="relative aspect-[4/3] bg-void-mid overflow-hidden">
                     <Image
                       src={post.image}
                       alt={post.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   <div className="p-6">

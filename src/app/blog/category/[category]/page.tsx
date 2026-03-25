@@ -115,13 +115,13 @@ export default async function CategoryPage({
                   href={`/blog/${post.slug}`}
                   className="group bg-void-dark border border-border rounded-lg overflow-hidden transition-all duration-300 hover:border-gold/20"
                 >
-                  <div className="relative aspect-[16/9] bg-void-mid overflow-hidden">
+                  <div className="relative aspect-[4/3] bg-void-mid overflow-hidden">
                     <Image
                       src={post.image}
                       alt={post.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   <div className="p-6">
