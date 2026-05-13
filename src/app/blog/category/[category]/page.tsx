@@ -3,6 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { GreekKeyDivider } from "@/components/ui/GreekKeyDivider";
 import { getAllPosts, BLOG_CATEGORIES } from "@/lib/blog";
+import { CATEGORY_META, getCategoryMetaBySlug } from "@/lib/categories";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema, faqSchema } from "@/lib/schema";
+import { SITE_URL, SITE_NAME } from "@/lib/constants";
+import { KeyTakeaways } from "@/components/blog/KeyTakeaways";
+import { FAQSection } from "@/components/blog/FAQSection";
 
 export function generateStaticParams() {
   return BLOG_CATEGORIES.map((cat) => ({
@@ -10,7 +16,7 @@ export function generateStaticParams() {
   }));
 }
 
-function categoryFromSlug(slug: string): string | undefined {
+function categoryNameFromSlug(slug: string): string | undefined {
   return BLOG_CATEGORIES.find(
     (c) => c.toLowerCase().replace(/\s+/g, "-") === slug
   );
@@ -22,12 +28,29 @@ export async function generateMetadata({
   params: Promise<{ category: string }>;
 }): Promise<Metadata> {
   const { category: catSlug } = await params;
-  const name = categoryFromSlug(catSlug);
-  if (!name) return { title: "Category Not Found" };
+  const meta = getCategoryMetaBySlug(catSlug);
+  if (!meta) return { title: "Category Not Found" };
+
+  const canonical = `${SITE_URL}/blog/category/${meta.slug}`;
+  const ogImage = `${SITE_URL}/images/og/hero.webp`;
 
   return {
-    title: `${name} Articles`,
-    description: `Blog articles about ${name.toLowerCase()} from the Ulysses Universe.`,
+    title: meta.seoTitle,
+    description: meta.seoDescription,
+    alternates: { canonical },
+    openGraph: {
+      title: meta.seoTitle,
+      description: meta.seoDescription,
+      type: "website",
+      url: canonical,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: meta.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.seoTitle,
+      description: meta.seoDescription,
+      images: [ogImage],
+    },
   };
 }
 
@@ -39,31 +62,85 @@ function formatDate(dateStr: string): string {
   });
 }
 
+type CategoryMetaArg = NonNullable<ReturnType<typeof getCategoryMetaBySlug>>;
+
+function collectionPageSchema(args: {
+  meta: CategoryMetaArg;
+  posts: ReturnType<typeof getAllPosts>;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}/blog/category/${args.meta.slug}#collection`,
+    name: args.meta.seoTitle,
+    description: args.meta.seoDescription,
+    url: `${SITE_URL}/blog/category/${args.meta.slug}`,
+    isPartOf: {
+      "@type": "Blog",
+      "@id": `${SITE_URL}/blog#blog`,
+      name: `${SITE_NAME} Blog`,
+    },
+    about: args.meta.name,
+    inLanguage: "en-GB",
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: args.posts.length,
+      itemListElement: args.posts.map((p, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${SITE_URL}/blog/${p.slug}`,
+        name: p.title,
+      })),
+    },
+  };
+}
+
 export default async function CategoryPage({
   params,
 }: {
   params: Promise<{ category: string }>;
 }) {
   const { category: catSlug } = await params;
-  const categoryName = categoryFromSlug(catSlug);
+  const categoryName = categoryNameFromSlug(catSlug);
+  const meta = getCategoryMetaBySlug(catSlug);
   const posts = categoryName
     ? getAllPosts().filter((p) => p.category === categoryName)
     : [];
 
   return (
     <>
+      {/* Schema graph */}
+      {meta && (
+        <>
+          <JsonLd
+            data={breadcrumbSchema([
+              { name: "Home", url: SITE_URL },
+              { name: "Blog", url: `${SITE_URL}/blog` },
+              { name: meta.name, url: `${SITE_URL}/blog/category/${meta.slug}` },
+            ])}
+          />
+          <JsonLd data={collectionPageSchema({ meta, posts })} />
+          {meta.faq.length > 0 && <JsonLd data={faqSchema(meta.faq)} />}
+        </>
+      )}
+
       {/* Hero */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
+      <section className="relative pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="mx-auto max-w-[1200px] px-6 text-center">
           <p className="font-ui text-sm uppercase tracking-[0.2em] text-gold/80 mb-4">
-            Blog
+            Blog Category
           </p>
           <h1 className="font-display text-4xl md:text-5xl text-text-primary tracking-wide mb-6">
-            {categoryName || "Category"}
+            {meta?.pageH1 || categoryName || "Category"}
           </h1>
-          <p className="font-body text-lg text-text-secondary max-w-2xl mx-auto">
+          {meta?.tagline && (
+            <p className="font-body text-lg text-text-secondary max-w-2xl mx-auto mb-4">
+              {meta.tagline}
+            </p>
+          )}
+          <p className="font-ui text-sm text-text-tertiary">
             {posts.length} {posts.length === 1 ? "article" : "articles"} in this
-            category.
+            category
           </p>
         </div>
       </section>
@@ -104,10 +181,33 @@ export default async function CategoryPage({
 
       <GreekKeyDivider />
 
+      {/* Category intro - AEO-optimised, direct-answer copy */}
+      {meta && (
+        <section className="py-12 md:py-16">
+          <div className="mx-auto max-w-3xl px-6">
+            <div className="prose prose-invert prose-gold max-w-none">
+              {meta.intro.map((paragraph, i) => (
+                <p key={i} className="font-body text-text-secondary leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+            {meta.keyTakeaways && meta.keyTakeaways.length > 0 && (
+              <div className="mt-10">
+                <KeyTakeaways items={meta.keyTakeaways} />
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* Post Grid */}
       {posts.length > 0 ? (
-        <section className="py-16 md:py-24">
+        <section className="pb-16 md:pb-20">
           <div className="mx-auto max-w-[1200px] px-6">
+            <h2 className="font-display text-2xl md:text-3xl text-text-primary tracking-wide mb-8 text-center">
+              Articles in {meta?.name || categoryName}
+            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post) => (
                 <Link
@@ -150,22 +250,86 @@ export default async function CategoryPage({
           </div>
         </section>
       ) : (
-        <section className="py-20 md:py-28 text-center">
+        <section className="py-16 md:py-20 text-center">
           <div className="mx-auto max-w-[1200px] px-6">
             <p className="font-display text-2xl text-text-primary/50 mb-4">
-              No articles yet
+              No articles yet in this category
             </p>
             <p className="font-body text-text-tertiary max-w-md mx-auto mb-8">
-              Articles in this category are coming soon.
+              Articles in this category are coming soon. Subscribe to the
+              newsletter to be notified when they publish.
             </p>
             <Link
               href="/blog"
               className="font-ui text-sm uppercase tracking-wider text-gold hover:text-gold-light transition-colors"
             >
-              &larr; Back to all articles
+              Back to all articles
             </Link>
           </div>
         </section>
+      )}
+
+      {/* FAQ section - AEO-critical */}
+      {meta && meta.faq.length > 0 && (
+        <>
+          <GreekKeyDivider />
+          <section className="py-16 md:py-20">
+            <div className="mx-auto max-w-3xl px-6">
+              <FAQSection items={meta.faq} />
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* Cross-category navigation footer */}
+      {meta && meta.relatedCategories && meta.relatedCategories.length > 0 && (
+        <>
+          <GreekKeyDivider />
+          <section className="py-16 md:py-20">
+            <div className="mx-auto max-w-[1200px] px-6">
+              <h2 className="font-display text-2xl md:text-3xl text-text-primary tracking-wide mb-8 text-center">
+                Browse related categories
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                {meta.relatedCategories.map((relatedName) => {
+                  const related = CATEGORY_META[relatedName];
+                  if (!related) return null;
+                  return (
+                    <Link
+                      key={related.slug}
+                      href={`/blog/category/${related.slug}`}
+                      className="group bg-void-dark border border-border rounded-lg p-6 transition-all duration-300 hover:border-gold/30"
+                    >
+                      <h3 className="font-display text-xl text-text-primary tracking-wide mb-3 group-hover:text-gold transition-colors">
+                        {related.name}
+                      </h3>
+                      <p className="font-body text-sm text-text-secondary line-clamp-3">
+                        {related.tagline}
+                      </p>
+                      <p className="font-ui text-xs uppercase tracking-wider text-gold/70 mt-4">
+                        Explore -&gt;
+                      </p>
+                    </Link>
+                  );
+                })}
+                <Link
+                  href="/blog"
+                  className="group bg-void-dark border border-border rounded-lg p-6 transition-all duration-300 hover:border-gold/30"
+                >
+                  <h3 className="font-display text-xl text-text-primary tracking-wide mb-3 group-hover:text-gold transition-colors">
+                    All Articles
+                  </h3>
+                  <p className="font-body text-sm text-text-secondary line-clamp-3">
+                    The full blog index across every category.
+                  </p>
+                  <p className="font-ui text-xs uppercase tracking-wider text-gold/70 mt-4">
+                    Browse -&gt;
+                  </p>
+                </Link>
+              </div>
+            </div>
+          </section>
+        </>
       )}
     </>
   );
