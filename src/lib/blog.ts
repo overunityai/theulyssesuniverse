@@ -5,6 +5,25 @@ import readingTime from "reading-time";
 import type { BlogPost } from "@/types";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
+const PUBLIC_DIR = path.join(process.cwd(), "public");
+
+/** Fallback hero image used when a post references an image file that does not exist on disk. */
+const FALLBACK_IMAGE = "/images/blog/the-merge.webp";
+
+/**
+ * Resolve the post image path, falling back to a brand-aligned default if the
+ * referenced file does not exist in /public. This protects the blog cards
+ * from looking broken when frontmatter references images that have not been
+ * generated yet.
+ */
+function resolveImage(rawImage: string | undefined): string {
+  if (!rawImage) return FALLBACK_IMAGE;
+  // Remote URLs we trust as-is.
+  if (rawImage.startsWith("http")) return rawImage;
+  const localPath = path.join(PUBLIC_DIR, rawImage.replace(/^\//, ""));
+  if (fs.existsSync(localPath)) return rawImage;
+  return FALLBACK_IMAGE;
+}
 
 export const BLOG_CATEGORIES = [
   "The Pantheon",
@@ -43,7 +62,7 @@ export function getAllPosts(): BlogPost[] {
         lastUpdated: data.lastUpdated ? new Date(data.lastUpdated).toISOString() : undefined,
         category: data.category || "News",
         tags: data.tags || [],
-        image: data.image || "/images/og/hero.webp",
+        image: resolveImage(data.image),
         readingTime: Math.ceil(stats.minutes),
         author: data.author || "Sotiris Spyrou",
         content,
@@ -72,7 +91,7 @@ export function getPostBySlug(slug: string): BlogPost | undefined {
     lastUpdated: data.lastUpdated ? new Date(data.lastUpdated).toISOString() : undefined,
     category: data.category || "News",
     tags: data.tags || [],
-    image: data.image || "/images/og/hero.webp",
+    image: resolveImage(data.image),
     readingTime: Math.ceil(stats.minutes),
     author: data.author || "Sotiris Spyrou",
     content,

@@ -76,10 +76,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
+  // Icons are auto-detected from src/app/favicon.ico, src/app/icon.tsx, and
+  // src/app/apple-icon.tsx by Next.js. Do not add a manual icons block here -
+  // it overrides the auto-detection and broke favicon recognition previously.
 };
 
 export default function RootLayout({
