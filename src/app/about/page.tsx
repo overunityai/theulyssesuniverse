@@ -1,9 +1,40 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { GreekKeyDivider } from "@/components/ui/GreekKeyDivider";
-import { SOCIAL_LINKS, SITE_URL, AUTHOR } from "@/lib/constants";
+import { SOCIAL_LINKS, SITE_URL, AUTHOR, AMAZON_LINKS } from "@/lib/constants";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { personSchema, breadcrumbSchema } from "@/lib/schema";
+
+const OTHER_BOOKS = [
+  {
+    title: "The A-Z Guide to Ethical AI Success",
+    tagline: "A practical guide for boards and C-suites navigating responsible AI deployment.",
+    audience: "C-suite, boards, business owners",
+    blurb:
+      "Twenty-six chapters covering the full alphabet of ethics-anchored AI implementation. Self-assessment templates, governance frameworks, and the questions every leader should be asking their AI vendors. Written for executives who need answers more than hype.",
+    amazonUrl: AMAZON_LINKS.authorPage,
+    category: "Ethical AI Success" as const,
+  },
+  {
+    title: "AI Monopoly",
+    tagline: "How AI startups build defensible moats - and why most fail to.",
+    audience: "Founders, investors, operators",
+    blurb:
+      "Nine named failure cases from the 2024-2026 AI boom (Stability, Cohere, Adept, Inflection, Character.AI, and others) analysed for what their moats actually were and where they cracked. Includes a 90-day moat-build-and-assess programme with operator and investor versions, plus a term-sheet diligence checklist and board-level moat dashboard.",
+    amazonUrl: AMAZON_LINKS.authorPage,
+    category: "AI Monopoly" as const,
+  },
+  {
+    title: "TRANSFORM",
+    tagline: "A nine-phase framework for AI transformation in Fortune 500 and mid-market organisations.",
+    audience: "C-suite, transformation leaders, $6M+ AI budgets",
+    blurb:
+      "Real case studies from JPMorgan Chase (COIN, LLM Suite), Schneider Electric (EcoStruxure), Bank of America (Erica AI), Maersk, and Mayo Clinic. The TRANSFORM acrostic is a genuine nine-phase framework, not an arbitrary alphabet. Honest about failure rates: the BCG/MIT, Gartner, IDC, and RAND data all properly attributed.",
+    amazonUrl: AMAZON_LINKS.authorPage,
+    category: "TRANSFORM" as const,
+  },
+];
 
 export const metadata: Metadata = {
   title: "About",
@@ -188,6 +219,91 @@ export default function AboutPage() {
             <p className="text-text-primary font-medium">
               Now I want to share it with you.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <GreekKeyDivider />
+
+      {/* Also by Sotiris - Business books backlist */}
+      <section className="py-20 md:py-28">
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="text-center mb-12">
+            <p className="font-ui text-sm uppercase tracking-[0.2em] text-gold/80 mb-4">
+              Also by Sotiris Spyrou
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl text-text-primary tracking-wide mb-4">
+              Before the trilogy, three business books
+            </h2>
+            <p className="font-body text-text-secondary max-w-2xl mx-auto">
+              The Ulysses Universe is the fiction. The day job, twenty-seven years
+              of digital and consulting, produced three business books for the
+              other half of the audience. C-suites, founders, transformation
+              leaders. Different brand, different palette, same author.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {OTHER_BOOKS.map((book) => (
+              <a
+                key={book.title}
+                href={book.amazonUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-void-dark border border-border rounded-lg p-6 transition-all duration-300 hover:border-gold/30 hover:shadow-[0_0_30px_rgba(212,175,55,0.05)]"
+              >
+                <p className="font-ui text-xs uppercase tracking-wider text-gold/70 mb-3">
+                  {book.audience}
+                </p>
+                <h3 className="font-display text-xl text-text-primary tracking-wide mb-3 group-hover:text-gold transition-colors">
+                  {book.title}
+                </h3>
+                <p className="font-body text-sm text-text-secondary italic mb-4 leading-relaxed">
+                  {book.tagline}
+                </p>
+                <p className="font-body text-sm text-text-tertiary leading-relaxed mb-4 line-clamp-5">
+                  {book.blurb}
+                </p>
+                <p className="font-ui text-xs uppercase tracking-wider text-gold/70">
+                  View on Amazon -&gt;
+                </p>
+              </a>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <a
+              href={AMAZON_LINKS.authorPage}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-ui text-sm uppercase tracking-wider text-gold hover:text-gold-light transition-colors"
+            >
+              View all books on Amazon Author Central -&gt;
+            </a>
+          </div>
+
+          {/* Companion book (Greek-key brand - sits inside the trilogy universe) */}
+          <div className="mt-16 max-w-3xl mx-auto bg-void-dark border border-gold/10 rounded-lg p-8">
+            <p className="font-ui text-xs uppercase tracking-[0.15em] text-gold/70 mb-3">
+              Trilogy companion
+            </p>
+            <h3 className="font-display text-2xl text-text-primary tracking-wide mb-3">
+              The Art of War: Ulysses Edition
+            </h3>
+            <p className="font-body text-text-secondary leading-relaxed mb-4">
+              A companion volume to the Ulysses Universe trilogy that maps Sun
+              Tzu&apos;s classical strategy framework onto Ulysses Theron&apos;s
+              twenty-year campaign home. Same brand as the trilogy (Greek-key
+              meander, bronze and deep blue). Aimed at readers who finished the
+              trilogy and want to see the strategic logic underneath. Available
+              as part of the Ulysses Universe collection.
+            </p>
+            <Link
+              href="/books"
+              className="font-ui text-sm uppercase tracking-wider text-gold hover:text-gold-light transition-colors"
+            >
+              See all Ulysses Universe books -&gt;
+            </Link>
           </div>
         </div>
       </section>
