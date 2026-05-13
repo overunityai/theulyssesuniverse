@@ -154,10 +154,10 @@ export default function JourneyPage() {
             The journey starts here
           </h2>
           <p className="font-body text-text-secondary max-w-md mx-auto mb-8">
-            The Blinding launches May 2026. Pre-order the trilogy now.
+            The Blinding is live now. Start the journey on Amazon.
           </p>
           <Button href="https://www.amazon.co.uk/dp/B0GNFQM4FN" size="lg" external>
-            Pre-Order Today
+            Buy Book One Today
           </Button>
         </div>
       </section>

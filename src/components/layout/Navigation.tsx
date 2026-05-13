@@ -68,7 +68,7 @@ export function Navigation() {
             rel="noopener noreferrer"
             className="font-ui font-semibold text-sm uppercase tracking-[0.05em] bg-gold text-void-black px-4 py-2 rounded-lg hover:bg-gold-light transition-colors"
           >
-            Pre-Order Today
+            Buy Book One Today
           </Link>
         </div>
 
@@ -129,7 +129,7 @@ export function Navigation() {
             onClick={() => setMobileOpen(false)}
             className="font-ui font-semibold text-lg uppercase tracking-[0.05em] bg-gold text-void-black px-8 py-3 rounded-lg mt-4"
           >
-            Pre-Order Today
+            Buy Book One Today
           </Link>
         </div>
       </div>

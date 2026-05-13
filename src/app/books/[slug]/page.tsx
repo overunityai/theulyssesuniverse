@@ -255,10 +255,10 @@ export default async function BookPage({ params }: BookPageProps) {
             Start the journey
           </h2>
           <p className="font-body text-text-secondary max-w-md mx-auto mb-8">
-            The Ulysses Universe trilogy is available for pre-order now on Amazon.
+            Book One of the Ulysses Universe trilogy is live now on Amazon.
           </p>
           <Button href="https://www.amazon.co.uk/dp/B0GNFQM4FN" size="lg" external>
-            Pre-Order Today
+            Buy Book One Today
           </Button>
         </div>
       </section>

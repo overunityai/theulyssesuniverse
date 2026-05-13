@@ -123,10 +123,10 @@ export default function CharactersPage() {
             See them in action
           </h2>
           <p className="font-body text-text-secondary max-w-md mx-auto mb-8">
-            Meet the crew yourself. The trilogy is available for pre-order now.
+            Meet the crew yourself. Book One is live now.
           </p>
           <Button href="https://www.amazon.co.uk/dp/B0GNFQM4FN" size="lg" external>
-            Pre-Order Today
+            Buy Book One Today
           </Button>
         </div>
       </section>

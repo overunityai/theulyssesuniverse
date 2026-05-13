@@ -179,10 +179,10 @@ export default function BooksPage() {
           </h2>
           <p className="font-body text-text-secondary max-w-lg mx-auto mb-8">
             Three books. Ancient gods, hostile space, and a crew that won't quit.
-            Available for pre-order now.
+            Book One is live now on Amazon.
           </p>
           <Button href="https://www.amazon.co.uk/dp/B0GNFQM4FN" size="lg" external>
-            Pre-Order Today
+            Buy Book One Today
           </Button>
         </div>
       </section>

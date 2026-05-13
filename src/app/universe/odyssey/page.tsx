@@ -141,10 +141,10 @@ export default function OdysseyPage() {
             Step aboard
           </h2>
           <p className="font-body text-text-secondary max-w-md mx-auto mb-8">
-            Step aboard the Odyssey. The trilogy is available for pre-order now.
+            Step aboard the Odyssey. Book One is live now. Books Two and Three are on the way.
           </p>
           <Button href="https://www.amazon.co.uk/dp/B0GNFQM4FN" size="lg" external>
-            Pre-Order Today
+            Buy Book One Today
           </Button>
         </div>
       </section>
