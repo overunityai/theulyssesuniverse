@@ -299,11 +299,16 @@ export default function AboutPage() {
             </a>
           </div>
 
-          {/* Companion book (Greek-key brand - sits inside the trilogy universe) */}
+          {/* Companion book + game blueprint (Greek-key brand) */}
           <div className="mt-16 max-w-3xl mx-auto bg-void-dark border border-gold/10 rounded-lg p-8">
-            <p className="font-ui text-xs uppercase tracking-[0.15em] text-gold/70 mb-3">
-              Trilogy companion
-            </p>
+            <div className="flex items-center justify-between gap-4 mb-3 flex-wrap">
+              <p className="font-ui text-xs uppercase tracking-[0.15em] text-gold/70">
+                Trilogy companion + game blueprint
+              </p>
+              <span className="inline-flex items-center font-ui text-xs uppercase tracking-wider text-gold bg-gold/10 border border-gold/30 px-3 py-1 rounded-full">
+                Game coming 2027
+              </span>
+            </div>
             <h3 className="font-display text-2xl text-text-primary tracking-wide mb-3">
               The Art of War: Ulysses Edition
             </h3>
@@ -312,15 +317,33 @@ export default function AboutPage() {
               Tzu&apos;s classical strategy framework onto Ulysses Theron&apos;s
               twenty-year campaign home. Same brand as the trilogy (Greek-key
               meander, bronze and deep blue). Aimed at readers who finished the
-              trilogy and want to see the strategic logic underneath. Available
-              as part of the Ulysses Universe collection.
+              trilogy and want to see the strategic logic underneath.
             </p>
-            <Link
-              href="/books"
-              className="font-ui text-sm uppercase tracking-wider text-gold hover:text-gold-light transition-colors"
-            >
-              See all Ulysses Universe books -&gt;
-            </Link>
+            <p className="font-body text-text-secondary leading-relaxed mb-6">
+              The book is also the design blueprint for{" "}
+              <strong className="text-text-primary">
+                The Art of War
+              </strong>{" "}
+              - a video game launching in 2027 that turns the trilogy&apos;s
+              strategic playbook into interactive form. Development is active.
+              Build progress and dev-log are published at game.theulyssesuniverse.com.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="https://game.theulyssesuniverse.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-ui font-semibold text-sm uppercase tracking-[0.05em] bg-gold text-void-black px-5 py-2.5 rounded-lg hover:bg-gold-light transition-colors"
+              >
+                The Art of War - Coming 2027 -&gt;
+              </a>
+              <Link
+                href="/books"
+                className="inline-flex items-center font-ui text-sm uppercase tracking-wider text-gold hover:text-gold-light transition-colors"
+              >
+                All Ulysses Universe books -&gt;
+              </Link>
+            </div>
           </div>
         </div>
       </section>
