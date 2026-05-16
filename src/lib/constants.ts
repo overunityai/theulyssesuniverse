@@ -48,6 +48,7 @@ export const FOOTER_LINKS = {
     { label: "Blog", href: "/blog" },
     { label: "About", href: "/about" },
     { label: "Press", href: "/press" },
+    { label: "Contact", href: "/contact" },
     { label: "Newsletter", href: "/newsletter" },
   ],
   universe: [
