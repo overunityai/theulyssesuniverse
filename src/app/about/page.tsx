@@ -8,31 +8,34 @@ import { personSchema, breadcrumbSchema } from "@/lib/schema";
 
 const OTHER_BOOKS = [
   {
-    title: "The A-Z Guide to Ethical AI Success",
+    title: "Ethical AI",
+    subtitle: "Building Responsible AI Systems That Benefit Everyone",
     tagline: "A practical guide for boards and C-suites navigating responsible AI deployment.",
     audience: "C-suite, boards, business owners",
     blurb:
       "Twenty-six chapters covering the full alphabet of ethics-anchored AI implementation. Self-assessment templates, governance frameworks, and the questions every leader should be asking their AI vendors. Written for executives who need answers more than hype.",
-    amazonUrl: AMAZON_LINKS.authorPage,
-    category: "Ethical AI Success" as const,
+    amazonUrl: "https://a.co/d/09Pc24e5",
+    cover: "/images/other-books/ethical-ai.webp",
   },
   {
     title: "AI Monopoly",
+    subtitle: "Strategic Advantage in the Age of Artificial Intelligence",
     tagline: "How AI startups build defensible moats - and why most fail to.",
     audience: "Founders, investors, operators",
     blurb:
       "Nine named failure cases from the 2024-2026 AI boom (Stability, Cohere, Adept, Inflection, Character.AI, and others) analysed for what their moats actually were and where they cracked. Includes a 90-day moat-build-and-assess programme with operator and investor versions, plus a term-sheet diligence checklist and board-level moat dashboard.",
-    amazonUrl: AMAZON_LINKS.authorPage,
-    category: "AI Monopoly" as const,
+    amazonUrl: "https://a.co/d/0g5lSbXl",
+    cover: "/images/other-books/ai-monopoly.webp",
   },
   {
     title: "TRANSFORM",
+    subtitle: "The Executive's Playbook for AI Transformation That Actually Works",
     tagline: "A nine-phase framework for AI transformation in Fortune 500 and mid-market organisations.",
     audience: "C-suite, transformation leaders, $6M+ AI budgets",
     blurb:
       "Real case studies from JPMorgan Chase (COIN, LLM Suite), Schneider Electric (EcoStruxure), Bank of America (Erica AI), Maersk, and Mayo Clinic. The TRANSFORM acrostic is a genuine nine-phase framework, not an arbitrary alphabet. Honest about failure rates: the BCG/MIT, Gartner, IDC, and RAND data all properly attributed.",
-    amazonUrl: AMAZON_LINKS.authorPage,
-    category: "TRANSFORM" as const,
+    amazonUrl: "https://a.co/d/05se3XSH",
+    cover: "/images/other-books/transform.webp",
   },
 ];
 
@@ -243,30 +246,44 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {OTHER_BOOKS.map((book) => (
               <a
                 key={book.title}
                 href={book.amazonUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-void-dark border border-border rounded-lg p-6 transition-all duration-300 hover:border-gold/30 hover:shadow-[0_0_30px_rgba(212,175,55,0.05)]"
+                className="group bg-void-dark border border-border rounded-lg overflow-hidden flex flex-col transition-all duration-300 hover:border-gold/30 hover:shadow-[0_0_30px_rgba(212,175,55,0.08)]"
               >
-                <p className="font-ui text-xs uppercase tracking-wider text-gold/70 mb-3">
-                  {book.audience}
-                </p>
-                <h3 className="font-display text-xl text-text-primary tracking-wide mb-3 group-hover:text-gold transition-colors">
-                  {book.title}
-                </h3>
-                <p className="font-body text-sm text-text-secondary italic mb-4 leading-relaxed">
-                  {book.tagline}
-                </p>
-                <p className="font-body text-sm text-text-tertiary leading-relaxed mb-4 line-clamp-5">
-                  {book.blurb}
-                </p>
-                <p className="font-ui text-xs uppercase tracking-wider text-gold/70">
-                  View on Amazon -&gt;
-                </p>
+                <div className="relative aspect-[2/3] bg-void-mid overflow-hidden">
+                  <Image
+                    src={book.cover}
+                    alt={`${book.title} by Sotiris Spyrou - book cover`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <p className="font-ui text-xs uppercase tracking-wider text-gold/70 mb-3">
+                    {book.audience}
+                  </p>
+                  <h3 className="font-display text-xl text-text-primary tracking-wide mb-2 group-hover:text-gold transition-colors">
+                    {book.title}
+                  </h3>
+                  <p className="font-body text-xs text-text-tertiary italic mb-3 leading-relaxed">
+                    {book.subtitle}
+                  </p>
+                  <p className="font-body text-sm text-text-secondary italic mb-4 leading-relaxed">
+                    {book.tagline}
+                  </p>
+                  <p className="font-body text-sm text-text-tertiary leading-relaxed mb-4 line-clamp-4 flex-1">
+                    {book.blurb}
+                  </p>
+                  <p className="font-ui text-xs uppercase tracking-wider text-gold/70 mt-auto">
+                    View on Amazon -&gt;
+                  </p>
+                </div>
               </a>
             ))}
           </div>
