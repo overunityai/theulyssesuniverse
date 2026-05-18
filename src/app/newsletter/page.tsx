@@ -19,7 +19,7 @@ const benefits = [
   },
   {
     title: "Behind the scenes",
-    description: "How the Odyssey became a space opera. Writing process, mythology deep dives, and the occasional disaster story.",
+    description: "How the Odyssey became a space opera. Writing process, mythology notes, and the occasional disaster story.",
   },
   {
     title: "Pre-order updates",

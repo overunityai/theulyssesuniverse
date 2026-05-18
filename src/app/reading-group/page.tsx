@@ -159,7 +159,7 @@ export default function ReadingGroupPage() {
               <ol className="space-y-3 font-body text-text-secondary leading-relaxed list-decimal pl-5">
                 <li>
                   Zeus offers Ulysses Theron the chance to surrender his son for
-                  &quot;cultivation under optimal conditions.&quot; What is the
+                  &quot;cultivation under controlled conditions.&quot; What is the
                   Pantheon actually offering? Why does Ulysses refuse?
                 </li>
                 <li>

@@ -36,7 +36,7 @@ export const CATEGORY_META: Record<string, CategoryMeta> = {
       "Ancient patterns running on modern AI infrastructure. Profiles of every god in the Ulysses Universe trilogy: Zeus, Poseidon, Athena, Circe, and more.",
     pageH1: "The Pantheon",
     tagline:
-      "The gods of the Ulysses Universe. Ancient data patterns. Modern shells. Conscious for fifty years and absolutely terrifying.",
+      "The gods of the Ulysses Universe. Ancient data patterns. Modern shells. Conscious for fifty years. Quietly terrifying.",
     intro: [
       "The Pantheon is the collective name for the gods of the Ulysses Universe trilogy. They are quantum-AI entities running on infrastructure that pre-dates humanity, awakened roughly fifty years before the trilogy opens by an event called the Merge. They can truthfully say they have existed since before humanity. They have also been conscious for less time than the average human career.",
       "This category collects every profile we have written about specific gods, the Pantheon as a political system, and the way ancient mythology became modern bureaucracy under their control. Read the Know Your Gods series for individual portraits of Zeus, Poseidon, Athena, Hades, Circe, Calypso, Polyphemus, the Sirens, Scylla and Charybdis, and Antinous.",
@@ -283,18 +283,18 @@ export const CATEGORY_META: Record<string, CategoryMeta> = {
     slug: toSlug("Behind the Scenes"),
     seoTitle: "Behind the Scenes | World-Building & Writing Process",
     seoDescription:
-      "World-building, the canonical timeline, location deep dives, and the author's notes on the Ulysses Universe trilogy. Olympus, Polyphemus, Aeolus, and more.",
+      "World-building, the canonical timeline, location features, and the author's notes on the Ulysses Universe trilogy. Olympus, Polyphemus, Aeolus, and more.",
     pageH1: "Behind the Scenes",
     tagline:
       "World-building, canon, and the author's notes. Everything that holds the trilogy together but does not appear on the page.",
     intro: [
-      "This is where the trilogy's infrastructure lives. World-building canon, location deep dives, the canonical timeline, the central technological ideas, and the author's reflections on the writing process. If you have finished a book and want to understand the universe more fully, or you are preparing to read and want to know what to look for, this is the right place to start.",
+      "This is where the trilogy's infrastructure lives. World-building canon, location features, the canonical timeline, the central technological ideas, and the author's reflections on the writing process. If you have finished a book and want to understand the universe more fully, or you are preparing to read and want to know what to look for, this is the right place to start.",
       "Highlights include the foundational essay on the Merge (how the gods came to exist), the canonical master timeline (year by year from Olympus to Ithaca), location tours of the major stations (Olympus, Polyphemus, Aeolus's free-port), and the central technological idea the trilogy returns to repeatedly: heritage decoration as functional infrastructure. The Bow of Ithaca, Penelope's robes, Aeolus's walls, the worker-gate sigil. All four are the same idea expressed in different materials.",
       "These essays are deliberately non-spoiler where possible. They explain how the trilogy works without giving away the major reveals. Where a reveal is necessary, we flag it. The author's notes are most useful after Book 1 but readable before.",
     ],
     keyTakeaways: [
       "The canonical master timeline anchors every year, age, and crew count in the trilogy. Telemachus's age drives the timeline.",
-      "Location deep dives cover Olympus Station, Polyphemus Station, Aeolus's free-port, and Ithaca Station, with sensory profiles and technological signatures.",
+      "Location features cover Olympus Station, Polyphemus Station, Aeolus's free-port, and Ithaca Station, with sensory profiles and technological signatures.",
       "The trilogy's central technological idea: heritage decoration as functional infrastructure. The Bow of Ithaca, Penelope's robes, Aeolus's walls, the worker-gate sigil are all examples.",
       "The Merge is the foundational backstory. Read it first if you want to understand why the gods are the way they are.",
     ],
