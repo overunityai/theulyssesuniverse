@@ -1,16 +1,44 @@
-import { SITE_URL, SITE_NAME, AUTHOR, SOCIAL_LINKS } from "./constants";
+import { SITE_URL, SITE_NAME, AUTHOR, SOCIAL_LINKS, VERITY_AI, AMAZON_LINKS } from "./constants";
 import type { BookMeta, BlogPost } from "@/types";
+
+/**
+ * Build the sameAs array for the author's Person entity.
+ * Filters out null entries from AUTHOR.identity and adds active social links.
+ */
+function authorSameAs(): string[] {
+  const identityLinks: string[] = [];
+  for (const v of Object.values(AUTHOR.identity)) {
+    if (typeof v === "string" && v.length > 0) identityLinks.push(v);
+  }
+  const socialLinks: string[] = [];
+  for (const l of Object.values(SOCIAL_LINKS)) {
+    if (typeof l === "string" && l !== "#") socialLinks.push(l);
+  }
+  return [AUTHOR.linkedin, ...identityLinks, ...socialLinks];
+}
 
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${SITE_URL}#organization`,
     name: SITE_NAME,
     url: SITE_URL,
     logo: `${SITE_URL}/images/og/hero.webp`,
     sameAs: Object.values(SOCIAL_LINKS).filter((l) => l !== "#"),
     description:
       "A space opera trilogy reimagining Homer's Odyssey. Follow Admiral Ulysses Theron across the cosmos.",
+    founder: {
+      "@type": "Person",
+      "@id": `${SITE_URL}#person`,
+      name: AUTHOR.name,
+    },
+    foundingDate: "2026",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "GB",
+      addressRegion: "Warwickshire",
+    },
     knowsAbout: [
       "Space opera",
       "Homer's Odyssey",
@@ -25,42 +53,95 @@ export function personSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${SITE_URL}#person`,
     name: AUTHOR.name,
     url: SITE_URL,
     description: AUTHOR.fullBio,
-    sameAs: Object.values(SOCIAL_LINKS).filter((l) => l !== "#"),
-    jobTitle: "Author",
+    image: `${SITE_URL}/images/about/author-photo.jpeg`,
+    sameAs: authorSameAs(),
+    jobTitle: "Author and Founder",
+    nationality: {
+      "@type": "Country",
+      name: "United Kingdom",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "GB",
+      addressRegion: "Warwickshire",
+    },
+    worksFor: {
+      "@type": "Organization",
+      name: VERITY_AI.name,
+      url: VERITY_AI.url,
+      description: VERITY_AI.description,
+    },
     knowsAbout: [
       "Greek mythology",
       "Space opera",
       "Homer's Odyssey",
       "Science fiction writing",
+      "Artificial intelligence",
+      "Responsible AI",
+      "Digital marketing",
     ],
+    knowsLanguage: ["en-GB"],
   };
 }
 
 export function bookSchema(book: BookMeta) {
+  const identifiers: Record<string, unknown>[] = [];
+
+  // Add Amazon ASIN as identifier (always present)
+  if (book.amazonAsin) {
+    identifiers.push({
+      "@type": "PropertyValue",
+      propertyID: "ASIN",
+      value: book.amazonAsin,
+    });
+  }
+  // Add ISBN as identifier when available (B2B books have ISBN-13)
+  if (book.isbn) {
+    identifiers.push({
+      "@type": "PropertyValue",
+      propertyID: "ISBN",
+      value: book.isbn,
+    });
+  }
+
+  const sameAs: string[] = [];
+  if (book.buyLinks?.amazonUS) sameAs.push(book.buyLinks.amazonUS);
+  if (book.buyLinks?.amazonUK) sameAs.push(book.buyLinks.amazonUK);
+  if (book.goodreadsUrl) sameAs.push(book.goodreadsUrl);
+
   return {
     "@context": "https://schema.org",
     "@type": "Book",
+    "@id": `${SITE_URL}/books/${book.slug}#book`,
     name: book.title,
     description: book.description.split("\n\n")[0],
     author: {
       "@type": "Person",
+      "@id": `${SITE_URL}#person`,
       name: AUTHOR.name,
     },
     publisher: {
       "@type": "Organization",
-      name: "Amazon KDP",
+      "@id": `${SITE_URL}#organization`,
+      name: SITE_NAME,
     },
     bookFormat: "https://schema.org/EBook",
     numberOfPages: Math.round(book.wordCount / 250),
-    inLanguage: "en",
+    inLanguage: "en-GB",
     genre: "Space Opera",
     url: `${SITE_URL}/books/${book.slug}`,
     image: `${SITE_URL}${book.characterImage}`,
+    isbn: book.isbn || undefined,
+    identifier: identifiers.length > 0 ? identifiers : undefined,
+    sameAs: sameAs.length > 0 ? sameAs : undefined,
+    datePublished: book.datePublished || undefined,
     isPartOf: {
       "@type": "BookSeries",
+      "@id": `${SITE_URL}/books#series`,
       name: SITE_NAME,
       position: book.number,
     },

@@ -28,6 +28,16 @@ export interface BookMeta {
     amazonUS: string;
   };
   pullQuote: string;
+  /** Amazon Standard Identification Number - always present for KDP titles. */
+  amazonAsin?: string;
+  /** ISBN-13 - present for books with assigned KDP ISBN (or own ISBN). */
+  isbn?: string;
+  /** ISO 8601 date string, e.g. "2026-05-01". For schema datePublished. */
+  datePublished?: string;
+  /** Goodreads book URL once claimed. */
+  goodreadsUrl?: string;
+  /** Wikidata Q-ID URL once entry exists, e.g. "https://www.wikidata.org/wiki/Q123456789". */
+  wikidataUrl?: string;
 }
 
 export interface CharacterMeta {

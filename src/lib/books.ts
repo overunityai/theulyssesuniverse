@@ -17,6 +17,11 @@ export const BOOKS_DATA: BookMeta[] = [
       amazonUK: "https://www.amazon.co.uk/dp/B0GNGQFR6C",
     },
     pullQuote: "You'll reach home. You'll wish you hadn't.",
+    amazonAsin: "B0GNGQFR6C",
+    datePublished: "2026-05-01",
+    // isbn: undefined,         // KDP trilogy uses ASIN; assign ISBN when paperback/hardback launches
+    // goodreadsUrl: undefined, // populate once Goodreads Author Profile is claimed
+    // wikidataUrl: undefined,  // populate once Wikidata entry is created
   },
   {
     slug: "the-void-between",
@@ -34,6 +39,8 @@ export const BOOKS_DATA: BookMeta[] = [
       amazonUK: "https://www.amazon.co.uk/dp/B0GNG5KLKC",
     },
     pullQuote: "In the Void, your memories are the first thing to go. Your name is the last.",
+    amazonAsin: "B0GNG5KLKC",
+    datePublished: "2026-05-15",
   },
   {
     slug: "the-return",
@@ -51,6 +58,8 @@ export const BOOKS_DATA: BookMeta[] = [
       amazonUK: "https://www.amazon.co.uk/dp/B0GNGQCS91",
     },
     pullQuote: "Home isn't where you left it. It's what you build from the wreckage.",
+    amazonAsin: "B0GNGQCS91",
+    datePublished: "2026-06-01",
   },
 ];
 

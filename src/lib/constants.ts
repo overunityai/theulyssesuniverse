@@ -16,6 +16,35 @@ export const AUTHOR = {
     "Based in Warwickshire, UK",
   ],
   linkedin: "https://linkedin.com/in/sspyrou",
+  /**
+   * Identity links populated as the author claims/creates entries.
+   * Fill these in (or replace null) once Wikidata Q-ID, ISNI, etc. exist.
+   * Used by Person and Organization schema sameAs arrays.
+   */
+  identity: {
+    wikidata: null as string | null,     // e.g. "https://www.wikidata.org/wiki/Q123456789"
+    isni: null as string | null,         // e.g. "https://isni.org/isni/0000000XXXXXXXXX"
+    orcid: null as string | null,        // optional, academic ID
+    goodreadsAuthor: null as string | null,  // e.g. "https://www.goodreads.com/author/show/XXXXX.Sotiris_Spyrou"
+    amazonAuthorUS: "https://www.amazon.com/stores/Sotiris-Spyrou/author/B0FM8R4BXL",
+    amazonAuthorUK: null as string | null,  // claim then paste here
+    bookbubAuthor: null as string | null,
+    librarythingAuthor: null as string | null,
+    openLibraryAuthor: null as string | null,
+    isfdbAuthor: null as string | null,
+    reedsyAuthor: null as string | null,
+  },
+} as const;
+
+/**
+ * VerityAI - the author's day-job consultancy.
+ * Referenced in Person schema's worksFor to create entity chain.
+ */
+export const VERITY_AI = {
+  name: "VerityAI",
+  url: "https://verityai.co",
+  description: "Digital Marketing and Responsible AI consultancy founded by Sotiris Spyrou.",
+  founderName: "Sotiris Spyrou",
 } as const;
 
 export const AMAZON_LINKS = {
