@@ -9,6 +9,28 @@ export const metadata: Metadata = {
   title: "The Odyssey - Ship Specifications",
   description:
     "Explore the Odyssey - Admiral Ulysses Theron's ship. Bridge, Crew Chamber, Engine Room specs and lore from the Ulysses Universe trilogy.",
+  alternates: { canonical: `${SITE_URL}/universe/odyssey` },
+  openGraph: {
+    title: "The Odyssey | Ship of the Ulysses Universe",
+    description:
+      "A wooden ship that thinks. A bronze ship that bleeds light. Ten years past her warranty, and still flying.",
+    type: "website",
+    url: `${SITE_URL}/universe/odyssey`,
+    images: [
+      {
+        url: `${SITE_URL}/images/og/odyssey.webp`,
+        width: 1672,
+        height: 941,
+        alt: "The Odyssey ship - The Ulysses Universe",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Odyssey | Ship of the Ulysses Universe",
+    description: "Ten years past her warranty, and still flying.",
+    images: [`${SITE_URL}/images/og/odyssey.webp`],
+  },
 };
 
 const shipSpecs = [

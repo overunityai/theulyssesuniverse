@@ -32,7 +32,7 @@ export async function generateMetadata({
   if (!meta) return { title: "Category Not Found" };
 
   const canonical = `${SITE_URL}/blog/category/${meta.slug}`;
-  const ogImage = `${SITE_URL}/images/og/hero.webp`;
+  const ogImage = `${SITE_URL}/images/og/blog.webp`;
 
   return {
     title: meta.seoTitle,

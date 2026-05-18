@@ -11,6 +11,28 @@ export const metadata: Metadata = {
   title: "Characters",
   description:
     "Meet the crew of the Odyssey - Ulysses, Telemachus, Thea Sato, Echo, Athena, and Penelope. Character profiles from the Ulysses Universe trilogy.",
+  alternates: { canonical: `${SITE_URL}/universe/characters` },
+  openGraph: {
+    title: "Characters | The Ulysses Universe",
+    description:
+      "Meet the crew of the Odyssey: Ulysses, Telemachus, Thea Sato, Echo, Athena, Penelope.",
+    type: "website",
+    url: `${SITE_URL}/universe/characters`,
+    images: [
+      {
+        url: `${SITE_URL}/images/og/universe.webp`,
+        width: 1672,
+        height: 941,
+        alt: "The Ulysses Universe characters",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Characters | The Ulysses Universe",
+    description: "Meet the crew of the Odyssey.",
+    images: [`${SITE_URL}/images/og/universe.webp`],
+  },
 };
 
 const accentMap: Record<string, { border: string; text: string; bg: string }> = {

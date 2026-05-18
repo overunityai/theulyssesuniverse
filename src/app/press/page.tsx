@@ -74,10 +74,10 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/press`,
     images: [
       {
-        url: `${SITE_URL}/images/og/hero.webp`,
-        width: 1200,
-        height: 630,
-        alt: SITE_NAME,
+        url: `${SITE_URL}/images/og/books.webp`,
+        width: 1672,
+        height: 941,
+        alt: `${SITE_NAME} - press kit`,
       },
     ],
   },
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
-    images: [`${SITE_URL}/images/og/hero.webp`],
+    images: [`${SITE_URL}/images/og/books.webp`],
   },
 };
 

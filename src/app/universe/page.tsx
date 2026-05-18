@@ -9,6 +9,28 @@ export const metadata: Metadata = {
   title: "The Universe",
   description:
     "Explore the Ulysses Universe - characters, ship specs, glossary, and journey map. Dive into the world of this space opera reimagining of Homer's Odyssey.",
+  alternates: { canonical: `${SITE_URL}/universe` },
+  openGraph: {
+    title: "The Universe | The Ulysses Universe",
+    description:
+      "Characters, ship, locations, journey map, glossary. The full world of the trilogy.",
+    type: "website",
+    url: `${SITE_URL}/universe`,
+    images: [
+      {
+        url: `${SITE_URL}/images/og/universe.webp`,
+        width: 1672,
+        height: 941,
+        alt: "The Ulysses Universe - the world of the trilogy",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Universe | The Ulysses Universe",
+    description: "Characters, ship, locations, journey map, glossary.",
+    images: [`${SITE_URL}/images/og/universe.webp`],
+  },
 };
 
 const sections = [

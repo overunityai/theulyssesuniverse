@@ -11,6 +11,28 @@ export const metadata: Metadata = {
   title: "The Trilogy",
   description:
     "The Ulysses Universe trilogy - a space opera reimagining of Homer's Odyssey. Three books, one epic journey home across the cosmos.",
+  alternates: { canonical: `${SITE_URL}/books` },
+  openGraph: {
+    title: "The Trilogy | The Ulysses Universe",
+    description:
+      "Three books. One battered ship. The longest way home in the galaxy. The Ulysses Universe trilogy.",
+    type: "website",
+    url: `${SITE_URL}/books`,
+    images: [
+      {
+        url: `${SITE_URL}/images/og/books.webp`,
+        width: 1672,
+        height: 941,
+        alt: "The Ulysses Universe trilogy - The Blinding, The Void Between, The Return",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Trilogy | The Ulysses Universe",
+    description: "Three books. One battered ship. The longest way home in the galaxy.",
+    images: [`${SITE_URL}/images/og/books.webp`],
+  },
 };
 
 const accentColors: Record<string, { text: string; glow: string }> = {

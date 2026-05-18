@@ -42,6 +42,20 @@ export const metadata: Metadata = {
     description: PAGE_DESCRIPTION,
     type: "website",
     url: `${SITE_URL}/reading-group`,
+    images: [
+      {
+        url: `${SITE_URL}/images/og/reading-group.webp`,
+        width: 1672,
+        height: 941,
+        alt: "The Ulysses Universe Reading Group Guide",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    images: [`${SITE_URL}/images/og/reading-group.webp`],
   },
 };
 
