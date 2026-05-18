@@ -52,7 +52,7 @@ export const metadata: Metadata = {
       "A space opera trilogy reimagining Homer's Odyssey. Follow Admiral Ulysses Theron across the cosmos.",
     images: [
       {
-        url: "/images/og/hero.webp",
+        url: "/images/og/og-default.webp",
         width: 1200,
         height: 630,
         alt: "The Ulysses Universe - Homer's Odyssey Reimagined Among the Stars",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title: "The Ulysses Universe",
     description:
       "A space opera trilogy reimagining Homer's Odyssey. Follow Admiral Ulysses Theron across the cosmos.",
-    images: ["/images/og/hero.webp"],
+    images: ["/images/og/og-default.webp"],
   },
   alternates: {
     canonical: "https://theulyssesuniverse.com",
