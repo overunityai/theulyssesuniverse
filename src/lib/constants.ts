@@ -22,17 +22,18 @@ export const AUTHOR = {
    * Used by Person and Organization schema sameAs arrays.
    */
   identity: {
-    wikidata: null as string | null,     // e.g. "https://www.wikidata.org/wiki/Q123456789"
-    isni: null as string | null,         // e.g. "https://isni.org/isni/0000000XXXXXXXXX"
+    wikidata: null as string | null,     // Q-ID URL once created
+    isni: "https://isni.org/isni/0000000530304205" as string | null,  // issued 2026-05-19 by British Library
     orcid: null as string | null,        // optional, academic ID
-    goodreadsAuthor: null as string | null,  // e.g. "https://www.goodreads.com/author/show/XXXXX.Sotiris_Spyrou"
+    goodreadsAuthor: "https://www.goodreads.com/author/show/58278668.Sotiris_Spyrou" as string | null,
     amazonAuthorUS: "https://www.amazon.com/stores/Sotiris-Spyrou/author/B0FM8R4BXL",
-    amazonAuthorUK: null as string | null,  // claim then paste here
-    bookbubAuthor: null as string | null,
-    librarythingAuthor: null as string | null,
+    amazonAuthorUK: "https://www.amazon.co.uk/stores/Sotiris-Spyrou/author/B0FM8R4BXL" as string | null,
+    bookbubAuthor: null as string | null,  // pending approval
+    librarythingAuthor: null as string | null,  // pending claim approval
     openLibraryAuthor: null as string | null,
     isfdbAuthor: null as string | null,
     reedsyAuthor: null as string | null,
+    twitter: "https://twitter.com/spspyrouseo" as string | null,
   },
 } as const;
 
