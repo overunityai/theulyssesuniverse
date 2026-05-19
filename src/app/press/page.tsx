@@ -35,7 +35,7 @@ const PITCH_VARIANTS = [
   {
     label: "Medium pitch (120 words)",
     text:
-      "The Ulysses Universe is a three-book space opera trilogy reimagining Homer's Odyssey. In the 31st century, the Greek gods of myth have manifested as quantum-AI entities running on ancient infrastructure. Admiral Ulysses Theron fled Olympus Station with his son after Zeus marked the boy for cultivation, triggering a curse that placed 108 of his crew in data suspension. The Odyssey limps through hostile space toward Ithaca, where his wife Penelope holds the founding bloodline against a 108-person political faction called the Suitors. Across twenty years and three books, Ulysses must outwit gods, hospitable strangers, and the longest pursuit in literary history. The trilogy launches across May and June 2026, ahead of Christopher Nolan's Odyssey film in July.",
+      "The Ulysses Universe is a three-book space opera trilogy reimagining Homer's Odyssey. In the 31st century, the Greek gods of myth have manifested as quantum-AI entities running on ancient infrastructure. Admiral Ulysses Theron fled Olympus Station with his son after Zeus marked the boy for cultivation, triggering a curse that placed 108 of his crew in data suspension. The Odyssey limps through hostile space toward Ithaca, where his wife Penelope holds the founding bloodline against a 108-person political faction called the Suitors. Across twenty years and three books, Ulysses must outwit gods, hospitable strangers, and the longest pursuit in literary history. The trilogy launches across 2026: Book 1 on 1 May, Book 2 on 1 August, and Book 3 on 1 November. Christopher Nolan's Odyssey film releases on 17 July 2026 between Books 1 and 2.",
   },
 ];
 
@@ -238,10 +238,10 @@ export default function PressPage() {
             </p>
             <p>
               The trilogy is the contemporary science-fiction entry in a long
-              tradition of Odyssey adaptation. It launches across May and June
-              2026, with Christopher Nolan&apos;s film adaptation of Homer&apos;s
-              Odyssey releasing on 17 July 2026 as the major adjacent cultural
-              event.
+              tradition of Odyssey adaptation. Book 1 launched 1 May 2026, Book
+              2 follows on 1 August 2026, and Book 3 on 1 November 2026.
+              Christopher Nolan&apos;s film adaptation of Homer&apos;s Odyssey
+              releases on 17 July 2026 as the major adjacent cultural event.
             </p>
           </div>
         </div>

@@ -188,7 +188,7 @@ export const CATEGORY_META: Record<string, CategoryMeta> = {
     tagline:
       "Three books. One battered ship. The longest way home in the galaxy.",
     intro: [
-      "The Ulysses Universe is a three-book space opera trilogy reimagining Homer's Odyssey. Book 1, The Blinding, launched on 1 May 2026. Book 2, The Void Between, follows on 15 May 2026. Book 3, The Return, completes the trilogy on 1 June 2026.",
+      "The Ulysses Universe is a three-book space opera trilogy reimagining Homer's Odyssey. Book 1, The Blinding, launched on 1 May 2026. Book 2, The Void Between, follows on 1 August 2026. Book 3, The Return, completes the trilogy on 1 November 2026.",
       "This category collects everything related to the books themselves. Reading order, summaries, character introductions, the writing process, and the choices made during adaptation. If you are deciding whether to read the trilogy, or working out which book to start with, this is the right place.",
       "Recommended starting point for new readers: Why Set the Odyssey in Space, which explains the trilogy's central premise. For a fuller introduction, Meet Ulysses Theron and the Why I Wrote This essays give you the protagonist and the author's framing in one sitting.",
     ],
@@ -212,12 +212,12 @@ export const CATEGORY_META: Record<string, CategoryMeta> = {
       {
         question: "Is the Ulysses Universe trilogy complete?",
         answer:
-          "Yes. All three books are written, edited, and being released across May and June 2026. The trilogy is a single complete arc rather than an open-ended series. Future projects in the same universe are possible but not planned as of writing.",
+          "Yes. All three books are written, edited, and being released across 2026 (May, August, November). The trilogy is a single complete arc rather than an open-ended series. Future projects in the same universe are possible but not planned as of writing.",
       },
       {
         question: "Where can I buy the Ulysses Universe books?",
         answer:
-          "Book 1: The Blinding is available now on Amazon. Books 2 and 3 are available for pre-order ahead of their May and June 2026 release dates. Kindle, Kindle Unlimited, and paperback formats are all available.",
+          "Book 1: The Blinding is available now on Amazon. Books 2 and 3 are available for pre-order ahead of their 1 August 2026 and 1 November 2026 release dates respectively. Kindle, Kindle Unlimited, and paperback formats are all available.",
       },
       {
         question: "Who is the author of the Ulysses Universe trilogy?",
@@ -338,19 +338,19 @@ export const CATEGORY_META: Record<string, CategoryMeta> = {
     tagline:
       "Release announcements, milestones, and updates from the universe.",
     intro: [
-      "This is where we post announcements. Release dates. Updates. Milestones. Anything time-sensitive that does not fit into the other categories. The Ulysses Universe trilogy is in active release across May and June 2026, so this category will see steady traffic through the launch window.",
+      "This is where we post announcements. Release dates. Updates. Milestones. Anything time-sensitive that does not fit into the other categories. The Ulysses Universe trilogy is in active release across 2026, so this category will see steady traffic through the launch window.",
       "If you want the news as it happens rather than after the fact, the newsletter is the right subscription. The category page collects what has been posted but does not push notifications.",
     ],
     keyTakeaways: [
       "Time-sensitive announcements: book launches, signings, interviews, adaptations.",
-      "Active release window: May and June 2026. Book 1 live; Book 2 launches 15 May; Book 3 launches 1 June.",
+      "Active release window: 2026. Book 1 live; Book 2 launches 1 August; Book 3 launches 1 November.",
       "For real-time notification, subscribe to the newsletter. The category collects but does not push.",
     ],
     faq: [
       {
         question: "When is the next Ulysses Universe book released?",
         answer:
-          "Book 2 (The Void Between) launches 15 May 2026. Book 3 (The Return) follows on 1 June 2026. Book 1 (The Blinding) is live now on Amazon.",
+          "Book 2 (The Void Between) launches 1 August 2026. Book 3 (The Return) follows on 1 November 2026. Book 1 (The Blinding) is live now on Amazon.",
       },
       {
         question: "How do I get notified of new Ulysses Universe releases?",

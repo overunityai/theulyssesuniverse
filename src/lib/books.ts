@@ -40,7 +40,7 @@ export const BOOKS_DATA: BookMeta[] = [
     },
     pullQuote: "In the Void, your memories are the first thing to go. Your name is the last.",
     amazonAsin: "B0GNG5KLKC",
-    datePublished: "2026-05-15",
+    datePublished: "2026-08-01",
   },
   {
     slug: "the-return",
@@ -59,7 +59,7 @@ export const BOOKS_DATA: BookMeta[] = [
     },
     pullQuote: "Home isn't where you left it. It's what you build from the wreckage.",
     amazonAsin: "B0GNGQCS91",
-    datePublished: "2026-06-01",
+    datePublished: "2026-11-01",
   },
 ];
 
