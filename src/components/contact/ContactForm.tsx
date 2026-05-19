@@ -3,24 +3,33 @@
 import { useState, useEffect } from "react";
 
 /**
- * Contact form posting to Web3Forms.
+ * Contact form with two operating modes:
  *
- * Setup:
- * 1. Sign up at https://web3forms.com using sotirisspyrou@gmail.com
- * 2. Verify the email
- * 3. Copy the access key
- * 4. Add to Vercel project env vars: NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=<key>
+ * 1. Web3Forms mode (preferred): if NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is set,
+ *    the form posts to the Web3Forms API and the email is never exposed in
+ *    client code. Set up at https://web3forms.com using sotirisspyrou@gmail.com,
+ *    then add the key to Vercel env vars.
  *
- * The access key is a NEXT_PUBLIC_ variable because Web3Forms is designed to
- * accept this from client-side submissions. It only routes to the email
- * configured at Web3Forms - it is not a credential that grants other access.
+ * 2. Mailto fallback (current): if no access key is configured, the submit
+ *    button opens the visitor's default email client with the form contents
+ *    pre-filled. The destination address is split across two strings to deter
+ *    casual scraper harvesting.
  *
  * Anti-spam:
  * - Hidden honeypot field (named "botcheck")
- * - Web3Forms server-side spam filtering
- * - Email address never appears in the page HTML or client code
  * - Minimum message length requirement
+ * - In Web3Forms mode: server-side filtering + email never in client code
+ * - In mailto mode: address is mildly obfuscated (split-and-join)
  */
+
+// Email address split to deter scraper harvesting in mailto-fallback mode.
+const EMAIL_USER = "sotirisspyrou";
+const EMAIL_DOMAIN = "gmail.com";
+
+function getContactEmail() {
+  return EMAIL_USER + "@" + EMAIL_DOMAIN;
+}
+
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -45,17 +54,29 @@ export function ContactForm() {
       return;
     }
 
-    // Add the access key + a friendly subject line.
+    const userName = (formData.get("name") as string) || "";
+    const userEmail = (formData.get("email") as string) || "";
+    const userSubject = (formData.get("subject") as string) || "(no subject)";
+    const userMessage = (formData.get("message") as string) || "";
+
+    // Mailto fallback: no Web3Forms key configured.
     if (!accessKey) {
-      setStatus("error");
-      setErrorMessage(
-        "The contact form is not yet configured. Please try again later or use the press email on the Press page."
-      );
+      const body =
+        `From: ${userName} <${userEmail}>\n\n` +
+        `${userMessage}\n\n` +
+        `--\nSent via the contact form at theulyssesuniverse.com/contact`;
+      const mailtoUrl =
+        `mailto:${getContactEmail()}` +
+        `?subject=${encodeURIComponent(`[Ulysses Universe] ${userSubject}`)}` +
+        `&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoUrl;
+      setStatus("success");
+      (event.target as HTMLFormElement).reset();
       return;
     }
-    formData.append("access_key", accessKey);
 
-    const userSubject = (formData.get("subject") as string) || "(no subject)";
+    // Web3Forms mode.
+    formData.append("access_key", accessKey);
     formData.set("subject", `[Ulysses Universe] ${userSubject}`);
     formData.append("from_name", "The Ulysses Universe contact form");
 
@@ -74,27 +95,29 @@ export function ContactForm() {
         setStatus("error");
         setErrorMessage(
           data.message ||
-            "Something went wrong sending your message. Please try again or use the press email on the Press page."
+            "Something went wrong sending your message. Please try again or email directly using the address on the Press page."
         );
       }
     } catch (err) {
       console.error("Contact form error:", err);
       setStatus("error");
       setErrorMessage(
-        "Could not reach the contact service. Please try again later or use the press email on the Press page."
+        "Could not reach the contact service. Please try again later or email directly using the address on the Press page."
       );
     }
   }
 
   if (status === "success") {
+    const usingMailto = !accessKey;
     return (
       <div className="bg-void-dark border border-gold/30 rounded-lg p-8 text-center">
         <h2 className="font-display text-2xl text-text-primary tracking-wide mb-3">
-          Message sent
+          {usingMailto ? "Email client opened" : "Message sent"}
         </h2>
         <p className="font-body text-text-secondary mb-6">
-          Thank you. Your message has been delivered. Response time during the
-          active launch window is typically within 48 hours.
+          {usingMailto
+            ? "Your default email client should have opened with your message pre-filled. Click Send in that window to deliver it. Response time during the active launch window is typically within 48 hours."
+            : "Thank you. Your message has been delivered. Response time during the active launch window is typically within 48 hours."}
         </p>
         <button
           type="button"
