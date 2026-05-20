@@ -136,6 +136,7 @@ export function bookSchema(book: BookMeta) {
   if (book.buyLinks?.amazonUS) sameAs.push(book.buyLinks.amazonUS);
   if (book.buyLinks?.amazonUK) sameAs.push(book.buyLinks.amazonUK);
   if (book.goodreadsUrl) sameAs.push(book.goodreadsUrl);
+  if (book.wikidataUrl) sameAs.push(book.wikidataUrl);
 
   return {
     "@context": "https://schema.org",

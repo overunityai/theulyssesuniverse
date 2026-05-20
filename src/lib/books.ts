@@ -22,8 +22,8 @@ export const BOOKS_DATA: BookMeta[] = [
     isbnHardback: "9798197782526",
     pageCount: 190,
     datePublished: "2026-05-01",
+    wikidataUrl: "https://www.wikidata.org/wiki/Q139861109",
     // goodreadsUrl: undefined, // populate once Goodreads Author Profile is claimed
-    // wikidataUrl: undefined,  // populate once Wikidata entry is created
   },
   {
     slug: "the-void-between",
@@ -46,6 +46,7 @@ export const BOOKS_DATA: BookMeta[] = [
     isbnHardback: "9798197788122",
     pageCount: 170,
     datePublished: "2026-08-01",
+    wikidataUrl: "https://www.wikidata.org/wiki/Q139861547",
   },
   {
     slug: "the-return",
@@ -68,6 +69,7 @@ export const BOOKS_DATA: BookMeta[] = [
     isbnHardback: "9798197791306",
     pageCount: 187,
     datePublished: "2026-11-01",
+    wikidataUrl: "https://www.wikidata.org/wiki/Q139862200",
   },
 ];
 

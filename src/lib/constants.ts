@@ -22,7 +22,7 @@ export const AUTHOR = {
    * Used by Person and Organization schema sameAs arrays.
    */
   identity: {
-    wikidata: null as string | null,     // Q-ID URL once created
+    wikidata: "https://www.wikidata.org/wiki/Q139860657" as string | null,  // Person entity created 2026-05-20
     isni: "https://isni.org/isni/0000000530304205" as string | null,  // issued 2026-05-19 by British Library
     orcid: null as string | null,        // optional, academic ID
     goodreadsAuthor: "https://www.goodreads.com/author/show/58278668.Sotiris_Spyrou" as string | null,
