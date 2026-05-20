@@ -4,8 +4,11 @@ import { getAllPosts } from "@/lib/blog";
 import { BOOKS_DATA } from "@/lib/books";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Use a stable build date for static pages instead of new Date() on every request
-  const buildDate = "2026-03-07T00:00:00.000Z";
+  // Stable build date - bump when meaningful sitewide changes ship (schema,
+  // identity layer, structural updates). Use a literal so it doesn't change
+  // on every request (bad for Google's crawl scheduling). Last bump:
+  // 2026-05-20 (Wikidata Q-IDs wired into schema + identity layer complete).
+  const buildDate = "2026-05-20T00:00:00.000Z";
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
@@ -84,7 +87,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // NOTE: /brand is excluded (NOINDEX/NOFOLLOW)
   ];
 
-  // Book pages
+  // Book pages - use buildDate (recently bumped to reflect Wikidata Q-ID wiring)
+  // rather than book.datePublished, because we want Google to re-crawl these
+  // pages after schema changes ship.
   const bookPages: MetadataRoute.Sitemap = BOOKS_DATA.map((book) => ({
     url: `${SITE_URL}/books/${book.slug}`,
     lastModified: buildDate,
