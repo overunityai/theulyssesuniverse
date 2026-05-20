@@ -91,7 +91,7 @@ export function personSchema() {
 export function bookSchema(book: BookMeta) {
   const identifiers: Record<string, unknown>[] = [];
 
-  // Add Amazon ASIN as identifier (always present)
+  // Add Amazon ASIN as identifier (Kindle format)
   if (book.amazonAsin) {
     identifiers.push({
       "@type": "PropertyValue",
@@ -99,7 +99,7 @@ export function bookSchema(book: BookMeta) {
       value: book.amazonAsin,
     });
   }
-  // Add ISBN as identifier when available (B2B books have ISBN-13)
+  // Legacy single ISBN field
   if (book.isbn) {
     identifiers.push({
       "@type": "PropertyValue",
@@ -107,6 +107,30 @@ export function bookSchema(book: BookMeta) {
       value: book.isbn,
     });
   }
+  // Paperback ISBN-13
+  if (book.isbnPaperback) {
+    identifiers.push({
+      "@type": "PropertyValue",
+      propertyID: "ISBN_13",
+      value: book.isbnPaperback,
+      description: "Paperback edition",
+    });
+  }
+  // Hardback ISBN-13
+  if (book.isbnHardback) {
+    identifiers.push({
+      "@type": "PropertyValue",
+      propertyID: "ISBN_13",
+      value: book.isbnHardback,
+      description: "Hardback edition",
+    });
+  }
+
+  // Build isbn array combining all available ISBNs (schema.org accepts string or array)
+  const allIsbns: string[] = [];
+  if (book.isbn) allIsbns.push(book.isbn);
+  if (book.isbnPaperback) allIsbns.push(book.isbnPaperback);
+  if (book.isbnHardback) allIsbns.push(book.isbnHardback);
 
   const sameAs: string[] = [];
   if (book.buyLinks?.amazonUS) sameAs.push(book.buyLinks.amazonUS);
@@ -130,12 +154,12 @@ export function bookSchema(book: BookMeta) {
       name: SITE_NAME,
     },
     bookFormat: "https://schema.org/EBook",
-    numberOfPages: Math.round(book.wordCount / 250),
+    numberOfPages: book.pageCount || Math.round(book.wordCount / 250),
     inLanguage: "en-GB",
     genre: "Space Opera",
     url: `${SITE_URL}/books/${book.slug}`,
     image: `${SITE_URL}${book.characterImage}`,
-    isbn: book.isbn || undefined,
+    isbn: allIsbns.length > 0 ? (allIsbns.length === 1 ? allIsbns[0] : allIsbns) : undefined,
     identifier: identifiers.length > 0 ? identifiers : undefined,
     sameAs: sameAs.length > 0 ? sameAs : undefined,
     datePublished: book.datePublished || undefined,

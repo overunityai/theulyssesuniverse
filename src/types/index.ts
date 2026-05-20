@@ -28,10 +28,16 @@ export interface BookMeta {
     amazonUS: string;
   };
   pullQuote: string;
-  /** Amazon Standard Identification Number - always present for KDP titles. */
+  /** Amazon Standard Identification Number - always present for KDP titles (Kindle format). */
   amazonAsin?: string;
-  /** ISBN-13 - present for books with assigned KDP ISBN (or own ISBN). */
+  /** Legacy single ISBN-13 field - prefer isbnPaperback / isbnHardback. Kept for backward compat. */
   isbn?: string;
+  /** ISBN-13 for paperback edition (KDP-issued or own). */
+  isbnPaperback?: string;
+  /** ISBN-13 for hardback edition (KDP-issued or own). */
+  isbnHardback?: string;
+  /** Page count for print editions. */
+  pageCount?: number;
   /** ISO 8601 date string, e.g. "2026-05-01". For schema datePublished. */
   datePublished?: string;
   /** Goodreads book URL once claimed. */

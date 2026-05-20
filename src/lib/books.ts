@@ -18,8 +18,10 @@ export const BOOKS_DATA: BookMeta[] = [
     },
     pullQuote: "You'll reach home. You'll wish you hadn't.",
     amazonAsin: "B0GNGQFR6C",
+    isbnPaperback: "9798197763075",
+    isbnHardback: "9798197782526",
+    pageCount: 190,
     datePublished: "2026-05-01",
-    // isbn: undefined,         // KDP trilogy uses ASIN; assign ISBN when paperback/hardback launches
     // goodreadsUrl: undefined, // populate once Goodreads Author Profile is claimed
     // wikidataUrl: undefined,  // populate once Wikidata entry is created
   },
@@ -40,6 +42,9 @@ export const BOOKS_DATA: BookMeta[] = [
     },
     pullQuote: "In the Void, your memories are the first thing to go. Your name is the last.",
     amazonAsin: "B0GNG5KLKC",
+    isbnPaperback: "9798197785985",
+    isbnHardback: "9798197788122",
+    pageCount: 170,
     datePublished: "2026-08-01",
   },
   {
@@ -59,6 +64,9 @@ export const BOOKS_DATA: BookMeta[] = [
     },
     pullQuote: "Home isn't where you left it. It's what you build from the wreckage.",
     amazonAsin: "B0GNGQCS91",
+    isbnPaperback: "9798197789655",
+    isbnHardback: "9798197791306",
+    pageCount: 187,
     datePublished: "2026-11-01",
   },
 ];
