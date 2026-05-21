@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/blog`,
     images: [
       {
-        url: `${SITE_URL}/images/og/blog.webp`,
+        url: `${SITE_URL}/images/blog/the-bridge.webp`,
         width: 1672,
         height: 941,
         alt: `${SITE_NAME} blog - mythology, space opera, world-building`,
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: BLOG_SEO_TITLE,
     description: BLOG_SEO_DESCRIPTION,
-    images: [`${SITE_URL}/images/og/blog.webp`],
+    images: [`${SITE_URL}/images/blog/the-bridge.webp`],
   },
 };
 
