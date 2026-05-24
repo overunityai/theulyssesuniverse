@@ -100,7 +100,7 @@ export function Navigation() {
 
       {/* Mobile slide-out panel */}
       <div
-        className={`md:hidden fixed inset-0 top-16 bg-void-black/95 backdrop-blur-lg transition-transform duration-300 ${
+        className={`md:hidden fixed inset-0 top-16 bg-void-black transition-transform duration-300 ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden={!mobileOpen}

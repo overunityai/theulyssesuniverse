@@ -68,6 +68,14 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://theulyssesuniverse.com",
+    types: {
+      "application/rss+xml": [
+        {
+          url: "https://theulyssesuniverse.com/feed.xml",
+          title: "The Ulysses Universe Blog RSS Feed",
+        },
+      ],
+    },
   },
   verification: {
     google: "P_Jro-tAIH-TVsNNB9eACTn2CnWAtarVF0WR_8RKuHw",
