@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { GreekKeyDivider } from "@/components/ui/GreekKeyDivider";
 import { EmailCapture } from "@/components/ui/EmailCapture";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Newsletter - Join the Crew",
@@ -30,6 +33,12 @@ const benefits = [
 export default function NewsletterPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Newsletter", url: `${SITE_URL}/newsletter` },
+        ])}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-24">
         <div className="mx-auto max-w-[1200px] px-6 text-center">

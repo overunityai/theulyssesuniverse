@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { EmailCapture } from "@/components/ui/EmailCapture";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Read Chapter 1 Free - The Blinding",
@@ -10,6 +13,12 @@ export const metadata: Metadata = {
 export default function FreeChapterPage() {
   return (
     <div className="min-h-screen flex items-center justify-center py-20">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Free Chapter", url: `${SITE_URL}/free-chapter` },
+        ])}
+      />
       <div className="mx-auto max-w-xl px-6 text-center">
         {/* Minimal branding */}
         <a href="/" className="inline-block mb-12">

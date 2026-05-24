@@ -5,13 +5,24 @@ import { CharacterCard } from "@/components/ui/CharacterCard";
 import { EmailCapture } from "@/components/ui/EmailCapture";
 import { NolanHook } from "@/components/ui/NolanHook";
 import { GreekKeyDivider } from "@/components/ui/GreekKeyDivider";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { BOOKS_DATA } from "@/lib/books";
 import { HOMEPAGE_CHARACTERS } from "@/lib/characters";
-import { AMAZON_LINKS } from "@/lib/constants";
+import { AMAZON_LINKS, SITE_URL } from "@/lib/constants";
+import {
+  webSiteSchema,
+  organizationSchema,
+  personSchema,
+  breadcrumbSchema,
+} from "@/lib/schema";
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={webSiteSchema()} />
+      <JsonLd data={organizationSchema()} />
+      <JsonLd data={personSchema()} />
+      <JsonLd data={breadcrumbSchema([{ name: "Home", url: SITE_URL }])} />
       {/* ============ SECTION 1: HERO ============ */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background image */}
