@@ -9,6 +9,26 @@ export const metadata: Metadata = {
   title: "Journey Map",
   description:
     "Follow the Odyssey's path from Troy Station to Ithaca. Every stop, every danger, every myth reimagined in space.",
+  openGraph: {
+    title: "The Journey - From Troy Station to Ithaca",
+    description:
+      "Follow the Odyssey's path. Every stop, every danger, every myth reimagined in space.",
+    type: "website",
+    url: "https://theulyssesuniverse.com/universe/journey",
+    images: [
+      {
+        url: "https://theulyssesuniverse.com/images/blog/odyssey-exterior.webp",
+        width: 1672,
+        height: 941,
+        alt: "The Odyssey starship - the journey from Troy to Ithaca",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Journey - The Ulysses Universe",
+    images: ["https://theulyssesuniverse.com/images/blog/odyssey-exterior.webp"],
+  },
 };
 
 const journeyStops = [

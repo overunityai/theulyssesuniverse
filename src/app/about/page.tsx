@@ -43,6 +43,27 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Meet Sotiris Spyrou, creator of the Ulysses Universe trilogy - a space opera reimagining of Homer's Odyssey. Founder of VerityAI, 27 years in digital.",
+  openGraph: {
+    title: "About Sotiris Spyrou - The Ulysses Universe",
+    description:
+      "Meet Sotiris Spyrou, creator of the Ulysses Universe trilogy. Founder of VerityAI. 27 years in digital.",
+    type: "profile",
+    url: "https://theulyssesuniverse.com/about",
+    images: [
+      {
+        url: "https://theulyssesuniverse.com/images/og/ulysses-hero.webp",
+        width: 1200,
+        height: 1200,
+        alt: "Sotiris Spyrou - author of the Ulysses Universe trilogy",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Sotiris Spyrou",
+    description: "Creator of the Ulysses Universe trilogy. Founder of VerityAI.",
+    images: ["https://theulyssesuniverse.com/images/og/ulysses-hero.webp"],
+  },
 };
 
 const contactCards = [

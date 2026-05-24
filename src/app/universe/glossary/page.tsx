@@ -9,6 +9,26 @@ export const metadata: Metadata = {
   title: "Glossary - Terms and Technology",
   description:
     "The Merge, The Void, Data Suspension, The Pantheon - every key term from the Ulysses Universe trilogy explained.",
+  openGraph: {
+    title: "Glossary - The Ulysses Universe",
+    description:
+      "Every key term from the Ulysses Universe trilogy. The Merge, the Void, Data Suspension, the Pantheon - explained.",
+    type: "website",
+    url: "https://theulyssesuniverse.com/universe/glossary",
+    images: [
+      {
+        url: "https://theulyssesuniverse.com/images/og/universe.webp",
+        width: 1672,
+        height: 941,
+        alt: "The Ulysses Universe - glossary of terms",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Glossary - The Ulysses Universe",
+    images: ["https://theulyssesuniverse.com/images/og/universe.webp"],
+  },
 };
 
 export default function GlossaryPage() {

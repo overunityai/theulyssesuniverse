@@ -8,6 +8,27 @@ export const metadata: Metadata = {
   title: "Read Chapter 1 Free - The Blinding",
   description:
     "Read the first chapter of The Blinding free. A blind admiral, a cursed ship, and the journey that begins when war ends.",
+  openGraph: {
+    title: "Read Chapter 1 Free - The Blinding",
+    description:
+      "The war is over. The celebrations are done. And Admiral Ulysses Theron is about to make the choice that costs him everything.",
+    type: "article",
+    url: "https://theulyssesuniverse.com/free-chapter",
+    images: [
+      {
+        url: "https://theulyssesuniverse.com/images/blog/the-bridge.webp",
+        width: 1672,
+        height: 941,
+        alt: "The bridge of the Odyssey - a cinematic still",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Read Chapter 1 Free - The Blinding",
+    description: "First chapter of the Ulysses Universe trilogy. Free to read.",
+    images: ["https://theulyssesuniverse.com/images/blog/the-bridge.webp"],
+  },
 };
 
 export default function FreeChapterPage() {
