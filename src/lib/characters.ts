@@ -32,7 +32,7 @@ export const CHARACTERS_DATA: CharacterMeta[] = [
   },
   {
     slug: "thea-sato",
-    name: "Thea Sato",
+    name: "Thea",
     role: "The Woman with No Past",
     description:
       "Pulled from a drifting escape pod with violet eyes and zero memory. Thea fights like someone trained for war but can't remember which one. The crew doesn't trust her. They're right not to. What she's forgotten is more dangerous than anything in the Void.",

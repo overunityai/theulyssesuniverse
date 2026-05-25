@@ -223,7 +223,7 @@ export default function PressPage() {
               Telemachus (an empath, seven at the start, twenty-seven at the
               return), Echo (a bronze maintenance robot whose AI inheritance
               from a pre-Awakening vessel carries the trilogy&apos;s deepest
-              mystery), and Thea Sato (a stowaway with a complicated origin).
+              mystery), and Thea (a stowaway with a complicated origin).
             </p>
             <p>
               Major waypoints include the asteroid-prison Polyphemus Station

@@ -10,12 +10,12 @@ import { SITE_URL } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Characters",
   description:
-    "Meet the crew of the Odyssey - Ulysses, Telemachus, Thea Sato, Echo, Athena, and Penelope. Character profiles from the Ulysses Universe trilogy.",
+    "Meet the crew of the Odyssey - Ulysses, Telemachus, Thea, Echo, Athena, and Penelope. Character profiles from the Ulysses Universe trilogy.",
   alternates: { canonical: `${SITE_URL}/universe/characters` },
   openGraph: {
     title: "Characters | The Ulysses Universe",
     description:
-      "Meet the crew of the Odyssey: Ulysses, Telemachus, Thea Sato, Echo, Athena, Penelope.",
+      "Meet the crew of the Odyssey: Ulysses, Telemachus, Thea, Echo, Athena, Penelope.",
     type: "website",
     url: `${SITE_URL}/universe/characters`,
     images: [

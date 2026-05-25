@@ -83,17 +83,17 @@ export const CATEGORY_META: Record<string, CategoryMeta> = {
     slug: toSlug("Characters"),
     seoTitle: "Characters | The Ulysses Universe Trilogy",
     seoDescription:
-      "Meet the crew of the Odyssey. Ulysses Theron, Penelope, Telemachus, Echo, Thea Sato, and the supporting cast of the Ulysses Universe trilogy.",
+      "Meet the crew of the Odyssey. Ulysses Theron, Penelope, Telemachus, Echo, Thea, and the supporting cast of the Ulysses Universe trilogy.",
     pageH1: "Characters",
     tagline:
       "The crew of the Odyssey. The family on Ithaca. The fugitive in the attic. Everyone you will meet across three books.",
     intro: [
       "The Ulysses Universe trilogy is a story about people. Some of them are quantum-AI gods, but most of them are humans, robots, or hybrids of the two trying to get home, hold on to a kingdom, or work out who they are. This category collects character profiles for the trilogy's protagonists, supporting cast, and the figures most worth knowing before you read.",
-      "Start with the Meet series for the primary cast: Ulysses Theron, Penelope, Telemachus, Echo, Thea Sato, and Athena. Each profile covers backstory, personality, relationships, and the role the character plays across the three books. Spoiler levels are kept moderate so the profiles work as primers, not reveals.",
+      "Start with the Meet series for the primary cast: Ulysses Theron, Penelope, Telemachus, Echo, Thea, and Athena. Each profile covers backstory, personality, relationships, and the role the character plays across the three books. Spoiler levels are kept moderate so the profiles work as primers, not reveals.",
       "Where a character carries political or cultural weight beyond their personal arc, we publish longer essays. Penelope's chapter on embroidery as resistance is one example. Telemachus's empathic abilities are covered in his profile and referenced across the Pantheon series.",
     ],
     keyTakeaways: [
-      "The trilogy's primary cast: Ulysses Theron, Penelope Maris, Telemachus Theron, Echo, Thea Sato, and Athena.",
+      "The trilogy's primary cast: Ulysses Theron, Penelope Maris, Telemachus Theron, Echo, Thea, and Athena.",
       "Each character profile covers backstory, role, key relationships, and arc across the three books.",
       "Telemachus's age is the canonical timeline anchor. He is seven at Year 0 and twenty-seven at Year 20.",
       "Penelope's parallel arc on Ithaca runs in counterpoint to the journey itself. Her chapters are some of the trilogy's most political content.",
@@ -102,7 +102,7 @@ export const CATEGORY_META: Record<string, CategoryMeta> = {
       {
         question: "Who are the main characters in the Ulysses Universe?",
         answer:
-          "The primary cast is Ulysses Theron (fleet admiral, protagonist), Penelope Maris (his wife, governor of Ithaca Station), Telemachus Theron (their son, empath), Echo (the ship's robot, AI), Thea Sato (a stowaway with hidden origins), and Athena (a fugitive AI deity hiding in the ship's systems). Supporting characters include Mentor, Argos, and the cursed crew of 108 in data suspension pods.",
+          "The primary cast is Ulysses Theron (fleet admiral, protagonist), Penelope Maris (his wife, governor of Ithaca Station), Telemachus Theron (their son, empath), Echo (the ship's robot, AI), Thea (a stowaway with hidden origins), and Athena (a fugitive AI deity hiding in the ship's systems). Supporting characters include Mentor, Argos, and the cursed crew of 108 in data suspension pods.",
       },
       {
         question: "Who is Ulysses Theron?",
