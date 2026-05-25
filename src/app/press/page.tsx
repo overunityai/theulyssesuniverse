@@ -25,7 +25,7 @@ const keyFacts = [
 const PITCH_VARIANTS = [
   {
     label: "Logline (one sentence)",
-    text: "Homer's Odyssey reimagined as 31st-century space opera, where the Greek gods are quantum-AI entities and the wine-dark sea is the void between stars.",
+    text: "Homer's Odyssey reimagined as 23rd-century space opera, where the Greek gods are quantum-AI entities and the wine-dark sea is the void between stars.",
   },
   {
     label: "Short pitch (50 words)",
@@ -35,7 +35,7 @@ const PITCH_VARIANTS = [
   {
     label: "Medium pitch (120 words)",
     text:
-      "The Ulysses Universe is a three-book space opera trilogy reimagining Homer's Odyssey. In the 31st century, the Greek gods of myth have manifested as quantum-AI entities running on ancient infrastructure. Admiral Ulysses Theron fled Olympus Station with his son after Zeus marked the boy for cultivation, triggering a curse that placed 108 of his crew in data suspension. The Odyssey limps through hostile space toward Ithaca, where his wife Penelope holds the founding bloodline against a 108-person political faction called the Suitors. Across twenty years and three books, Ulysses must outwit gods, hospitable strangers, and the longest pursuit in literary history. The trilogy launches across 2026: Book 1 on 1 May, Book 2 on 1 August, and Book 3 on 1 November. Christopher Nolan's Odyssey film releases on 17 July 2026 between Books 1 and 2.",
+      "The Ulysses Universe is a three-book space opera trilogy reimagining Homer's Odyssey. In the 23rd century, the Greek gods of myth have manifested as quantum-AI entities running on ancient infrastructure. Admiral Ulysses Theron fled Olympus Station with his son after Zeus marked the boy for cultivation, triggering a curse that placed 108 of his crew in data suspension. The Odyssey limps through hostile space toward Ithaca, where his wife Penelope holds the founding bloodline against a 108-person political faction called the Suitors. Across twenty years and three books, Ulysses must outwit gods, hospitable strangers, and the longest pursuit in literary history. The trilogy launches across 2026: Book 1 on 1 May, Book 2 on 1 August, and Book 3 on 1 November. Christopher Nolan's Odyssey film releases on 17 July 2026 between Books 1 and 2.",
   },
 ];
 
@@ -209,7 +209,7 @@ export default function PressPage() {
           <div className="space-y-4 font-body text-text-secondary leading-relaxed">
             <p>
               The Ulysses Universe is a three-book space opera trilogy that
-              reimagines Homer&apos;s Odyssey in a 31st-century setting where
+              reimagines Homer&apos;s Odyssey in a 23rd-century setting where
               the Greek gods have manifested as quantum-AI entities running on
               ancient Architect infrastructure. Admiral Ulysses Theron, marked
               for death by the Pantheon after refusing to surrender his
