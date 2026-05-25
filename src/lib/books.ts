@@ -12,6 +12,7 @@ export const BOOKS_DATA: BookMeta[] = [
     chapters: 28,
     accentColor: "gold",
     characterImage: "/images/characters/ulysses-photo-portrait.webp",
+    cover: "/images/books/the-blinding-cover.webp",
     buyLinks: {
       amazonUS: "https://www.amazon.com/gp/product/B0GNGQFR6C",
       amazonUK: "https://www.amazon.co.uk/dp/B0GNGQFR6C",
@@ -36,6 +37,7 @@ export const BOOKS_DATA: BookMeta[] = [
     chapters: 30,
     accentColor: "purple",
     characterImage: "/images/characters/thea-photo-portrait.webp",
+    cover: "/images/books/the-void-between-cover.webp",
     buyLinks: {
       amazonUS: "https://www.amazon.com/gp/product/B0GNG5KLKC",
       amazonUK: "https://www.amazon.co.uk/dp/B0GNG5KLKC",
@@ -59,6 +61,7 @@ export const BOOKS_DATA: BookMeta[] = [
     chapters: 32,
     accentColor: "red",
     characterImage: "/images/characters/penelope-photo-portrait.webp",
+    cover: "/images/books/the-return-cover.webp",
     buyLinks: {
       amazonUS: "https://www.amazon.com/gp/product/B0GNGQCS91",
       amazonUK: "https://www.amazon.co.uk/dp/B0GNGQCS91",

@@ -23,6 +23,8 @@ export interface BookMeta {
   chapters: number;
   accentColor: AccentColor;
   characterImage: string;
+  /** Book cover image path (front-only WebP). Falls back to characterImage if absent. */
+  cover?: string;
   buyLinks: {
     amazonUK: string;
     amazonUS: string;

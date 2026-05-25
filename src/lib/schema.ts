@@ -159,7 +159,7 @@ export function bookSchema(book: BookMeta) {
     inLanguage: "en-GB",
     genre: "Space Opera",
     url: `${SITE_URL}/books/${book.slug}`,
-    image: `${SITE_URL}${book.characterImage}`,
+    image: `${SITE_URL}${book.cover ?? book.characterImage}`,
     isbn: allIsbns.length > 0 ? (allIsbns.length === 1 ? allIsbns[0] : allIsbns) : undefined,
     identifier: identifiers.length > 0 ? identifiers : undefined,
     sameAs: sameAs.length > 0 ? sameAs : undefined,

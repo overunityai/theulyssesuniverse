@@ -22,11 +22,29 @@ export function BookCoverTile({ book, className = "" }: BookCoverTileProps) {
   const borderAccent = accentBorderMap[book.accentColor] || accentBorderMap.gold;
   const textAccent = accentTextMap[book.accentColor] || accentTextMap.gold;
 
+  // If a real book cover exists, render it directly without overlays.
+  if (book.cover) {
+    return (
+      <div
+        className={`relative aspect-[2/3] bg-void-mid border ${borderAccent} rounded-lg overflow-hidden shadow-2xl ${className}`}
+      >
+        <Image
+          src={book.cover}
+          alt={`${book.title} - Book ${book.number} cover`}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover"
+          priority
+        />
+      </div>
+    );
+  }
+
+  // Fallback: stylised tile using character portrait + text overlay.
   return (
     <div
       className={`relative aspect-[2/3] bg-void-mid border ${borderAccent} rounded-lg overflow-hidden ${className}`}
     >
-      {/* Character image */}
       <Image
         src={book.characterImage}
         alt={`${book.title} cover art`}
@@ -34,12 +52,8 @@ export function BookCoverTile({ book, className = "" }: BookCoverTileProps) {
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         className="object-cover object-top opacity-60 scale-110"
       />
-
-      {/* Gradient overlays for readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-void-dark via-void-dark/50 to-transparent z-10" />
       <div className="absolute inset-0 bg-gradient-to-b from-void-dark/30 via-transparent to-transparent z-10" />
-
-      {/* Content */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6">
         <p className="font-ui text-xs uppercase tracking-[0.2em] text-text-secondary mb-3">
           Book {book.number}

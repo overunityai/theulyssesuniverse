@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: BookPageProps): Promise<Metad
       url,
       images: [
         {
-          url: `${SITE_URL}${book.characterImage}`,
+          url: `${SITE_URL}${book.cover ?? book.characterImage}`,
           width: 1200,
           height: 1200,
           alt: `${book.title} - Book ${book.number} of the Ulysses Universe`,
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: BookPageProps): Promise<Metad
       card: "summary_large_image",
       title: `${book.title} - The Ulysses Universe`,
       description: book.hook,
-      images: [`${SITE_URL}${book.characterImage}`],
+      images: [`${SITE_URL}${book.cover ?? book.characterImage}`],
     },
   };
 }
