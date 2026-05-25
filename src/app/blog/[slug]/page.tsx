@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { compileMDX } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getAllSlugs, getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { SITE_URL } from "@/lib/constants";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -127,6 +128,11 @@ export default async function BlogPostPage({
   const { content: renderedContent } = await compileMDX({
     source: post.content,
     components: createMDXComponents(),
+    options: {
+      mdxOptions: {
+        remarkPlugins: [remarkGfm],
+      },
+    },
   });
 
   return (
