@@ -13,7 +13,6 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import { formatDate } from "@/lib/utils";
 import Link from "next/link";
-import { TrustBar } from "@/components/blog/TrustBar";
 import { InlineTOC } from "@/components/blog/InlineTOC";
 import { KeyTakeaways } from "@/components/blog/KeyTakeaways";
 import { FAQSection } from "@/components/blog/FAQSection";
@@ -213,11 +212,6 @@ export default async function BlogPostPage({
               className="object-cover object-top"
               priority
             />
-          </div>
-
-          {/* Trust bar */}
-          <div className="max-w-3xl">
-            <TrustBar />
           </div>
 
           {/* Inline TOC */}
