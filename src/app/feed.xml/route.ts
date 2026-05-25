@@ -33,7 +33,7 @@ export async function GET() {
       const pubDate = new Date(post.date).toUTCString();
       const title = escapeXml(post.title);
       const description = escapeXml(post.description || "");
-      const author = escapeXml(`sotirisspyrou@gmail.com (${AUTHOR.name})`);
+      const author = escapeXml(`sotirisspyrou+goodreads@gmail.com (${AUTHOR.name})`);
       const category = escapeXml(post.category || "Blog");
 
       return `    <item>
@@ -59,8 +59,8 @@ export async function GET() {
     <description>${escapeXml(SITE_DESCRIPTION)}</description>
     <language>en-GB</language>
     <copyright>Copyright ${new Date().getFullYear()} ${escapeXml(AUTHOR.name)}</copyright>
-    <managingEditor>sotirisspyrou@gmail.com (${escapeXml(AUTHOR.name)})</managingEditor>
-    <webMaster>sotirisspyrou@gmail.com (${escapeXml(AUTHOR.name)})</webMaster>
+    <managingEditor>sotirisspyrou+goodreads@gmail.com (${escapeXml(AUTHOR.name)})</managingEditor>
+    <webMaster>sotirisspyrou+goodreads@gmail.com (${escapeXml(AUTHOR.name)})</webMaster>
     <pubDate>${lastBuildDate}</pubDate>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>
     <generator>Next.js + custom feed route</generator>

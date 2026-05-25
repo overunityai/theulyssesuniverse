@@ -75,6 +75,15 @@ export default function ContactPage() {
             for delivery. Response time during the active launch window
             (May - July 2026) is typically within 48 hours.
           </p>
+          <p className="font-ui text-xs text-text-tertiary text-center mt-2 leading-relaxed">
+            Author email for catalogue and platform verification:{" "}
+            <a
+              href="mailto:sotirisspyrou+goodreads@gmail.com"
+              className="text-gold/70 hover:text-gold transition-colors"
+            >
+              sotirisspyrou+goodreads@gmail.com
+            </a>
+          </p>
         </div>
       </section>
 

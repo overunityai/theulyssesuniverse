@@ -23,7 +23,11 @@ import { useState, useEffect } from "react";
  */
 
 // Email address split to deter scraper harvesting in mailto-fallback mode.
-const EMAIL_USER = "sotirisspyrou";
+// Temporary alias for Goodreads Author Program verification (May 2026).
+// The +goodreads tag still forwards to sotirisspyrou@gmail.com via Gmail
+// plus-addressing. Revert to plain user once Goodreads verification clears
+// or once a branded forwarder (contact@theulyssesuniverse.com) is set up.
+const EMAIL_USER = "sotirisspyrou+goodreads";
 const EMAIL_DOMAIN = "gmail.com";
 
 function getContactEmail() {
