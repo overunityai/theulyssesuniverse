@@ -28,12 +28,15 @@ export const AUTHOR = {
     goodreadsAuthor: "https://www.goodreads.com/author/show/58278668.Sotiris_Spyrou" as string | null,
     amazonAuthorUS: "https://www.amazon.com/stores/Sotiris-Spyrou/author/B0FM8R4BXL",
     amazonAuthorUK: "https://www.amazon.co.uk/stores/Sotiris-Spyrou/author/B0FM8R4BXL" as string | null,
-    bookbubAuthor: null as string | null,  // pending approval
+    bookbubAuthor: "https://www.bookbub.com/profile/sotiris-spyrou" as string | null,
     librarythingAuthor: null as string | null,  // pending claim approval
-    openLibraryAuthor: null as string | null,
+    openLibraryAuthor: "https://openlibrary.org/authors/OL16440366A" as string | null,
     isfdbAuthor: null as string | null,
     reedsyAuthor: null as string | null,
     twitter: "https://twitter.com/spspyrouseo" as string | null,
+    pinterest: "https://uk.pinterest.com/theulyssesuniverse" as string | null,
+    medium: null as string | null,  // pending profile establishment
+    substack: null as string | null,
   },
 } as const;
 
