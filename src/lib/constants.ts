@@ -97,6 +97,8 @@ export const NAV_LINKS: ReadonlyArray<NavLink> = [
       { label: "The Salvage Run", href: "https://game.theulyssesuniverse.com/salvage-run", description: "Asteroids", external: true },
       { label: "The Pantheon Wall", href: "https://game.theulyssesuniverse.com/pantheon-wall", description: "Breakout", external: true },
       { label: "The Tessera Game", href: "https://game.theulyssesuniverse.com/tessera", description: "Othello", external: true },
+      { label: "Fleet of Olympus", href: "https://game.theulyssesuniverse.com/fleet-of-olympus", description: "Battleship", external: true },
+      { label: "The Pantheon Gambit", href: "https://game.theulyssesuniverse.com/pantheon-gambit", description: "Chess", external: true },
       { label: "The Long Game", href: "https://game.theulyssesuniverse.com/long-game", description: "Backgammon", external: true },
     ],
   },
