@@ -95,6 +95,8 @@ export const NAV_LINKS: ReadonlyArray<NavLink> = [
       { label: "Echo's Vigil", href: "https://game.theulyssesuniverse.com/echos-vigil", description: "Maze", external: true },
       { label: "Penelope's Vigil", href: "https://game.theulyssesuniverse.com/penelopes-vigil", description: "Missiles", external: true },
       { label: "The Salvage Run", href: "https://game.theulyssesuniverse.com/salvage-run", description: "Asteroids", external: true },
+      { label: "The Pantheon Wall", href: "https://game.theulyssesuniverse.com/pantheon-wall", description: "Breakout", external: true },
+      { label: "The Tessera Game", href: "https://game.theulyssesuniverse.com/tessera", description: "Othello", external: true },
       { label: "The Long Game", href: "https://game.theulyssesuniverse.com/long-game", description: "Backgammon", external: true },
     ],
   },
