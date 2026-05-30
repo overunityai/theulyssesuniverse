@@ -94,6 +94,7 @@ export const NAV_LINKS: ReadonlyArray<NavLink> = [
       { label: "Poseidon's Hunt", href: "https://game.theulyssesuniverse.com/poseidons-hunt", description: "Galaxian tribute", external: true },
       { label: "Echo's Vigil", href: "https://game.theulyssesuniverse.com/echos-vigil", description: "Pac-Man tribute", external: true },
       { label: "Penelope's Vigil", href: "https://game.theulyssesuniverse.com/penelopes-vigil", description: "Missile Command tribute", external: true },
+      { label: "The Salvage Run", href: "https://game.theulyssesuniverse.com/salvage-run", description: "Asteroids tribute", external: true },
       { label: "The Long Game", href: "https://game.theulyssesuniverse.com/long-game", description: "Backgammon", external: true },
     ],
   },
