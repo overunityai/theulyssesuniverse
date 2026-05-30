@@ -83,6 +83,7 @@ export type NavLink = {
 export const NAV_LINKS: ReadonlyArray<NavLink> = [
   { label: "Books", href: "/books" },
   { label: "Universe", href: "/universe" },
+  { label: "Play the Demo", href: "https://game.theulyssesuniverse.com/play", external: true },
   {
     label: "Free Games",
     href: "https://game.theulyssesuniverse.com/free-games",
