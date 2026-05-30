@@ -68,7 +68,7 @@ export function Navigation() {
             <span className={`text-xs transition-transform ${isOpen ? "rotate-180" : ""}`}>▾</span>
           </button>
           {isOpen && (
-            <div className="absolute top-full right-0 mt-3 min-w-[260px] bg-void-dark border border-gold/30 rounded-lg shadow-2xl py-2 z-50">
+            <div className="absolute top-full right-0 mt-3 min-w-[300px] bg-void-dark border border-gold/30 rounded-lg shadow-2xl py-2 z-50">
               {link.submenu!.map((item) => (
                 <a
                   key={item.href}
@@ -78,7 +78,7 @@ export function Navigation() {
                   onClick={() => setOpenDropdown(null)}
                   className="flex items-center justify-between gap-4 px-4 py-2.5 text-text-primary hover:bg-gold/[0.06] hover:text-gold transition-colors"
                 >
-                  <span className="font-ui font-semibold text-sm uppercase tracking-[0.08em]">{item.label}</span>
+                  <span className="font-ui font-semibold text-sm uppercase tracking-[0.08em] whitespace-nowrap">{item.label}</span>
                   {item.description && (
                     <span className="font-ui text-[10px] text-gold-dim uppercase tracking-[0.15em] whitespace-nowrap">
                       {item.description}
