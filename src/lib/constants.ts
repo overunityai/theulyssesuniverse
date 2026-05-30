@@ -68,9 +68,34 @@ export const SOCIAL_LINKS = {
   goodreads: "#",
 } as const;
 
-export const NAV_LINKS = [
+export type NavLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+  submenu?: ReadonlyArray<{
+    label: string;
+    href: string;
+    description?: string;
+    external?: boolean;
+  }>;
+};
+
+export const NAV_LINKS: ReadonlyArray<NavLink> = [
   { label: "Books", href: "/books" },
   { label: "Universe", href: "/universe" },
+  {
+    label: "Free Games",
+    href: "https://game.theulyssesuniverse.com/free-games",
+    external: true,
+    submenu: [
+      { label: "All Free Games", href: "https://game.theulyssesuniverse.com/free-games", description: "Index", external: true },
+      { label: "Bow Contest", href: "https://game.theulyssesuniverse.com/bow", description: "108 Suitors, one bow", external: true },
+      { label: "Pantheon Descends", href: "https://game.theulyssesuniverse.com/invaders", description: "Space Invaders tribute", external: true },
+      { label: "Poseidon's Hunt", href: "https://game.theulyssesuniverse.com/poseidons-hunt", description: "Galaxian tribute", external: true },
+      { label: "Echo's Vigil", href: "https://game.theulyssesuniverse.com/echos-vigil", description: "Pac-Man tribute", external: true },
+      { label: "The Long Game", href: "https://game.theulyssesuniverse.com/long-game", description: "Backgammon", external: true },
+    ],
+  },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
 ] as const;
