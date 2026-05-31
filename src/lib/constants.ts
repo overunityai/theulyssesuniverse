@@ -77,6 +77,8 @@ export type NavLink = {
     href: string;
     description?: string;
     external?: boolean;
+    /** Optional group heading rendered above this item in dropdown/drawer. */
+    section?: "Index" | "Original" | "Arcade" | "Strategy";
   }>;
 };
 
@@ -90,18 +92,18 @@ export const NAV_LINKS: ReadonlyArray<NavLink> = [
     href: "https://game.theulyssesuniverse.com/free-games",
     external: true,
     submenu: [
-      { label: "All Free Games", href: "https://game.theulyssesuniverse.com/free-games", description: "Index", external: true },
-      { label: "Bow Contest", href: "https://game.theulyssesuniverse.com/bow", description: "Original", external: true },
-      { label: "Pantheon Descends", href: "https://game.theulyssesuniverse.com/invaders", description: "Invaders", external: true },
-      { label: "Poseidon's Hunt", href: "https://game.theulyssesuniverse.com/poseidons-hunt", description: "Galaxian", external: true },
-      { label: "Echo's Vigil", href: "https://game.theulyssesuniverse.com/echos-vigil", description: "Maze", external: true },
-      { label: "Penelope's Vigil", href: "https://game.theulyssesuniverse.com/penelopes-vigil", description: "Missiles", external: true },
-      { label: "The Salvage Run", href: "https://game.theulyssesuniverse.com/salvage-run", description: "Asteroids", external: true },
-      { label: "The Pantheon Wall", href: "https://game.theulyssesuniverse.com/pantheon-wall", description: "Breakout", external: true },
-      { label: "The Tessera Game", href: "https://game.theulyssesuniverse.com/tessera", description: "Othello", external: true },
-      { label: "Fleet of Olympus", href: "https://game.theulyssesuniverse.com/fleet-of-olympus", description: "Battleship", external: true },
-      { label: "The Pantheon Gambit", href: "https://game.theulyssesuniverse.com/pantheon-gambit", description: "Chess", external: true },
-      { label: "The Long Game", href: "https://game.theulyssesuniverse.com/long-game", description: "Backgammon", external: true },
+      { label: "All Free Games", href: "https://game.theulyssesuniverse.com/free-games", description: "Index", external: true, section: "Index" },
+      { label: "Bow Contest", href: "https://game.theulyssesuniverse.com/bow", description: "Archery", external: true, section: "Original" },
+      { label: "Pantheon Descends", href: "https://game.theulyssesuniverse.com/invaders", description: "Invaders", external: true, section: "Arcade" },
+      { label: "Poseidon's Hunt", href: "https://game.theulyssesuniverse.com/poseidons-hunt", description: "Galaxian", external: true, section: "Arcade" },
+      { label: "Echo's Vigil", href: "https://game.theulyssesuniverse.com/echos-vigil", description: "Maze", external: true, section: "Arcade" },
+      { label: "Penelope's Vigil", href: "https://game.theulyssesuniverse.com/penelopes-vigil", description: "Missiles", external: true, section: "Arcade" },
+      { label: "The Salvage Run", href: "https://game.theulyssesuniverse.com/salvage-run", description: "Asteroids", external: true, section: "Arcade" },
+      { label: "The Pantheon Wall", href: "https://game.theulyssesuniverse.com/pantheon-wall", description: "Breakout", external: true, section: "Arcade" },
+      { label: "The Tessera Game", href: "https://game.theulyssesuniverse.com/tessera", description: "Othello", external: true, section: "Strategy" },
+      { label: "Fleet of Olympus", href: "https://game.theulyssesuniverse.com/fleet-of-olympus", description: "Battleship", external: true, section: "Strategy" },
+      { label: "The Pantheon Gambit", href: "https://game.theulyssesuniverse.com/pantheon-gambit", description: "Chess", external: true, section: "Strategy" },
+      { label: "The Long Game", href: "https://game.theulyssesuniverse.com/long-game", description: "Backgammon", external: true, section: "Strategy" },
     ],
   },
   { label: "Blog", href: "/blog" },

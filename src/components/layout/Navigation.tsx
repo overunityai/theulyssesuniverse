@@ -69,23 +69,34 @@ export function Navigation() {
           </button>
           {isOpen && (
             <div className="absolute top-full right-0 mt-3 min-w-[300px] bg-void-dark border border-gold/30 rounded-lg shadow-2xl py-2 z-50">
-              {link.submenu!.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  target={item.external ? "_blank" : undefined}
-                  rel={item.external ? "noopener noreferrer" : undefined}
-                  onClick={() => setOpenDropdown(null)}
-                  className="flex items-center justify-between gap-4 px-4 py-2.5 text-text-primary hover:bg-gold/[0.06] hover:text-gold transition-colors"
-                >
-                  <span className="font-ui font-semibold text-sm uppercase tracking-[0.08em] whitespace-nowrap">{item.label}</span>
-                  {item.description && (
-                    <span className="font-ui text-[10px] text-gold-dim uppercase tracking-[0.15em] whitespace-nowrap">
-                      {item.description}
-                    </span>
-                  )}
-                </a>
-              ))}
+              {link.submenu!.map((item, idx) => {
+                const prev = idx > 0 ? link.submenu![idx - 1] : null;
+                const showSection = item.section && item.section !== "Index" && (!prev || prev.section !== item.section);
+                const isAll = item.section === "Index";
+                return (
+                  <div key={item.href}>
+                    {showSection && (
+                      <div className="font-ui font-bold text-[9px] uppercase tracking-[0.28em] text-gold/55 px-4 pt-3 pb-1 mt-1 border-t border-gold/8">
+                        {item.section}
+                      </div>
+                    )}
+                    <a
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener noreferrer" : undefined}
+                      onClick={() => setOpenDropdown(null)}
+                      className={`flex items-center justify-between gap-4 px-4 py-2.5 text-text-primary hover:bg-gold/[0.06] hover:text-gold transition-colors ${isAll ? "border-b border-gold/15 pb-3 mb-1" : ""}`}
+                    >
+                      <span className="font-ui font-semibold text-sm uppercase tracking-[0.08em] whitespace-nowrap">{item.label}</span>
+                      {item.description && (
+                        <span className="font-ui text-[10px] text-gold-dim uppercase tracking-[0.15em] whitespace-nowrap">
+                          {item.description}
+                        </span>
+                      )}
+                    </a>
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
@@ -115,26 +126,37 @@ export function Navigation() {
 
     if (hasSubmenu) {
       return (
-        <div key={link.href} className="flex flex-col items-center gap-4">
-          <span className={`font-ui font-semibold text-lg uppercase tracking-[0.1em] ${isActive ? "text-gold" : "text-text-primary"}`}>
+        <div key={link.href} className="flex flex-col items-stretch gap-3 w-full max-w-xs">
+          <span className={`font-ui font-semibold text-lg uppercase tracking-[0.1em] text-center ${isActive ? "text-gold" : "text-text-primary"}`}>
             {link.label}
           </span>
-          <div className="flex flex-col items-center gap-3 pl-4 border-l border-border/40 ml-2">
-            {link.submenu!.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noopener noreferrer" : undefined}
-                onClick={() => setMobileOpen(false)}
-                className="font-ui text-sm uppercase tracking-[0.08em] text-text-secondary hover:text-gold transition-colors"
-              >
-                {item.label}
-                {item.description && (
-                  <span className="block text-[10px] text-gold-dim mt-0.5">{item.description}</span>
-                )}
-              </a>
-            ))}
+          <div className="flex flex-col gap-2 pl-4 border-l border-border/40 ml-2">
+            {link.submenu!.map((item, idx) => {
+              const prev = idx > 0 ? link.submenu![idx - 1] : null;
+              const showSection = item.section && item.section !== "Index" && (!prev || prev.section !== item.section);
+              const isAll = item.section === "Index";
+              return (
+                <div key={item.href}>
+                  {showSection && (
+                    <div className="font-ui font-bold text-[10px] uppercase tracking-[0.28em] text-gold/60 pt-3 pb-1">
+                      {item.section}
+                    </div>
+                  )}
+                  <a
+                    href={item.href}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
+                    onClick={() => setMobileOpen(false)}
+                    className={`flex items-center justify-between gap-3 py-1.5 font-ui text-sm uppercase tracking-[0.08em] text-text-secondary hover:text-gold transition-colors ${isAll ? "pb-3 mb-1 border-b border-gold/15" : ""}`}
+                  >
+                    <span>{item.label}</span>
+                    {item.description && (
+                      <span className="text-[10px] text-gold-dim font-ui tracking-[0.15em]">{item.description}</span>
+                    )}
+                  </a>
+                </div>
+              );
+            })}
           </div>
         </div>
       );
@@ -178,7 +200,7 @@ export function Navigation() {
             rel="noopener noreferrer"
             className="font-ui font-semibold text-sm uppercase tracking-[0.05em] bg-gold text-void-black px-4 py-2 rounded-lg hover:bg-gold-light transition-colors"
           >
-            Buy Book One Today
+            Buy the Trilogy ↗
           </Link>
         </div>
 
@@ -225,7 +247,7 @@ export function Navigation() {
             onClick={() => setMobileOpen(false)}
             className="font-ui font-semibold text-lg uppercase tracking-[0.05em] bg-gold text-void-black px-8 py-3 rounded-lg mt-4"
           >
-            Buy Book One Today
+            Buy the Trilogy ↗
           </Link>
         </div>
       </div>
