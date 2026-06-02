@@ -8,6 +8,17 @@ import { personSchema, breadcrumbSchema } from "@/lib/schema";
 
 const OTHER_BOOKS = [
   {
+    title: "The Substrate",
+    subtitle: "Why Reality Is Computation and What That Means for Everything",
+    tagline: "A popular science investigation of consciousness, simulation, and the limits of mind.",
+    audience: "Popular science, philosophy of mind, AI thinkers",
+    blurb:
+      "What if reality at its deepest layer is not matter or energy, but information being processed? The Substrate makes the case that the universe is computation - and follows the idea through consciousness, free will, and the emerging behaviour of large AI systems. The philosophical groundwork that the Ulysses Universe trilogy plays out in fiction.",
+    amazonUrl: "https://www.amazon.com/dp/B0H3JDJKLS/",
+    cover: "/images/other-books/the-substrate.webp",
+    wikidataUrl: "https://www.wikidata.org/wiki/Q140032551",
+  },
+  {
     title: "Ethical AI",
     subtitle: "Building Responsible AI Systems That Benefit Everyone",
     tagline: "A practical guide for boards and C-suites navigating responsible AI deployment.",
@@ -104,6 +115,37 @@ export default function AboutPage() {
   return (
     <>
       <JsonLd data={personSchema()} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Book",
+          "@id": "https://theulyssesuniverse.com/about#book-the-substrate",
+          name: "The Substrate",
+          alternateName: "The Substrate: Why Reality Is Computation and What That Means for Everything",
+          author: {
+            "@type": "Person",
+            name: AUTHOR.name,
+            sameAs: "https://www.wikidata.org/wiki/Q139860657",
+          },
+          inLanguage: "en",
+          datePublished: "2026",
+          isbn: ["9798199688727", "9798199701624"],
+          identifier: [
+            { "@type": "PropertyValue", propertyID: "Amazon ASIN", value: "B0H3JDJKLS" },
+            { "@type": "PropertyValue", propertyID: "ISBN_13", value: "9798199688727" },
+            { "@type": "PropertyValue", propertyID: "ISBN_13", value: "9798199701624" },
+          ],
+          image: `${SITE_URL}/images/other-books/the-substrate.webp`,
+          url: "https://www.amazon.com/dp/B0H3JDJKLS/",
+          sameAs: [
+            "https://www.wikidata.org/wiki/Q140032551",
+            "https://www.amazon.com/dp/B0H3JDJKLS/",
+          ],
+          publisher: { "@type": "Organization", name: "Independently published" },
+          bookFormat: ["https://schema.org/Paperback", "https://schema.org/Hardcover"],
+          genre: "Popular Science",
+        }}
+      />
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", url: SITE_URL },
@@ -257,17 +299,18 @@ export default function AboutPage() {
               Also by Sotiris Spyrou
             </p>
             <h2 className="font-display text-3xl md:text-4xl text-text-primary tracking-wide mb-4">
-              Before the trilogy, three business books
+              Beyond the trilogy
             </h2>
             <p className="font-body text-text-secondary max-w-2xl mx-auto">
-              The Ulysses Universe is the fiction. The day job, twenty-seven years
-              of digital and consulting, produced three business books for the
-              other half of the audience. C-suites, founders, transformation
-              leaders. Different brand, different palette, same author.
+              The Ulysses Universe is the fiction. Around it: a popular science
+              book on the computational nature of reality, and three business
+              books for executives navigating AI. Different forms, same
+              underlying question - what happens when the patterns we build
+              start running themselves?
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {OTHER_BOOKS.map((book) => (
               <a
                 key={book.title}
