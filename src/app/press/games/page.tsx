@@ -117,9 +117,9 @@ export const metadata: Metadata = {
 
 export default function GamesPressKitPage() {
   const breadcrumb = breadcrumbSchema([
-    { name: SITE_NAME, item: SITE_URL },
-    { name: "Press Kit", item: `${SITE_URL}/press` },
-    { name: "Games", item: `${SITE_URL}/press/games` },
+    { name: SITE_NAME, url: SITE_URL },
+    { name: "Press Kit", url: `${SITE_URL}/press` },
+    { name: "Games", url: `${SITE_URL}/press/games` },
   ]);
   const person = personSchema(AUTHOR);
 
