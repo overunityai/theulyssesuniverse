@@ -121,7 +121,7 @@ export default function GamesPressKitPage() {
     { name: "Press Kit", url: `${SITE_URL}/press` },
     { name: "Games", url: `${SITE_URL}/press/games` },
   ]);
-  const person = personSchema(AUTHOR);
+  const person = personSchema();
 
   return (
     <>
