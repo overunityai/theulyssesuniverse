@@ -177,7 +177,8 @@ export function Navigation() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-void-black/80 backdrop-blur-md border-b border-border/50">
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-void-black/80 backdrop-blur-md border-b border-border/50">
       <nav
         className="mx-auto max-w-[1200px] px-6 flex items-center justify-between h-16"
         aria-label="Main navigation"
@@ -229,15 +230,32 @@ export function Navigation() {
           />
         </button>
       </nav>
+      </header>
 
-      {/* Mobile slide-out panel - z-40 stays below header (z-50) but above content; explicit top/left/right/bottom for iOS Safari which mishandles inset-0 combined with top override */}
+      {/* Mobile slide-out panel - MUST be outside <header> because the header
+          has backdrop-filter, which (on iOS Safari) creates a containing block
+          that constrains position:fixed descendants. Hardcoded colours so
+          tailwind misconfigurations cannot blank the menu out. */}
       <div
-        className={`lg:hidden fixed top-16 left-0 right-0 bottom-0 z-40 bg-void-black overflow-y-auto transition-transform duration-300 ${
-          mobileOpen ? "translate-x-0" : "translate-x-full pointer-events-none"
-        }`}
+        className="lg:hidden"
+        style={{
+          position: "fixed",
+          top: 64,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 45,
+          backgroundColor: "#0A0A0F",
+          overflowY: "auto",
+          WebkitOverflowScrolling: "touch",
+          transition: "transform 0.28s cubic-bezier(0.4,0,0.2,1)",
+          transform: mobileOpen ? "translateX(0)" : "translateX(100%)",
+          pointerEvents: mobileOpen ? "auto" : "none",
+          display: "block",
+        }}
         aria-hidden={!mobileOpen}
       >
-        <div className="flex flex-col items-center gap-8 pt-12 pb-16 px-6">
+        <div className="flex flex-col items-center gap-8 pt-12 pb-16 px-6" style={{ color: "#E8E6E3" }}>
           {NAV_LINKS.map(renderMobileLink)}
           <Link
             href="https://www.amazon.co.uk/dp/B0GNFQM4FN"
@@ -245,11 +263,12 @@ export function Navigation() {
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
             className="font-ui font-semibold text-lg uppercase tracking-[0.05em] bg-gold text-void-black px-8 py-3 rounded-lg mt-4"
+            style={{ backgroundColor: "#D4AF37", color: "#0A0A0F" }}
           >
             Buy the Trilogy ↗
           </Link>
         </div>
       </div>
-    </header>
+    </>
   );
 }
