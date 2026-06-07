@@ -230,13 +230,12 @@ export function Navigation() {
         </button>
       </nav>
 
-      {/* Mobile slide-out panel */}
+      {/* Mobile slide-out panel - z-40 stays below header (z-50) but above content; explicit top/left/right/bottom for iOS Safari which mishandles inset-0 combined with top override */}
       <div
-        className={`md:hidden fixed inset-0 top-16 bg-void-black overflow-y-auto transition-transform duration-300 ${
-          mobileOpen ? "translate-x-0" : "translate-x-full"
+        className={`md:hidden fixed top-16 left-0 right-0 bottom-0 z-40 bg-void-black overflow-y-auto transition-transform duration-300 ${
+          mobileOpen ? "translate-x-0" : "translate-x-full pointer-events-none"
         }`}
         aria-hidden={!mobileOpen}
-        inert={!mobileOpen ? ("" as unknown as boolean) : undefined}
       >
         <div className="flex flex-col items-center gap-8 pt-12 pb-16 px-6">
           {NAV_LINKS.map(renderMobileLink)}
