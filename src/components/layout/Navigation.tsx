@@ -192,7 +192,7 @@ export function Navigation() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map(renderDesktopLink)}
           <Link
             href="https://www.amazon.co.uk/dp/B0GNFQM4FN"
@@ -207,7 +207,7 @@ export function Navigation() {
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="lg:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -232,7 +232,7 @@ export function Navigation() {
 
       {/* Mobile slide-out panel - z-40 stays below header (z-50) but above content; explicit top/left/right/bottom for iOS Safari which mishandles inset-0 combined with top override */}
       <div
-        className={`md:hidden fixed top-16 left-0 right-0 bottom-0 z-40 bg-void-black overflow-y-auto transition-transform duration-300 ${
+        className={`lg:hidden fixed top-16 left-0 right-0 bottom-0 z-40 bg-void-black overflow-y-auto transition-transform duration-300 ${
           mobileOpen ? "translate-x-0" : "translate-x-full pointer-events-none"
         }`}
         aria-hidden={!mobileOpen}
