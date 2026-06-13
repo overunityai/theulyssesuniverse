@@ -49,11 +49,11 @@ const READY_QUOTES = [
 
 const OTHER_BOOKS_BRIEF = [
   {
-    title: "The A-Z Guide to Ethical AI Success",
+    title: "Ethical AI",
     summary: "C-suite and board guide to responsible AI deployment.",
   },
   {
-    title: "AI Monopoly",
+    title: "AI Moats",
     summary: "Founder and investor guide to building defensible AI moats. Nine named failure cases.",
   },
   {
@@ -386,8 +386,8 @@ export default function PressPage() {
                 Adjacent author angles
               </strong>{" "}
               available for interviews: AI ethics and governance (drawing on
-              Spyrou&apos;s prior business book The A-Z Guide to Ethical AI
-              Success), the political economy of AI (drawing on AI Monopoly),
+              Spyrou&apos;s prior business book Ethical AI), the political
+              economy of AI (drawing on AI Moats),
               enterprise AI transformation (drawing on TRANSFORM), and the
               relationship between non-fiction argument and long-form fiction.
             </p>
