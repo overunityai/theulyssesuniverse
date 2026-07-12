@@ -31,7 +31,7 @@ export const CHARACTERS_DATA: CharacterMeta[] = [
     accentColor: "blue",
   },
   {
-    slug: "thea-sato",
+    slug: "thea",
     name: "Thea",
     role: "The Woman with No Past",
     description:
@@ -41,7 +41,7 @@ export const CHARACTERS_DATA: CharacterMeta[] = [
       "Telemachus Theron (complicated)",
       "Echo (cautious ally)",
     ],
-    imagePath: "/images/characters/thea-cartoon-portrait.webp",
+    imagePath: "/images/characters/thea-cartoon-portrait-3.webp",
     accentColor: "purple",
   },
   {
@@ -93,5 +93,5 @@ export function getCharacterBySlug(slug: string): CharacterMeta | undefined {
 }
 
 export const HOMEPAGE_CHARACTERS = CHARACTERS_DATA.filter((c) =>
-  ["ulysses", "telemachus", "thea-sato", "echo"].includes(c.slug)
+  ["ulysses", "telemachus", "thea", "echo"].includes(c.slug)
 );

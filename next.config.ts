@@ -16,6 +16,13 @@ const nextConfig: NextConfig = {
         destination: "/blog/homers-odyssey-definitive-guide",
         permanent: true,
       },
+      // Thea profile slug shortened - dropped the non-canonical "sato" surname.
+      // Permanent (308) so the old blog URL passes its authority to the new one.
+      {
+        source: "/blog/meet-thea-sato",
+        destination: "/blog/meet-thea",
+        permanent: true,
+      },
     ];
   },
 };
