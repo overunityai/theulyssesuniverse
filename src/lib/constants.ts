@@ -85,7 +85,11 @@ export type NavLink = {
 export const NAV_LINKS: ReadonlyArray<NavLink> = [
   { label: "Books", href: "/books" },
   { label: "Universe", href: "/universe" },
-  { label: "Long Way Home", href: "https://game.theulyssesuniverse.com/the-long-way-home", external: true },
+  // "The Long Way Home" is RETIRED as a product name: game 1 is THE ODYSSEY and
+  // "The Long Way Home" is its subtitle only (Ulysses naming strategy, 2026-07-14).
+  // The href points straight at /odyssey rather than the old /the-long-way-home,
+  // which only 308s here anyway - no reason to spend a redirect on every click.
+  { label: "The Odyssey", href: "https://game.theulyssesuniverse.com/odyssey", external: true },
   { label: "The Witness", href: "https://game.theulyssesuniverse.com/the-witness", external: true },
   {
     label: "Free Games",
