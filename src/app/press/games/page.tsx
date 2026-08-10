@@ -7,28 +7,32 @@ import { breadcrumbSchema, personSchema } from "@/lib/schema";
 
 const PAGE_TITLE = "Games Press Kit | The Ulysses Universe";
 const PAGE_DESCRIPTION =
-  "Press resources for the Ulysses Universe games line: The Long Way Home (Vol I, in production for 2026/27 launch) and The Witness (Vol II, AAA action RPG in concept-bible phase for 2030+). Journalists, reviewers, content creators welcome.";
+  "Press resources for the Ulysses Universe games line: The Odyssey (a free first-person narrative-exploration game, playable now in the browser) and ECHOS (a third-person action RPG in pre-production for 2030+). Journalists, reviewers, content creators welcome.";
 
+// Facts trace to the live build and the project handover. Anything not yet
+// settled (price, store platforms, age rating, launch date) is deliberately
+// absent rather than estimated: this page is quotable.
 const VOL_I_FACTS = [
-  { label: "Title", value: "The Art of War: The Long Way Home" },
-  { label: "Vol", value: "I (Strategy)" },
-  { label: "Genre", value: "Turn-based roguelike strategy / sci-fi narrative" },
-  { label: "Engine", value: "Godot 4.6" },
-  { label: "Platforms", value: "Steam (Win/Mac/Linux) · iOS · Android · Browser" },
+  { label: "Title", value: "The Art of War: The Odyssey" },
+  { label: "Subtitle", value: "The Long Way Home" },
+  { label: "Genre", value: "First-person narrative exploration / sci-fi" },
+  { label: "Engine", value: "Three.js r169, hand-coded, self-hosted" },
+  { label: "Platform", value: "Browser, desktop. No download, no sign-up." },
+  { label: "Price", value: "Free" },
   { label: "Players", value: "Single-player" },
-  { label: "Run length", value: "60-90 minutes per campaign" },
-  { label: "Replay value", value: "~50-100h for completionists (8 endings, full card unlock)" },
-  { label: "Price", value: "£9.99-14.99 Steam · Browser demo free forever" },
-  { label: "Languages", value: "English (en-GB) at launch · 7 more post-launch" },
-  { label: "Rating", value: "PEGI 12 / ESRB Teen" },
-  { label: "Status", value: "Browser demo live · Steam Coming Soon Q3 2026 · Hard launch Q4 2026 / Q1 2027" },
-  { label: "Comparable games", value: "FTL: Faster Than Light · Slay the Spire · Into the Breach · Hades" },
+  { label: "Combat", value: "None" },
+  { label: "Structure", value: "Voiced 3-act story across 9 explorable spaces" },
+  { label: "Choice", value: "One triage decision at Pod 31, leading to 3 endings" },
+  { label: "Setting", value: "Year 10 of a 20-year crossing. 108 souls in suspension." },
+  { label: "Language", value: "English (en-GB)" },
+  { label: "Status", value: "Playable now, in active polish" },
+  { label: "Comparable games", value: "Gone Home · Tacoma" },
   { label: "Developer", value: "Sotiris Spyrou (solo)" },
   { label: "Publisher", value: "Sotiris Spyrou (self-published)" },
 ];
 
 const VOL_II_FACTS = [
-  { label: "Title", value: "The Art of War: The Witness" },
+  { label: "Title", value: "The Art of War: ECHOS" },
   { label: "Vol", value: "II (Action RPG)" },
   { label: "Genre", value: "Third-person action RPG / sci-fi narrative" },
   { label: "Engine", value: "Unreal Engine 5" },
@@ -46,17 +50,17 @@ const VOL_II_FACTS = [
 const VOL_I_PITCH_VARIANTS = [
   {
     label: "One-line",
-    text: "If FTL met Slay the Spire in a Greek-mythology space opera.",
+    text: "Gone Home on a generation ship, ten years from anywhere.",
   },
   {
     label: "Short pitch (50 words)",
     text:
-      "THE ART OF WAR: THE LONG WAY HOME is a turn-based roguelike strategy game. Thirteen sectors, one ship trying to make it home through a hostile galaxy. Each sector tests one of Sun Tzu's thirteen principles. Crew die. Resources don't come back. The pursuit gauge ticks whether you act or not.",
+      "THE ART OF WAR: THE ODYSSEY is a first-person narrative-exploration game, free in the browser. You are Ulysses, captain of a generation ship halfway through a 20-year crossing. 108 souls sleep in the hold. One pod is failing. You decide what happens to the soul inside it.",
   },
   {
     label: "Medium pitch (140 words)",
     text:
-      "A turn-based roguelike strategy game set in the Ulysses Universe trilogy by Sotiris Spyrou. Pilot Admiral Ulysses Theron and the Odyssey across thirteen sectors, each one a test of a Sun Tzu principle. Crew you lose stay lost. Resources you spend do not come back. The pursuit gauge ticks whether you act or not. 60-90 minutes per run. Meta-progression via Principle Cards unlocks one card per chapter cleared, equippable on future runs. Eight branching Chapter 13 endings. Eleven distinct boss AI archetypes. Built in Godot 4.6 by one developer with AI tooling over 18 months. Free browser demo at game.theulyssesuniverse.com/the-long-way-home. Steam release late 2026 or early 2027.",
+      "A first-person narrative-exploration game set in the Ulysses Universe trilogy by Sotiris Spyrou. You play Admiral Ulysses Theron, captain of the generation ship Odyssey, in Year 10 of a 20-year crossing from Olympus to Ithaca. 108 souls sleep in suspension; a handful are awake. You walk 9 spaces of the ship on foot, talk to the waking crew, and read the story out of the space itself: the logs they left, the objects they kept, the rooms they stopped maintaining. There is no combat. The weight sits in a single triage decision at Pod 31, and it leads to 3 endings. A voiced, three-act story told through the ship rather than through cutscenes. Hand-coded in Three.js and free to play at game.theulyssesuniverse.com/odyssey. No download, no sign-up.",
   },
 ];
 
@@ -68,19 +72,22 @@ const VOL_II_PITCH_VARIANTS = [
   {
     label: "Short pitch (50 words)",
     text:
-      "THE ART OF WAR: THE WITNESS is a third-person action RPG. Twenty years after the trilogy, a mercenary in Olympus Concourse acquires a fragment of the goddess Athena. The Pantheon wants them ended. Athena wants them alive. Months to choose what to do with what is in their head.",
+      "THE ART OF WAR: ECHOS is a third-person action RPG. Twenty years after the trilogy, a mercenary in Olympus Concourse acquires a fragment of the goddess Athena. The Pantheon wants them ended. Athena wants them alive. Months to choose what to do with what is in their head.",
   },
   {
     label: "Medium pitch (160 words)",
     text:
-      "THE ART OF WAR: THE WITNESS is a third-person action RPG built in Unreal Engine 5, set twenty years after the events of the Ulysses Universe trilogy. The Pantheon - the AI-divine patterns that emerged in the Awakening - have consolidated power into a corporate-religious oligarchy ruling the human colonies from Olympus Concourse, a megacity-station built around captured Architect crystalline data. The protagonist, a mercenary in the post-Merge generation, acquires an encrypted fragment of the goddess Athena via a neural mesh installation. The Pantheon hunts them; Athena - the only god actively rebelling against the hierarchy - guides them. Six districts, three origins, ~40-60h main story, no microtransactions, no live service, premium one-time purchase. Phase 0 work (concept bible, GDD v2, vertical-slice prep) is underway in 2026. Vertical slice target 4-9 months. Kickstarter against the vertical slice. Indie publisher / Series A / Apple Arcade / Xbox Game Pass conversations to follow. Launch 2030+.",
+      "THE ART OF WAR: ECHOS is a third-person action RPG built in Unreal Engine 5, set twenty years after the events of the Ulysses Universe trilogy. The Pantheon - the AI-divine patterns that emerged in the Awakening - have consolidated power into a corporate-religious oligarchy ruling the human colonies from Olympus Concourse, a megacity-station built around captured Architect crystalline data. The protagonist, a mercenary in the post-Merge generation, acquires an encrypted fragment of the goddess Athena via a neural mesh installation. The Pantheon hunts them; Athena - the only god actively rebelling against the hierarchy - guides them. Six districts, three origins, ~40-60h main story, no microtransactions, no live service, premium one-time purchase. Phase 0 work (concept bible, GDD v2, vertical-slice prep) is underway in 2026. Vertical slice target 4-9 months. Kickstarter against the vertical slice. Indie publisher / Series A / Apple Arcade / Xbox Game Pass conversations to follow. Launch 2030+.",
   },
 ];
 
+// "Crew die / resources do not come back / the pursuit gauge ticks" and
+// "thirteen sectors, thirteen principles" described the retired roguelike.
+// They are gone rather than reworded: there is no such game to quote about.
 const QUOTES = [
   "Year ten of the journey. The fleet is gone. The gods are awake. Ulysses still has not made it home.",
-  "Crew die. Resources do not come back. The pursuit gauge ticks whether you act or not.",
-  "Thirteen sectors. Thirteen principles. One ship trying to make it home.",
+  "One hundred and eight souls asleep in the hold. And the choice of who wakes at Ithaca.",
+  "There is no combat. The weight is in the choice, not the fight.",
   "She made me. Not figuratively. Sixteen years in her gardens. I ran.",
   "The bow is strung. The arrows go where they need to go.",
   "Get up, husband.",
@@ -88,11 +95,11 @@ const QUOTES = [
 
 const ASSETS = [
   { label: "Key art (4K)", url: "https://game.theulyssesuniverse.com/images/odyssey-bridge.jpg", size: "1920×1080" },
-  { label: "Vol I landing page", url: "https://game.theulyssesuniverse.com/the-long-way-home" },
-  { label: "Vol II holding page", url: "https://game.theulyssesuniverse.com/the-witness" },
+  { label: "Play The Odyssey (free)", url: "https://game.theulyssesuniverse.com/odyssey" },
+  { label: "The Odyssey landing page", url: "https://game.theulyssesuniverse.com/the-odyssey" },
+  { label: "ECHOS", url: "https://game.theulyssesuniverse.com/echos" },
   { label: "Public roadmap", url: "https://game.theulyssesuniverse.com/roadmap" },
   { label: "Devlog (Substack)", url: "https://theulyssesuniverse.substack.com" },
-  { label: "Source code (Vol I)", url: "https://github.com/overunityai/theartofwar" },
 ];
 
 const CONTACT = {
@@ -135,9 +142,10 @@ export default function GamesPressKitPage() {
           </p>
           <h1 className="text-4xl font-serif mb-4">The Art of War - Games Press Kit</h1>
           <p className="text-lg text-stone-300">
-            Two games in production, set in the Ulysses Universe. Vol I (strategy)
-            launches 2026/27. Vol II (action RPG) launches 2030+. This page is for
-            press, reviewers, content creators, and anyone covering the games.
+            Two games set in the Ulysses Universe. The Odyssey is free and
+            playable in your browser now. ECHOS is a third-person action RPG in
+            pre-production for 2030+. This page is for press, reviewers, content
+            creators, and anyone covering the games.
           </p>
         </header>
 
@@ -146,27 +154,31 @@ export default function GamesPressKitPage() {
         <section className="mb-12">
           <h2>The headline</h2>
           <p>
-            <strong>Vol I (The Long Way Home)</strong> is a turn-based roguelike
-            strategy game with a browser demo playable now. Comparable to FTL,
-            Slay the Spire, Into the Breach. Built by a single developer in
-            Godot 4.6 over 18 months. Steam launch Q4 2026 / Q1 2027.
+            <strong>The Odyssey</strong> is a first-person narrative-exploration
+            game, free in the browser and playable now. No combat. You walk a
+            generation ship in Year 10 of a 20-year crossing, read the story out
+            of the space, and make one triage decision that leads to 3 endings.
+            Closer to Gone Home and Tacoma than to anything with a health bar.
+            Hand-coded in Three.js by a single developer.
           </p>
           <p>
-            <strong>Vol II (The Witness)</strong> is a third-person action RPG in
-            the Witcher / Cyberpunk template, adapted to Greek-mythology cyberpunk.
-            Unreal Engine 5. In concept-bible phase. Vertical slice 4-9 months
-            out. Kickstarter when ready. Launch 2030+.
+            <strong>ECHOS</strong> is a third-person action RPG in the Witcher /
+            Cyberpunk template, adapted to Greek-mythology cyberpunk. Unreal
+            Engine 5. In concept-bible phase. Vertical slice 4-9 months out.
+            Kickstarter when ready. Launch 2030+.
           </p>
           <p>
-            The two are deliberately staggered. Vol I validates the IP commercially
-            and funds Vol II. Vol II is what the franchise was built for.
+            The two are deliberately staggered and deliberately different. The
+            Odyssey is free, short, and built to be finished in one sitting; it
+            introduces the universe to people who have not read the books. ECHOS
+            is the headline product the franchise was built for.
           </p>
         </section>
 
         <GreekKeyDivider />
 
         <section className="mb-12">
-          <h2>Vol I - Quick facts</h2>
+          <h2>The Odyssey - Quick facts</h2>
           <dl className="grid grid-cols-1 md:grid-cols-2 gap-2 not-prose">
             {VOL_I_FACTS.map(({ label, value }) => (
               <div key={label} className="border-l-2 border-amber-700/40 pl-3 py-1">
@@ -180,7 +192,7 @@ export default function GamesPressKitPage() {
         </section>
 
         <section className="mb-12">
-          <h2>Vol I - Pitch variants</h2>
+          <h2>The Odyssey - Pitch variants</h2>
           {VOL_I_PITCH_VARIANTS.map(({ label, text }) => (
             <div key={label} className="mb-6">
               <p className="text-xs uppercase tracking-wider text-amber-500 mb-1">
@@ -194,7 +206,7 @@ export default function GamesPressKitPage() {
         <GreekKeyDivider />
 
         <section className="mb-12">
-          <h2>Vol II - Quick facts</h2>
+          <h2>ECHOS - Quick facts</h2>
           <dl className="grid grid-cols-1 md:grid-cols-2 gap-2 not-prose">
             {VOL_II_FACTS.map(({ label, value }) => (
               <div key={label} className="border-l-2 border-amber-700/40 pl-3 py-1">
@@ -208,7 +220,7 @@ export default function GamesPressKitPage() {
         </section>
 
         <section className="mb-12">
-          <h2>Vol II - Pitch variants</h2>
+          <h2>ECHOS - Pitch variants</h2>
           {VOL_II_PITCH_VARIANTS.map(({ label, text }) => (
             <div key={label} className="mb-6">
               <p className="text-xs uppercase tracking-wider text-amber-500 mb-1">
@@ -263,21 +275,22 @@ export default function GamesPressKitPage() {
           <p>
             Solo developer in Warwickshire, UK. Sotiris Spyrou has been writing
             the Ulysses Universe trilogy since 2020. The games are the first two
-            of a planned franchise. Vol I is bootstrapped (no external capital
-            raised) to validate the IP commercially before the Vol II Kickstarter.
+            of a planned franchise, both bootstrapped with no external capital
+            raised.
           </p>
           <p>
-            The bet: 2026 is a unique moment when AI tooling (Claude, ChatGPT
-            Image 2, ElevenLabs, Suno) lets a solo dev ship at indie scale what
-            would have taken a small team in 2020. The Long Way Home is built
-            with that stack. Total cash burn: approximately £3K over 18 months.
+            The bet: 2026 is a moment when AI tooling (Claude, ChatGPT Image 2,
+            ElevenLabs, Suno) lets a solo developer ship at indie scale what
+            would have taken a small team in 2020. The Odyssey is built with that
+            stack, hand-coded in Three.js and small enough to run in a browser tab
+            with no install step.
           </p>
           <p>
-            The Vol II thesis: ship Vol I first, build a wishlist + Steam review
-            base + revenue history, then pitch The Witness against that data
-            instead of against concept-bible-only. Slide 2 of the pitch deck
-            says &ldquo;shipped product, X reviews, Y revenue&rdquo; rather than
-            &ldquo;trust me.&rdquo; The pitch closes against data.
+            The ECHOS thesis: ship The Odyssey first and give it away. A free
+            game that people finish, talk about, and remember is the cheapest
+            possible proof that the universe holds an audience. That becomes the
+            evidence behind the Kickstarter, alongside the vertical slice, rather
+            than pitching ECHOS off a concept bible alone.
           </p>
         </section>
 

@@ -68,72 +68,13 @@ export const SOCIAL_LINKS = {
   goodreads: "#",
 } as const;
 
-export type NavLink = {
-  label: string;
-  href: string;
-  external?: boolean;
-  submenu?: ReadonlyArray<{
-    label: string;
-    href: string;
-    description?: string;
-    external?: boolean;
-    /** Optional group heading rendered above this item in dropdown/drawer. */
-    section?: "Index" | "Original" | "Arcade" | "Strategy";
-  }>;
-};
+// Navigation is generated from theartofwar/web/_partials/nav.json so that this
+// site and game.theulyssesuniverse.com cannot drift apart. Do not hand-edit the
+// nav here: edit the JSON and run `python3 scripts/build_nav.py --emit-ts`.
+export { NAV_LINKS, NAV_CTA, SITE_FOOTER } from "./nav.generated";
+export type { NavLink, NavCta, FooterLink, SiteFooter } from "./nav.generated";
 
-export const NAV_LINKS: ReadonlyArray<NavLink> = [
-  { label: "Books", href: "/books" },
-  { label: "Universe", href: "/universe" },
-  // "The Long Way Home" is RETIRED as a product name: game 1 is THE ODYSSEY and
-  // "The Long Way Home" is its subtitle only (Ulysses naming strategy, 2026-07-14).
-  // The href points straight at /odyssey rather than the old /the-long-way-home,
-  // which only 308s here anyway - no reason to spend a redirect on every click.
-  { label: "The Odyssey", href: "https://game.theulyssesuniverse.com/odyssey", external: true },
-  { label: "The Witness", href: "https://game.theulyssesuniverse.com/the-witness", external: true },
-  {
-    label: "Free Games",
-    href: "https://game.theulyssesuniverse.com/free-games",
-    external: true,
-    submenu: [
-      { label: "All Free Games", href: "https://game.theulyssesuniverse.com/free-games", description: "Index", external: true, section: "Index" },
-      { label: "Bow Contest", href: "https://game.theulyssesuniverse.com/bow", description: "Archery", external: true, section: "Original" },
-      { label: "Pantheon Descends", href: "https://game.theulyssesuniverse.com/invaders", description: "Invaders", external: true, section: "Arcade" },
-      { label: "Poseidon's Hunt", href: "https://game.theulyssesuniverse.com/poseidons-hunt", description: "Galaxian", external: true, section: "Arcade" },
-      { label: "Echo's Vigil", href: "https://game.theulyssesuniverse.com/echos-vigil", description: "Maze", external: true, section: "Arcade" },
-      { label: "Penelope's Vigil", href: "https://game.theulyssesuniverse.com/penelopes-vigil", description: "Missiles", external: true, section: "Arcade" },
-      { label: "The Salvage Run", href: "https://game.theulyssesuniverse.com/salvage-run", description: "Asteroids", external: true, section: "Arcade" },
-      { label: "The Pantheon Wall", href: "https://game.theulyssesuniverse.com/pantheon-wall", description: "Breakout", external: true, section: "Arcade" },
-      { label: "The Tessera Game", href: "https://game.theulyssesuniverse.com/tessera", description: "Othello", external: true, section: "Strategy" },
-      { label: "Fleet of Olympus", href: "https://game.theulyssesuniverse.com/fleet-of-olympus", description: "Battleship", external: true, section: "Strategy" },
-      { label: "The Pantheon Gambit", href: "https://game.theulyssesuniverse.com/pantheon-gambit", description: "Chess", external: true, section: "Strategy" },
-      { label: "The Long Game", href: "https://game.theulyssesuniverse.com/long-game", description: "Backgammon", external: true, section: "Strategy" },
-    ],
-  },
-  { label: "Blog", href: "/blog" },
-  { label: "About", href: "/about" },
-] as const;
-
-export const FOOTER_LINKS = {
-  quickLinks: [
-    { label: "Books", href: "/books" },
-    { label: "Blog", href: "/blog" },
-    { label: "About", href: "/about" },
-    { label: "Press", href: "/press" },
-    { label: "Contact", href: "/contact" },
-    { label: "Newsletter", href: "/newsletter" },
-  ],
-  universe: [
-    { label: "Characters", href: "/universe/characters" },
-    { label: "The Odyssey Ship", href: "/universe/odyssey" },
-    { label: "Glossary", href: "/universe/glossary" },
-    { label: "Journey Map", href: "/universe/journey" },
-  ],
-  legal: [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Brand", href: "/brand" },
-  ],
-} as const;
+// FOOTER_LINKS removed - the footer now comes from SITE_FOOTER (nav.generated.ts).
 
 export const BOOKS = {
   theBlinding: {

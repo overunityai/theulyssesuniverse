@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS, type NavLink } from "@/lib/constants";
+import { NAV_LINKS, NAV_CTA, type NavLink } from "@/lib/constants";
 
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -195,14 +195,21 @@ export function Navigation() {
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map(renderDesktopLink)}
-          <Link
-            href="https://www.amazon.co.uk/dp/B0GNFQM4FN"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-ui font-semibold text-sm uppercase tracking-[0.05em] bg-gold text-void-black px-4 py-2 rounded-lg hover:bg-gold-light transition-colors"
-          >
-            Buy the Trilogy ↗
-          </Link>
+          {NAV_CTA.map((cta) => (
+            <Link
+              key={cta.href}
+              href={cta.href}
+              target={cta.external ? "_blank" : undefined}
+              rel={cta.external ? "noopener noreferrer" : undefined}
+              className={
+                cta.style === "primary"
+                  ? "font-ui font-semibold text-sm uppercase tracking-[0.05em] bg-gold text-void-black px-4 py-2 rounded-lg hover:bg-gold-light transition-colors whitespace-nowrap"
+                  : "font-ui font-semibold text-sm uppercase tracking-[0.05em] border border-gold/45 text-gold px-4 py-2 rounded-lg hover:bg-gold/10 hover:border-gold transition-colors whitespace-nowrap"
+              }
+            >
+              {cta.label} ↗
+            </Link>
+          ))}
         </div>
 
         {/* Mobile hamburger */}
@@ -257,16 +264,23 @@ export function Navigation() {
       >
         <div className="flex flex-col items-center gap-8 pt-12 pb-16 px-6" style={{ color: "#E8E6E3" }}>
           {NAV_LINKS.map(renderMobileLink)}
-          <Link
-            href="https://www.amazon.co.uk/dp/B0GNFQM4FN"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMobileOpen(false)}
-            className="font-ui font-semibold text-lg uppercase tracking-[0.05em] bg-gold text-void-black px-8 py-3 rounded-lg mt-4"
-            style={{ backgroundColor: "#D4AF37", color: "#0A0A0F" }}
-          >
-            Buy the Trilogy ↗
-          </Link>
+          {NAV_CTA.map((cta, i) => (
+            <Link
+              key={cta.href}
+              href={cta.href}
+              target={cta.external ? "_blank" : undefined}
+              rel={cta.external ? "noopener noreferrer" : undefined}
+              onClick={() => setMobileOpen(false)}
+              className="font-ui font-semibold text-lg uppercase tracking-[0.05em] px-8 py-3 rounded-lg"
+              style={
+                cta.style === "primary"
+                  ? { backgroundColor: "#D4AF37", color: "#0A0A0F", marginTop: i === 0 ? 16 : 0 }
+                  : { border: "1px solid rgba(212,175,55,0.45)", color: "#D4AF37" }
+              }
+            >
+              {cta.label} ↗
+            </Link>
+          ))}
         </div>
       </div>
     </>
